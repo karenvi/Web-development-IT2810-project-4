@@ -10,6 +10,7 @@ import { useQuery } from '@apollo/client';
 import { IReview } from '../types';
 import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import { cardStyling } from './InfoPage';
+import GiveReview from './GiveReview';
 
 function Country() {
   const location = useLocation();
@@ -54,6 +55,7 @@ function Country() {
           <Typography variant="overline" align='left'><b>Percentage of world population:</b> {location.state.country.WorldPopulationPercentage}%</Typography>
         </Container>
       </Container>
+      <GiveReview />
       <Reviews />
     </Card>
   );
