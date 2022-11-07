@@ -33,6 +33,6 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
 }
 
 /* Move the reviewdate a little down if the screen is too small in width */
-#reviewDate {
+/* #reviewDate {
   position: absolute;
-}
+} */

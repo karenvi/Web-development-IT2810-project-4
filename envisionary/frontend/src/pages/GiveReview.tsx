@@ -1,12 +1,27 @@
 import '../App.css'
 import { useLocation } from 'react-router-dom';
 import { Accordion, AccordionSummary, Alert, Button, Rating, Snackbar, TextField, Typography } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import EditIcon from '@mui/icons-material/Edit';
 import StarIcon from '@mui/icons-material/Star';
 import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from "../graphql/mutations"
+
+
+const styleTitleOfReviews = { width: "100%", display: 'flex', justifyContent: 'flex-start', mb: "20px"};
+
+const modalStyle = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 
 function GiveReview() {
@@ -21,6 +36,12 @@ function GiveReview() {
 
   // Use ADD_REVIEW mutation to add review to database
   const [addReview] = useMutation(ADD_REVIEW);
+
+  // onChange-functions for the modal that opens "Give review"
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // Validation of give review input fields 
 
   const validation = () => {
     const validateNameRegex = /^[a-zA-Z]/; // names should start with normal letters
@@ -75,27 +96,28 @@ function GiveReview() {
     }
   }
 
-  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(false);
-  }
+  // const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+  //   if (reason === 'clickaway') {
+  //     return;
+  //   }
+  //   setOpen(false);
+  // }
 
   const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
 
   return (
-    <Accordion sx={{ width: '100%' }}>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-      >
-        <Typography>Write a review for {location}</Typography>
-      </AccordionSummary>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', p: '20px'}}>
-        <Typography component="h1" variant="h4">Give review</Typography>
+    <>
+    <Box sx={styleTitleOfReviews}><Typography variant="h6">Reviews of {location}:</Typography></Box>
+    <Box sx={{ width: '100%', mb: "40px" }}>
+      <Button
+        endIcon={<EditIcon />}
+        id="button-write-review"
+        variant="contained"
 
+      >
+        Write a review for {location}
+      </Button>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', pl: '20px', pb: '20px', pr: '20px'}}>
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
         <TextField id="name-field"
           required
@@ -147,8 +169,8 @@ function GiveReview() {
           </Alert>
         </Snackbar>
       </Box>
-
-    </Accordion>
+    </Box>
+    </>
   );
 }
 

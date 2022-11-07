@@ -86,7 +86,7 @@ function Countries() {
       display: 'flex', flexDirection: 'column', justifyContent: 'center',
       alignItems: 'center', width: '100%'
     }}>
-      <Typography variant="h1" sx={{ fontSize: '45px', color: '#172A3A', mt: '40px', mb: '8px' }}>Search for a country</Typography>
+      <Typography variant="h1" sx={{ fontSize: '45px', color: '#172A3A', mt: '40px', mb: '8px' }}>Search for a {category.toLowerCase()}</Typography>
       <UserInput />
       <TableContainer sx={{ width: { xs: '95%', sm: '85%', md: '75%', lg: '65%' }, m: '10px', mb: "200px" }} component={Paper}>
         <Table aria-label="Table of countries">

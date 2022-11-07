@@ -1,5 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Grid, Pagination, Paper, Rating, Stack, Typography } from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Box, Grid, Pagination, Paper, Rating, Stack, Typography } from "@mui/material";
 import StarIcon from '@mui/icons-material/Star';
 import { IReview } from "../types"
 import { ChangeEvent, useState } from "react";
@@ -28,11 +27,10 @@ function PaginationReviews({ sortReviews, country }: Props) {
         <>
             {sortReviews.length === 0 // if country has no reviews
                 ? <Typography>Nobody has reviewed {country} yet</Typography>
-                : <>
-                    <Typography>Reviews of {country}</Typography>
-
+                :
+                <Box sx={{pl: "10px", pr: '10px'}}>
                     {dataPage.dataDisplaying().map((row: IReview) => (
-                        <Paper variant="outlined" key={number++} aria-label="Review" sx={{ mb: 2 }}>
+                        <Paper variant="outlined" key={number++} aria-label="Review" sx={{ mb: 2, width: "100%" }}>
                             <Grid container spacing={2} p={2}>
                                 <Grid item md={8} sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
                                     <Typography fontWeight='bold'>{row.Name}</Typography>
@@ -69,7 +67,7 @@ function PaginationReviews({ sortReviews, country }: Props) {
                             />
                             <Typography variant="body1" sx={{ m: '10px' }}>{onPage} of {numberOfPages}</Typography>
                         </Stack>}
-                </>}
+                        </Box>}
 
         </>
     );
