@@ -51,7 +51,6 @@ function Countries() {
       hideUnreviewed: hideUnreviewedCountries,
     }
   });
-  refetch();
 
   //if (loading) return <p>Loading...</p>; TODO: ADD ANOTHER SOLUTION FOR COMMUNICATING "LOADING" TO USER
   if (error) return <p>Error - could not load data.</p>;
@@ -122,6 +121,8 @@ function Countries() {
                   onChange={(event) => {
                     setHideUnreviewed(event.target.checked);
                     setPage(0);
+                    console.log(data, page);
+                    refetch({ offset: 0 }); // refetch to check if there are any new countries with reviews not in local cache
                   }}
                   inputProps={{ 'aria-label': 'controlled' }}
                 />
