@@ -7,6 +7,9 @@ import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from "../graphql/mutations"
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { GET_COUNTRY_DATA_BY_NAME, GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
+import { IReview } from '../types';
 
 
 function GiveReview() {
@@ -16,11 +19,14 @@ function GiveReview() {
   const [reviewText, setReviewText] = useState('');
   const [invalidAuthor, setInvalidAuthor] = useState<boolean>(false);
   const [authorError, setAuthorError] = useState<string>("");
-  const [clear, setClear] = useState("false")
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   // Use ADD_REVIEW mutation to add review to database
-  const [addReview] = useMutation(ADD_REVIEW);
+  const [addReview] = useMutation(ADD_REVIEW, {
+    refetchQueries: [ // keep local cache updated by refetching reviews after adding new review 
+      {query: GET_REVIEWS_BY_COUNTRY_NAME, variables: {Country: location}}, // DocumentNode object parsed with gql
+      'CountryReviewsByName' // Query name
+    ]});
 
   const validation = () => {
     const validateNameRegex = /^[a-zA-Z]/; // names should start with normal letters
@@ -65,13 +71,6 @@ function GiveReview() {
       setAuthor("");
       setReviewText("");
       setRating(0);
-
-      // Clears the country field
-      if (clear === "false") {
-        setClear("true")
-      } else {
-        setClear("false")
-      }
     }
   }
 
@@ -93,7 +92,7 @@ function GiveReview() {
       >
         <Typography>Write a review for {location}</Typography>
       </AccordionSummary>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', p: '20px'}}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', p: '20px' }}>
         <Typography component="h1" variant="h4">Give review</Typography>
 
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
