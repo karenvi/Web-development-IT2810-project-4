@@ -1,6 +1,7 @@
 import '../App.css'
 import { useLocation } from 'react-router-dom';
-import { Alert, Button, Rating, Snackbar, TextField, Typography } from '@mui/material';
+import { Accordion, AccordionSummary, Alert, Button, Rating, Snackbar, TextField, Typography } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import StarIcon from '@mui/icons-material/Star';
 import { Box } from '@mui/system';
 import { useState } from 'react';
@@ -24,7 +25,7 @@ function GiveReview() {
   const validation = () => {
     const validateNameRegex = /^[a-zA-Z]/; // names should start with normal letters
     const emptyFieldRegex = /^\s*$/; // checks for whitespaces
-    
+
     if (author.length > 40) {
       setInvalidAuthor(true);
       setAuthorError("Name cannot be longer than 40 characters");
@@ -84,61 +85,70 @@ function GiveReview() {
   const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
 
   return (
-
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-      <Typography component="h1" variant="h4">Give review</Typography>
-
-      <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
-      <TextField id="name-field"
-        required
-        label=""
-        sx={{ width: 250 }}
-        placeholder="Name"
-        variant="outlined"
-        value={author}
-        error={invalidAuthor}
-        helperText={authorError}
-        onChange={(e) => setAuthor(e.target.value)}
-      />
-
-      <Typography component="label" htmlFor="rating-stars" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Rating</Typography>
-      <Rating id="rating-stars"
-        name="hover-feedback"
-        value={rating}
-        precision={0.5}
-        onChange={(event, newValue) => {
-          newValue === null ? setRating(0) : setRating(newValue);
-        }}
-        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-      />
-
-      <Typography component="label" htmlFor="review-content-field" variant="h6" sx={reviewHeaderStyling}>Review Content</Typography>
-      <TextField
-        id="review-content-field"
-        label=""
-        placeholder="Write your review..."
-        multiline
-        rows={7}
-        sx={{ width: '50vw', maxWidth: 500 }}
-        value={reviewText}
-        onChange={(e) => setReviewText(e.target.value)}
-      />
-
-      <Button variant="contained"
-        sx={{ backgroundColor: '#172A3A', '&:hover': { backgroundColor: '#172A3A' }, mt: 3, mb: 2 }}
-        onClick={(event) => {
-          event.preventDefault();
-          submit()
-        }}
+    <Accordion sx={{ width: '100%' }}>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
       >
-        Submit
-      </Button>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-          Review successfully given!
-        </Alert>
-      </Snackbar>
-    </Box>
+        <Typography>Write a review for {location}</Typography>
+      </AccordionSummary>
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', p: '20px'}}>
+        <Typography component="h1" variant="h4">Give review</Typography>
+
+        <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
+        <TextField id="name-field"
+          required
+          label=""
+          sx={{ width: 250 }}
+          placeholder="Name"
+          variant="outlined"
+          value={author}
+          error={invalidAuthor}
+          helperText={authorError}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+
+        <Typography component="label" htmlFor="rating-stars" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Rating</Typography>
+        <Rating id="rating-stars"
+          name="hover-feedback"
+          value={rating}
+          precision={0.5}
+          onChange={(event, newValue) => {
+            newValue === null ? setRating(0) : setRating(newValue);
+          }}
+          emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+        />
+
+        <Typography component="label" htmlFor="review-content-field" variant="h6" sx={reviewHeaderStyling}>Review Content</Typography>
+        <TextField
+          id="review-content-field"
+          label=""
+          placeholder="Write your review..."
+          multiline
+          rows={7}
+          sx={{ width: '50vw', maxWidth: 500 }}
+          value={reviewText}
+          onChange={(e) => setReviewText(e.target.value)}
+        />
+
+        <Button variant="contained"
+          sx={{ backgroundColor: '#172A3A', '&:hover': { backgroundColor: '#172A3A' }, mt: 3, mb: 2 }}
+          onClick={(event) => {
+            event.preventDefault();
+            submit()
+          }}
+        >
+          Submit
+        </Button>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+            Review successfully given!
+          </Alert>
+        </Snackbar>
+      </Box>
+
+    </Accordion>
   );
 }
 
