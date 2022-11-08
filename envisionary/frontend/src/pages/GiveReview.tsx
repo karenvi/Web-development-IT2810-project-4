@@ -1,26 +1,35 @@
 import '../App.css'
 import { useLocation } from 'react-router-dom';
-import { Accordion, AccordionSummary, Alert, Button, Rating, Snackbar, TextField, Typography } from '@mui/material';
+import { Alert, Button, Modal, Rating, Snackbar, TextField, Typography } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import StarIcon from '@mui/icons-material/Star';
 import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from "../graphql/mutations"
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { GET_COUNTRY_DATA_BY_NAME, GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
+import { IReview } from '../types';
 
 
 const styleTitleOfReviews = { width: "100%", display: 'flex', justifyContent: 'flex-start', mb: "20px"};
+const styleReviewButton = { backgroundColor: '#31597a', '&:hover': { backgroundColor: '#172A3A' }};
 
 const modalStyle = {
   position: 'absolute' as 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
+  width: '50vw',
+  maxWidth: '600px',
+  minWidth: '100px',
+  bgcolor: '#ffffff',
   p: 4,
+  display: 'flex', 
+  flexDirection: 'column', 
+  alignItems: 'flex-start',
+  boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)',
+  borderRadius: '10px',
 };
 
 
@@ -31,15 +40,32 @@ function GiveReview() {
   const [reviewText, setReviewText] = useState('');
   const [invalidAuthor, setInvalidAuthor] = useState<boolean>(false);
   const [authorError, setAuthorError] = useState<string>("");
-  const [clear, setClear] = useState("false")
-  const [open, setOpen] = useState(false)
+  const [clear, setClear] = useState("false");
+  const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false)
 
+
+  //Functions of setters that are being used multiple times to clear the review field:
+  const clearReview = () => {
+    setAuthor("");
+    setReviewText("");
+    setRating(0);
+    setOpenModal(false);
+  }
   // Use ADD_REVIEW mutation to add review to database
-  const [addReview] = useMutation(ADD_REVIEW);
+  const [addReview] = useMutation(ADD_REVIEW, {
+    refetchQueries: [ // keep local cache updated by refetching reviews after adding new review 
+      {query: GET_REVIEWS_BY_COUNTRY_NAME, variables: {Country: location}}, // DocumentNode object parsed with gql
+      'CountryReviewsByName' // Query name
+    ]});
 
   // onChange-functions for the modal that opens "Give review"
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleModalOpen = () => setOpenModal(true);
+  const handleModalClose = () => {
+    setOpenModal(false);
+    clearReview();
+  }
+
 
   // Validation of give review input fields 
 
@@ -83,9 +109,7 @@ function GiveReview() {
       });
       setOpen(true) // Opens the success alert.
 
-      setAuthor("");
-      setReviewText("");
-      setRating(0);
+      clearReview();
 
       // Clears the country field
       if (clear === "false") {
@@ -96,28 +120,35 @@ function GiveReview() {
     }
   }
 
-  // const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-  //   if (reason === 'clickaway') {
-  //     return;
-  //   }
-  //   setOpen(false);
-  // }
+  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  }
 
   const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
 
   return (
     <>
     <Box sx={styleTitleOfReviews}><Typography variant="h6">Reviews of {location}:</Typography></Box>
-    <Box sx={{ width: '100%', mb: "40px" }}>
+    <Box sx={styleTitleOfReviews}>
       <Button
         endIcon={<EditIcon />}
         id="button-write-review"
         variant="contained"
-
+        onClick={handleModalOpen}
+        sx={styleReviewButton}
       >
-        Write a review for {location}
+       Review {location}
       </Button>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', pl: '20px', pb: '20px', pr: '20px'}}>
+      </Box>
+      <Modal open={openModal}
+        onClose={handleModalClose}
+        
+      >
+      <Box sx={modalStyle}>
+        <Typography variant="h6">Write a review for {location}</Typography>
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
         <TextField id="name-field"
           required
@@ -149,13 +180,13 @@ function GiveReview() {
           placeholder="Write your review..."
           multiline
           rows={7}
-          sx={{ width: '50vw', maxWidth: 500 }}
+          sx={{ width: '50vw', mixWidth: '100px', maxWidth: '400px', mb: "20px"}}
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
         />
 
         <Button variant="contained"
-          sx={{ backgroundColor: '#172A3A', '&:hover': { backgroundColor: '#172A3A' }, mt: 3, mb: 2 }}
+          sx={styleReviewButton}
           onClick={(event) => {
             event.preventDefault();
             submit()
@@ -163,13 +194,13 @@ function GiveReview() {
         >
           Submit
         </Button>
+        </Box>
+        </Modal>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
             Review successfully given!
           </Alert>
         </Snackbar>
-      </Box>
-    </Box>
     </>
   );
 }

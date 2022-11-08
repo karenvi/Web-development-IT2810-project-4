@@ -8,7 +8,7 @@ function Reviews() {
   const location = useLocation();
   const { loading, error, data, refetch } = useQuery(GET_REVIEWS_BY_COUNTRY_NAME, { variables: { country: location.state.country.Country } });
   // Fetches any new reviews before displaying reviews section
-  refetch();
+  //refetch();
 
   if (loading) return <p>Loading reviews ...</p>;
   if (error) return <p>Could not get reviews</p>;

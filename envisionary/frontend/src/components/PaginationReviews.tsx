@@ -26,11 +26,11 @@ function PaginationReviews({ sortReviews, country }: Props) {
     return (
         <>
             {sortReviews.length === 0 // if country has no reviews
-                ? <Typography>Nobody has reviewed {country} yet</Typography>
+                ? <Typography>Nobody has reviewed {country} yet.</Typography>
                 :
-                <Box sx={{pl: "10px", pr: '10px'}}>
+                <Box sx={{pl: "10px", pr: '10px', width: "100%"}}>
                     {dataPage.dataDisplaying().map((row: IReview) => (
-                        <Paper variant="outlined" key={number++} aria-label="Review" sx={{ mb: 2, width: "100%" }}>
+                        <Paper variant="outlined" key={number++} aria-label="Review" sx={{ mb: 2 }}>
                             <Grid container spacing={2} p={2}>
                                 <Grid item md={8} sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
                                     <Typography fontWeight='bold'>{row.Name}</Typography>
@@ -58,12 +58,15 @@ function PaginationReviews({ sortReviews, country }: Props) {
                         && <Stack alignItems='center'>
                             <Pagination
                                 count={numberOfPages}
-                                variant='outlined'
                                 page={onPage}
                                 size="small"
                                 onChange={handlePagination}
                                 className="pagination"
                                 aria-details="Pagination to see reviews"
+                                shape="rounded"
+                                showFirstButton
+                                showLastButton
+                                // variant="outlined"
                             />
                             <Typography variant="body1" sx={{ m: '10px' }}>{onPage} of {numberOfPages}</Typography>
                         </Stack>}
