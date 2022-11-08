@@ -1,6 +1,6 @@
 import '../App.css'
 import { useLocation } from 'react-router-dom';
-import { Alert, Button, Modal, Rating, Snackbar, TextField, Typography } from '@mui/material';
+import { Alert, Button, IconButton, Modal, Rating, Snackbar, TextField, Typography } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import StarIcon from '@mui/icons-material/Star';
 import { Box } from '@mui/system';
@@ -10,6 +10,7 @@ import { ADD_REVIEW } from "../graphql/mutations"
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { GET_COUNTRY_DATA_BY_NAME, GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
 import { IReview } from '../types';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 const styleTitleOfReviews = { width: "100%", display: 'flex', justifyContent: 'flex-start', mb: "20px"};
@@ -145,9 +146,14 @@ function GiveReview() {
       </Box>
       <Modal open={openModal}
         onClose={handleModalClose}
-        
       >
+        
       <Box sx={modalStyle}>
+        <Box sx={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
+        <IconButton aria-label="close modal" onClick={handleModalClose}>
+          <CloseIcon />
+        </IconButton>
+        </Box>
         <Typography variant="h6">Write a review for {location}</Typography>
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
         <TextField id="name-field"
