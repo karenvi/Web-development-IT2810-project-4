@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Feed />} />
           <Route path='/country' element={<Country />} />
-          <Route path='/give-review' element={<GiveReview />} />
+          
           <Route path='/info-page' element={<InfoPage />} />
         </Routes>
       </Router>
