@@ -1,9 +1,7 @@
 /**
- * Test first tries to submit without entering anything and expects error messages
- * for name and country. It then tries after only selecting a country, and expects
- * the error message for name. Afterwards it tries after only typing in a name, and
- * expects the error message for country. At last, it tries with all the required 
- * information, chosing a random country, rating, name and review content.
+ * Test first tries to submit without entering anything and expects error message
+ * for name. It then tries after entering review text onlye. At last, tries with all the required 
+ * information, chosing random rating, name and review content.
  */
 
 export {};
