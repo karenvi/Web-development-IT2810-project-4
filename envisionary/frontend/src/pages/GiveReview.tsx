@@ -22,7 +22,7 @@ const modalStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '50vw',
-  maxWidth: '600px',
+  maxWidth: '500px',
   minWidth: '100px',
   bgcolor: '#ffffff',
   p: 4,
@@ -149,12 +149,12 @@ function GiveReview() {
       >
         
       <Box component="main" sx={modalStyle}>
-        <Box sx={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
+        <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+          <Typography component="h1" variant="h6">Write a review for {location}</Typography>
           <IconButton aria-label="close modal" onClick={handleModalClose}>
             <CloseIcon />
           </IconButton>
         </Box>
-        <Typography component="h1" variant="h6">Write a review for {location}</Typography>
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
         <TextField id="name-field"
           required
@@ -186,7 +186,7 @@ function GiveReview() {
           placeholder="Write your review..."
           multiline
           rows={7}
-          sx={{ width: '50vw', mixWidth: '100px', maxWidth: '400px', mb: "20px"}}
+          sx={{ width: '50vw', mixWidth: '100px', maxWidth: '450px', mb: "20px"}}
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
         />
