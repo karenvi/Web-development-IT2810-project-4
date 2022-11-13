@@ -30,7 +30,7 @@ function PaginationReviews({ sortReviews, country }: Props) {
                 :
                 <Box sx={{pl: "10px", pr: '10px', width: "100%"}}>
                     {dataPage.dataDisplaying().map((row: IReview) => (
-                        <Paper variant="outlined" key={number++} aria-label="Review" sx={{ mb: 2 }}>
+                        <Paper variant="outlined" key={number++} sx={{ mb: 2 }}>
                             <Grid container spacing={2} p={2}>
                                 <Grid item md={8} sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
                                     <Typography fontWeight='bold'>{row.Name}</Typography>
@@ -43,7 +43,7 @@ function PaginationReviews({ sortReviews, country }: Props) {
                                     />
                                 </Grid>
                                 <Grid item md={4} sx={{ display: 'flex', flexDirection: 'row', width: "100%", justifyContent: { xs: 'start', sm: 'start', md: 'end' } }}>
-                                    <Typography color='gray' align="right" sx={{ fontSize: "14px" }}>
+                                    <Typography color='#525252' align="right" sx={{ fontSize: "14px" }}>
                                         {new Date(row.Date).toLocaleString([], { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</Typography>
                                 </Grid>
                                 {row.ReviewText.length !== 0 // hide reviewtext if empty
@@ -62,7 +62,7 @@ function PaginationReviews({ sortReviews, country }: Props) {
                                 size="small"
                                 onChange={handlePagination}
                                 className="pagination"
-                                aria-details="Pagination to see reviews"
+                                aria-label="Pagination to see reviews"
                                 shape="rounded"
                                 showFirstButton
                                 showLastButton
