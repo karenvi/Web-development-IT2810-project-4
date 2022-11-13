@@ -1,14 +1,8 @@
 import { MockedProvider } from '@apollo/client/testing';
-import React from 'react';
 import renderer from 'react-test-renderer';
-import { useLocation, HashRouter as Router } from 'react-router-dom';
-import { create, ReactTestRenderer } from 'react-test-renderer';
-import { RecoilRoot } from 'recoil';
 import { failMock, mocks } from './mocks/mocks';
 import { render, screen } from '@testing-library/react';
 import Reviews from '../components/Reviews';
-import { GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
-import { ApolloError } from '@apollo/client';
 export {};
 
 /**
