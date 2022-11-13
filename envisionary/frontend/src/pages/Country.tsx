@@ -49,7 +49,7 @@ function Country() {
           <Typography variant="overline" align='left'><b>Continent:</b> {location.state.country.Continent}</Typography>
         </Container>
         <Container sx={{ width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-          <Typography variant="overline"><b>Area:</b> {parseInt(location.state.country.Area).toLocaleString()} km&#178;</Typography>
+          <Typography variant="overline"><b>Area:</b> {parseInt(location.state.country.Area).toLocaleString('no-NO')} km&#178;</Typography>
           <Typography variant="overline"><b>Density:</b> {location.state.country.Density} per km&#178;</Typography>
           <Typography variant="overline"><b>GDP growth rate:</b> {location.state.country.GrowthRate}</Typography>
           <Typography variant="overline" align='left'><b>Percentage of world population:</b> {location.state.country.WorldPopulationPercentage}%</Typography>

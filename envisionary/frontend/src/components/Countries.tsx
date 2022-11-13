@@ -51,6 +51,7 @@ function Countries() {
       hideUnreviewed: hideUnreviewedCountries,
     }
   });
+  console.log(data)
 
   //if (loading) return <p>Loading...</p>; TODO: ADD ANOTHER SOLUTION FOR COMMUNICATING "LOADING" TO USER
   if (error) return <p>Error - could not load data.</p>;
@@ -161,8 +162,8 @@ function Countries() {
                   >
                     <TableCell component="th" scope="row" className="pointer">{row.Country}</TableCell>
                     <TableCell align="right" className="pointer">{row.Continent}</TableCell>
-                    <TableCell align="right" className="pointer">{parseInt(row.Population2022).toLocaleString()}</TableCell>
-                    <TableCell align="right" className="pointer">{parseInt(row.Area).toLocaleString()}</TableCell>
+                    <TableCell align="right" className="pointer">{parseInt(row.Population2022).toLocaleString('no-NO')}</TableCell>
+                    <TableCell align="right" className="pointer">{parseInt(row.Area).toLocaleString('no-NO')}</TableCell>
                   </TableRow>
                 )))}
 
