@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing InfoPage component snapshot test 1`] = `
+<main
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1cc5j3n-MuiPaper-root-MuiCard-root"
+>
+  <div
+    className="MuiBox-root css-17t1om"
+  >
+    <p
+      className="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+    >
+      ABOUT US
+    </p>
+    <h1
+      className="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
+    >
+      Envision the world through the eyes of a traveller
+    </h1>
+    <br />
+    Humans are only given a limited amount of time to explore and experience the world. How can we spend that time wisely?
+    <br />
+     
+    <br />
+    At Envisionary, we believe that travellers should travel 
+    <div
+      className="MuiBox-root css-1fcemm1"
+    >
+      knowingly
+    </div>
+    . 
+    <br />
+    We therefore aim to facilitate the exchange of knowledge and experience between travellers.
+    <br />
+    <br />
+    Our concept is simple: search for the countries you are interested in and read the experiences of other travellers. 
+    <br />
+    And if you want to enlighten other envisionaries: review the countries you have been to.
+    <br />
+    <br />
+    Envisionaries know that informed choices are better choices. Safe travels!
+    <br />
+    <br />
+    <b>
+      - Team Envisionary
+    </b>
+  </div>
+</main>
+`;
