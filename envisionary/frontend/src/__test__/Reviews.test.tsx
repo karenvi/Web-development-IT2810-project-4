@@ -11,27 +11,6 @@ import { GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
 import { ApolloError } from '@apollo/client';
 export {};
 
-/* 
-jest.mock('@apollo/client', () => {
-    //const loading: boolean = true;
-    //const error: ApolloError | undefined;
-    useQuery: jest.fn().mockReturnValue(({data: {
-        Date: "2022-10-26T13:50:35.783Z", 
-        Name: "Trond", Rating: 3.5, 
-        ReviewText: "Flott land å feriere i.", 
-        __typename: "Review"}, loading: false, error: {} }))
-}); 
-*/
-
-/* 
-jest.mock('react-router-dom', () => ({
-    ...jest.requireActual('react-router-dom') as {},
-    useLocation: jest.fn().mockImplementation(() => {   
-        return {pathname: "/country", search: "", hash: "",  state: { country: { Country: "Afghanistan"} }, key: "eb77n1u7" };
-    })
-}));
- */
-
 /**
  * Mocking useLocation in order to make the query mocks work for useQuery in component.
  * Technique found at https://blog.changani.me/2022/01/30/webdev/react/react-mocking-react-router-dom-s-use-location-with-jest/
@@ -94,7 +73,7 @@ describe("Testing Reviews component", () => {
                     <Reviews />
             </MockedProvider>
         );
-        
+
         expect(await screen.findByText("Could not get reviews")).toBeInTheDocument();
     });
 
