@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { useLocation, HashRouter as Router } from 'react-router-dom';
 import { create, ReactTestRenderer } from 'react-test-renderer';
 import { RecoilRoot } from 'recoil';
-import { mocks } from './mocks/mocks';
+import { failMock, mocks } from './mocks/mocks';
 import { render, screen } from '@testing-library/react';
 import Reviews from '../components/Reviews';
 import { GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
@@ -33,7 +33,7 @@ jest.mock('react-router-dom', () => ({
  */
 
 /**
- * Mocking useLocation in order to make the query mocks work.
+ * Mocking useLocation in order to make the query mocks work for useQuery in component.
  * Technique found at https://blog.changani.me/2022/01/30/webdev/react/react-mocking-react-router-dom-s-use-location-with-jest/
  */
 jest.mock('react-router-dom', () => {
@@ -68,33 +68,33 @@ describe("Testing Reviews component", () => {
         expect(tree).toMatchSnapshot(); 
     });
 
-    it('Contains the right elements', async () => {
-
+    it('Loads reviews correctly', async () => {
         render(
             <MockedProvider mocks={mocks} addTypename={false}>
                     <Reviews />
             </MockedProvider>
         );
 
-        expect(screen.getByText('Loading reviews ...')).toBeInTheDocument();
+        expect(await screen.findByText('Loading reviews ...')).toBeInTheDocument();
+        // Trond
+        expect(await screen.findByText('Trond')).toBeInTheDocument();
+        expect(await screen.findByText('Flott land å feriere i.')).toBeInTheDocument();
+        // Hans og Grethe
+        expect(await screen.findByText('Hans og Grethe')).toBeInTheDocument();
+        expect(await screen.findByText('Fint og fredelig land for et idyllisk opphold på all-inclusive.')).toBeInTheDocument();
+        // Lisbeth
+        expect(await screen.findByText('Lisbeth')).toBeInTheDocument();
+        expect(await screen.findByText('Synes det var litt skummelt i Afghanistan.')).toBeInTheDocument();
+        
     });
 
     it('Should show error message', async () => {
-        const mockFail = {
-            request: {
-                query: GET_REVIEWS_BY_COUNTRY_NAME,
-                variables: { Country: "Afghanistan" }
-            },
-            error: new Error("Could not get reviews")
-
-        };
-
         render(
-            <MockedProvider mocks={[mockFail]} addTypename={false}>
+            <MockedProvider mocks={failMock} addTypename={false}>
                     <Reviews />
             </MockedProvider>
         );
-
+        
         expect(await screen.findByText("Could not get reviews")).toBeInTheDocument();
     });
 

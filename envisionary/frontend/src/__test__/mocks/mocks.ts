@@ -33,8 +33,31 @@ export const mocks = [
     {
       request: {
         query: GET_REVIEWS_BY_COUNTRY_NAME,
-        variables: { Country: "Afghanistan" }
+        variables: { country: "Afghanistan" }
       },
-      result: { data: { Reviews: { Name: "Trond", ReviewText: "Flott land å feriere i." , Date: "2022-10-26T13:50:35.783Z", Rating: 3.5 }}}  
+      result: { 
+        data: {
+          countryByName: {
+            Reviews: [
+              { Name: "Trond", ReviewText: "Flott land å feriere i." , Date: "2022-10-26T13:50:35.783Z", Rating: 3.5 },
+              { Name: "Hans og Grethe", ReviewText: "Fint og fredelig land for et idyllisk opphold på all-inclusive.", Date: "2022-10-26T13:53:34.973Z",  Rating: 5 },
+              { Name: "Lisbeth", ReviewText: "Synes det var litt skummelt i Afghanistan.", Date: "2022-10-26T19:51:35.080Z", Rating: 3 }
+            ]
+          }
+        }
+      }  
     }
   ];
+
+
+export const failMock = [
+  {
+    request: {
+        query: GET_REVIEWS_BY_COUNTRY_NAME,
+        variables: { country: "Afghanistan" }
+    },
+    error: new Error()
+  }
+];
+
+  //Reviews: { Name: "Trond", ReviewText: "Flott land å feriere i." , Date: "2022-10-26T13:50:35.783Z", Rating: 3.5 }
