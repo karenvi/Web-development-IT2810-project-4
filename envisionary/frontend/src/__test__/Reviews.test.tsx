@@ -1,6 +1,6 @@
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
-import { failMock, mocks } from './mocks/mocks';
+import { failMock, mocks, noReviewsMock } from './mocks/mocks';
 import { render, screen } from '@testing-library/react';
 import Reviews from '../components/Reviews';
 export {};
@@ -69,6 +69,17 @@ describe("Testing Reviews component", () => {
         );
 
         expect(await screen.findByText("Could not get reviews")).toBeInTheDocument();
+    });
+
+    it('Should show message when there are no reviews', async () => {
+        render(
+            <MockedProvider mocks={noReviewsMock} addTypename={false}>
+                    <Reviews />
+            </MockedProvider>
+        );
+
+        expect(await screen.findByText("Nobody has reviewed Afghanistan yet.")).toBeInTheDocument();
+        
     });
 
 });
