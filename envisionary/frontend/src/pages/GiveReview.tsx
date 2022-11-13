@@ -34,7 +34,7 @@ const modalStyle = {
 };
 
 
-function GiveReview() {
+export function GiveReview() {
   const location = useLocation().state.country.Country;
   const [rating, setRating] = useState<number>(0);
   const [author, setAuthor] = useState('');
@@ -157,6 +157,7 @@ function GiveReview() {
         <Typography variant="h6">Write a review for {location}</Typography>
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
         <TextField id="name-field"
+          inputProps={{ "data-testid": "name-field-test" }}
           required
           label=""
           sx={{ width: 250 }}
@@ -182,6 +183,7 @@ function GiveReview() {
         <Typography component="label" htmlFor="review-content-field" variant="h6" sx={reviewHeaderStyling}>Review Content</Typography>
         <TextField
           id="review-content-field"
+          inputProps={{ "data-testid": "review-content-field-test" }}
           label=""
           placeholder="Write your review..."
           multiline
