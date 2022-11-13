@@ -27,9 +27,7 @@ describe("Testing UserInput component", () => {
 
         const tree = component.toJSON();
         expect(tree).toMatchSnapshot();
-
-
-
+        
     });
 
     it("result is changed when typing", () => {

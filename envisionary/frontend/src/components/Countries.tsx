@@ -51,7 +51,7 @@ function Countries() {
       hideUnreviewed: hideUnreviewedCountries,
     }
   });
-  console.log(data)
+  // console.log(data)
 
   //if (loading) return <p>Loading...</p>; TODO: ADD ANOTHER SOLUTION FOR COMMUNICATING "LOADING" TO USER
   if (error) return <p>Error - could not load data.</p>;
