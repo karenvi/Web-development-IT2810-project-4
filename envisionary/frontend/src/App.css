@@ -32,7 +32,19 @@ a[href], input[type='submit'], input[type='image'], label[for], select, button, 
   cursor: pointer;
 }
 
-/* Move the reviewdate a little down if the screen is too small in width */
-/* #reviewDate {
-  position: absolute;
-} */
+/* Have a button for each country so that it can be navigated to using the "tab"-key to increase accessibility.  */
+/* Thus a button without any design on it */
+#buttonInTable {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+/* Alerts user when country link is focused */
+#buttonInTable:focus {
+  outline: black auto 5px;
+}
