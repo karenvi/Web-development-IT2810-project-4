@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil';
 import { mocks } from './mocks/mocks';
 import Country from '../pages/Country';
 import { render, waitFor } from '@testing-library/react';
+import { debug } from 'console';
 export { };
 
 
@@ -55,17 +56,13 @@ jest.mock('recharts', () => {
 });
 
 describe("Testing Country component", () => {
-    it('Renders correctly for a successful call', async () => {
+    it('Snapshot test of country component', async () => {
         const { container } = render(
-          <MockedProvider
-            defaultOptions={{ watchQuery: { fetchPolicy: 'network-only' } }}
-            mocks={mocks}
-            
-          >
+          <MockedProvider mocks={mocks}>
             <Country/>
           </MockedProvider>,
         )
-        await waitFor(() => new Promise((res) => setTimeout(res, 500)));
+        await waitFor(() => new Promise((res) => setTimeout(res, 100)));
         expect(container).toMatchSnapshot();
       })
 
