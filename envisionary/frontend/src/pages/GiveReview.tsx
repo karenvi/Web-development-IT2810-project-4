@@ -1,4 +1,4 @@
-import '../App.css'
+import '../styles/App.css'
 import { useLocation } from 'react-router-dom';
 import { Alert, Button, IconButton, Modal, Rating, Snackbar, TextField, Typography } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';

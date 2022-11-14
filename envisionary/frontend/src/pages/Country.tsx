@@ -1,4 +1,4 @@
-import '../App.css'
+import '../styles/App.css'
 import { useLocation } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import { Rating, Typography } from '@mui/material';
