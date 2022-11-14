@@ -4,8 +4,9 @@ import { HashRouter as Router } from "react-router-dom";
 import { RecoilRoot } from 'recoil';
 import { mocks } from './mocks/mocks';
 import Country from '../pages/Country';
-import PopulationChart from '../components/PopulationChart';
+import { render, waitFor } from '@testing-library/react';
 export { };
+
 
 /**
  * Mocking useLocation in order to make the query mocks work for useQuery in component.
@@ -34,32 +35,34 @@ jest.mock('react-router-dom', () => {
 // code snippet below from https://github.com/recharts/recharts/issues/2268 
 jest.mock('recharts', () => {
     const OriginalRechartsModule = jest.requireActual('recharts');
-  
+
     return {
-      ...OriginalRechartsModule,
-      ResponsiveContainer: ({children}: {children?: React.ReactNode})=> (
-        <div className="recharts-responsive-container" style={{ width: "100%", height: "100%" }}>
-          {children}
-        </div>
-      ),
+        ...OriginalRechartsModule,
+        ResponsiveContainer: ({ children }: { children?: React.ReactNode }) => (
+            <div className="recharts-responsive-container" style={{ width: "100%", height: "100%" }}>
+                {children}
+            </div>
+        ),
     };
-  });
+});
 
 describe("Testing Country component", () => {
-    it("snapshot test", () => {
+    it("snapshot test", async () => {
 
-        const component: renderer.ReactTestRenderer = renderer.create(
+        const component = render(
             <Router>
                 <MockedProvider mocks={mocks} addTypename={false}>
                     <RecoilRoot>
-                        <Country  />
+                        <Country />
                     </RecoilRoot>
                 </MockedProvider>
             </Router>
         );
 
-        const tree = component.toJSON();
-        expect(tree).toMatchSnapshot();
+        //const tree = component.toJSON();
+        const mockAPI = mocks[2].result;
+        await waitFor(() => expect(mockAPI).toHaveBeenCalledTimes(1));
+        expect(component).toMatchSnapshot();
     });
 
     it('Contains the right elements', () => {

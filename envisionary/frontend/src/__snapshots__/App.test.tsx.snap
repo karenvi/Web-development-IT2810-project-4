@@ -30,12 +30,6 @@ exports[`App renders correctly 1`] = `
           </a>
           <a
             class="link"
-            href="#/give-review"
-          >
-            Give review
-          </a>
-          <a
-            class="link"
             href="#/info-page"
           >
             Information
@@ -49,7 +43,8 @@ exports[`App renders correctly 1`] = `
       <h1
         class="MuiTypography-root MuiTypography-h1 css-v6dhnz-MuiTypography-root"
       >
-        Search for a country
+        Search for a 
+        country
       </h1>
       <div
         class="MuiBox-root css-eolfkn"

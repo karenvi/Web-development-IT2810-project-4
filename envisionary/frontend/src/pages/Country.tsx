@@ -19,6 +19,7 @@ function Country() {
 
   // Fetches any new reviews before calculating average rating
   refetch();
+  console.log(loading, data, error);
 
   // Calculate average rating 
   let totalSum: number = 0, avrgRating: number = 0, numberOfReviews: number = 0;
