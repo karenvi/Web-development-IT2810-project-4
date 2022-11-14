@@ -29,8 +29,7 @@ jest.mock('react-router-dom', () => {
     };
 });
 
-describe("Testing review content", () => {
-
+describe("Testing GiveReview component", () => {
     beforeEach(async () => {
         render(
             <MockedProvider mocks={mocks} addTypename={false}>
@@ -40,7 +39,6 @@ describe("Testing review content", () => {
     });
 
     it("snapshot test", () => {
-
         const component: renderer.ReactTestRenderer = renderer.create(
                 <MockedProvider mocks={mocks} addTypename={false}>
                     <GiveReview />
@@ -53,7 +51,6 @@ describe("Testing review content", () => {
 
 
     it("empty review content field", async () => {
-
         userEvent.click(await waitFor(() => screen.findByText('Review Afghanistan')));
         expect(await screen.findByTestId('review-content-field-test')).toHaveValue('');
     });
@@ -83,7 +80,6 @@ describe("Testing review content", () => {
     });
  */
     it("empty name field", async () => {
-
         userEvent.click(await waitFor(() => screen.findByText('Review Afghanistan')));
 
         // empty name field should trigger error
@@ -93,7 +89,6 @@ describe("Testing review content", () => {
     });
 
     it("too long name", async () => {
-
         userEvent.click(await waitFor(() => screen.findByText('Review Afghanistan')));
 
         // name > 40 should trigger error
@@ -105,7 +100,6 @@ describe("Testing review content", () => {
     });
 
     it("entering valid name", async () => {
-
         userEvent.click(await waitFor(() => screen.findByText('Review Afghanistan')));
 
         // name field should be empty first
@@ -119,10 +113,9 @@ describe("Testing review content", () => {
     });
 
     it("special characters in name", async() => {
-
         userEvent.click(await waitFor(() => screen.findByText('Review Afghanistan')));
+        
         // name starting with special characters should trigger error
-        userEvent.type(await screen.findByTestId('name-field-test'), '{selectall}{backspace}');
         userEvent.type(await screen.findByTestId('name-field-test'), '$/2gutta');
         expect(await screen.findByTestId('name-field-test')).toHaveValue('$/2gutta');
         userEvent.click(await screen.findByText('Submit'));
