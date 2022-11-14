@@ -37,7 +37,7 @@ jest.mock('recharts', () => {
   
     return {
       ...OriginalRechartsModule,
-      ResponsiveContainer: ({ children }: any) => (
+      ResponsiveContainer: ({children}: {children?: React.ReactNode})=> (
         <div className="recharts-responsive-container" style={{ width: "100%", height: "100%" }}>
           {children}
         </div>
