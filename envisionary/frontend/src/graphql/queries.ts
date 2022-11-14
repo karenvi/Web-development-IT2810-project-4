@@ -69,6 +69,7 @@ query CountryReviewsByName($country: String) {
         Rating
         __typename
     }
+    __typename
     }
 }
 `;
