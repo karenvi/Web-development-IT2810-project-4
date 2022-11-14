@@ -4,8 +4,8 @@ import { HashRouter as Router } from "react-router-dom";
 import { RecoilRoot } from 'recoil';
 import { mocks } from './mocks/mocks';
 import Country from '../pages/Country';
-import { render, waitFor } from '@testing-library/react';
-import { debug } from 'console';
+import { render, waitFor, screen } from '@testing-library/react';
+
 export { };
 
 
@@ -63,6 +63,7 @@ describe("Testing Country component", () => {
           </MockedProvider>,
         )
         await waitFor(() => new Promise((res) => setTimeout(res, 100)));
+        //screen.debug();
         expect(container).toMatchSnapshot();
       })
 
