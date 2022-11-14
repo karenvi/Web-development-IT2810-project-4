@@ -4,7 +4,6 @@ import { HashRouter as Router } from "react-router-dom";
 import { RecoilRoot } from 'recoil';
 import InfoPage from '../pages/InfoPage';
 import { mocks } from './mocks/mocks';
-import { render, screen } from '@testing-library/react';
 
 
 describe("Testing InfoPage component", () => {
@@ -24,20 +23,4 @@ describe("Testing InfoPage component", () => {
       expect(tree).toMatchSnapshot(); 
     });
 
-    it('Contains the right information', async () => {
-      // ARRANGE
-      render(
-        <Router>
-          <MockedProvider mocks={mocks} addTypename={false}>
-              <RecoilRoot>
-                  <InfoPage />
-              </RecoilRoot>
-          </MockedProvider>
-        </Router>
-      )
-    
-      // ASSERT
-      expect(screen.getByText("Envision the world through the eyes of a traveller")).toBeInTheDocument();
-
-    })
 });
