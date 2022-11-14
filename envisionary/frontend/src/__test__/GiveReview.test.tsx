@@ -33,7 +33,7 @@ describe("Testing review content", () => {
 
     beforeEach(async () => {
         render(
-            <MockedProvider mocks={mocks} addTypename={false} defaultOptions={{watchQuery: { fetchPolicy: 'no-cache' }, query: { fetchPolicy: 'no-cache' }, }}>
+            <MockedProvider mocks={mocks} addTypename={false}>
                     <GiveReview />
             </MockedProvider>
         );
