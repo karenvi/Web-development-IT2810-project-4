@@ -56,7 +56,7 @@ function GiveReview() {
   // Use ADD_REVIEW mutation to add review to database
   const [addReview] = useMutation(ADD_REVIEW, {
     refetchQueries: [ // keep local cache updated by refetching reviews after adding new review 
-      {query: GET_REVIEWS_BY_COUNTRY_NAME, variables: {Country: location}}, // DocumentNode object parsed with gql
+      {query: GET_REVIEWS_BY_COUNTRY_NAME, variables: {country: location}}, // DocumentNode object parsed with gql
       'CountryReviewsByName' // Query name
     ]});
 

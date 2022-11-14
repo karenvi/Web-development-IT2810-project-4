@@ -38,7 +38,15 @@ export const mocks = [
       query: GET_REVIEWS_BY_COUNTRY_NAME,
       variables: { country: "Afghanistan" }
     },
-    result: { data: { Reviews: { Name: "Trond", ReviewText: "Flott land å feriere i.", Date: "2022-10-26T13:50:35.783Z", Rating: 3.5 } } }
+    result: {
+      data: {
+        countryByName: {
+          Reviews: [
+            { Name: "Trond", ReviewText: "Flott land å feriere i.", Date: "2022-10-26T13:50:35.783Z", Rating: 3.5, __typename: "Review" }
+          ]
+        }
+      }
+    }
   },
   {
     request: {

@@ -23,6 +23,14 @@ jest.mock('react-router-dom', () => {
                 state: {
                     country: {
                         Country: "Afghanistan",
+                        Rank: "36",
+                        CCA3: "AFG",
+                        Capital: "Kabul",
+                        Continent: "Asia",
+                        Area: "652230",
+                        Density: "63.0587",
+                        GrowthRate: "1.0257",
+                        WorldPopulationPercentage: "0.52",
                     }
                 },
                 key: "eb77n1u7"
@@ -47,29 +55,25 @@ jest.mock('recharts', () => {
 });
 
 describe("Testing Country component", () => {
-    it("snapshot test", async () => {
-
-        const component = render(
-            <Router>
-                <MockedProvider mocks={mocks} addTypename={false}>
-                    <RecoilRoot>
-                        <Country />
-                    </RecoilRoot>
-                </MockedProvider>
-            </Router>
-        );
-
-        //const tree = component.toJSON();
-        const mockAPI = mocks[2].result;
-        await waitFor(() => expect(mockAPI).toHaveBeenCalledTimes(1));
-        expect(component).toMatchSnapshot();
-    });
+    it('Renders correctly for a successful call', async () => {
+        const { container } = render(
+          <MockedProvider
+            defaultOptions={{ watchQuery: { fetchPolicy: 'network-only' } }}
+            mocks={mocks}
+            
+          >
+            <Country/>
+          </MockedProvider>,
+        )
+        await waitFor(() => new Promise((res) => setTimeout(res, 500)));
+        expect(container).toMatchSnapshot();
+      })
 
     it('Contains the right elements', () => {
 
         const component: renderer.ReactTestRenderer = renderer.create(
             <Router>
-                <MockedProvider mocks={mocks} addTypename={false}>
+                <MockedProvider mocks={mocks} >
                     <RecoilRoot>
                         <Country />
                     </RecoilRoot>
