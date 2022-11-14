@@ -3,10 +3,8 @@ import { ADD_REVIEW } from "../../graphql/mutations";
 import { GET_COUNTRIES, GET_REVIEWS_BY_COUNTRY_NAME } from "../../graphql/queries";
 
 
-
-
-
 export const mocks = [
+
     {
       request: {
         query: GET_COUNTRIES,
@@ -51,7 +49,7 @@ export const mocks = [
     {
       request: {
         query: ADD_REVIEW,
-        variables: { country: "Afghanistan", reviewText: "Lorem ipsum dolor sit amet", date: "2022-10-26T13:53:34.973Z", rating: 3.5 }
+        variables: { country: "Afghanistan", name:"Doctor Ivo Robotnik", reviewText: "", date: new Date(), rating: 0 }
       },
       restult: {
         data: {
