@@ -22,7 +22,7 @@ const modalStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '50vw',
-  maxWidth: '600px',
+  maxWidth: '500px',
   minWidth: '100px',
   bgcolor: '#ffffff',
   p: 4,
@@ -40,7 +40,7 @@ function GiveReview() {
   const [author, setAuthor] = useState('');
   const [reviewText, setReviewText] = useState('');
   const [invalidAuthor, setInvalidAuthor] = useState<boolean>(false);
-  const [authorError, setAuthorError] = useState<string>("");
+  const [authorError, setAuthorError] = useState<string>(" ");
   const [clear, setClear] = useState("false");
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false)
@@ -91,7 +91,7 @@ function GiveReview() {
     }
     else { // else, name is valid
       setInvalidAuthor(false);
-      setAuthorError("");
+      setAuthorError(" ");
       return true
     }
   }
@@ -132,7 +132,7 @@ function GiveReview() {
 
   return (
     <>
-    <Box sx={styleTitleOfReviews}><Typography variant="h6">Reviews of {location}:</Typography></Box>
+    <Box sx={styleTitleOfReviews}><Typography component="h2" variant="h6">Reviews of {location}:</Typography></Box>
     <Box sx={styleTitleOfReviews}>
       <Button
         endIcon={<EditIcon />}
@@ -148,13 +148,13 @@ function GiveReview() {
         onClose={handleModalClose}
       >
         
-      <Box sx={modalStyle}>
-        <Box sx={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
-        <IconButton aria-label="close modal" onClick={handleModalClose}>
-          <CloseIcon />
-        </IconButton>
+      <Box component="main" sx={modalStyle}>
+        <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+          <Typography component="h1" variant="h6">Write a review for {location}</Typography>
+          <IconButton aria-label="close modal" onClick={handleModalClose}>
+            <CloseIcon />
+          </IconButton>
         </Box>
-        <Typography variant="h6">Write a review for {location}</Typography>
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
         <TextField id="name-field"
           required
@@ -186,7 +186,7 @@ function GiveReview() {
           placeholder="Write your review..."
           multiline
           rows={7}
-          sx={{ width: '50vw', mixWidth: '100px', maxWidth: '400px', mb: "20px"}}
+          sx={{ width: '50vw', mixWidth: '100px', maxWidth: '450px', mb: "20px"}}
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
         />
@@ -200,13 +200,13 @@ function GiveReview() {
         >
           Submit
         </Button>
-        </Box>
-        </Modal>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-            Review successfully given!
-          </Alert>
-        </Snackbar>
+      </Box>
+      </Modal>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Review successfully given!
+        </Alert>
+      </Snackbar>
     </>
   );
 }
