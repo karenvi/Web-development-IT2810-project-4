@@ -8,7 +8,9 @@ addReview(Country: $country, Name: $name, ReviewText: $reviewText, Date: $date, 
     Name,
     ReviewText,
     Date,
-    Rating
-    }
+    Rating,
+    __typename,
+    },
+    __typename
 }
 }`;

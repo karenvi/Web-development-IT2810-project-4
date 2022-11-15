@@ -9,10 +9,8 @@ import { render, waitFor, screen } from '@testing-library/react';
 export { };
 
 
-/**
- * Mocking useLocation in order to make the query mocks work for useQuery in component.
- * Technique found at https://blog.changani.me/2022/01/30/webdev/react/react-mocking-react-router-dom-s-use-location-with-jest/
- */
+// Mock useLocation in order to make the query mocks work for useQuery in component.
+// Technique found at https://blog.changani.me/2022/01/30/webdev/react/react-mocking-react-router-dom-s-use-location-with-jest/
 jest.mock('react-router-dom', () => {
     return {
         ...jest.requireActual('react-router-dom'),
@@ -41,7 +39,7 @@ jest.mock('react-router-dom', () => {
 });
 
 // Mock ResponsiveContainer for PopulationChart
-// code snippet below from https://github.com/recharts/recharts/issues/2268 
+// code snippet inspired by https://github.com/recharts/recharts/issues/2268 
 jest.mock('recharts', () => {
     const OriginalRechartsModule = jest.requireActual('recharts');
 
@@ -67,9 +65,8 @@ describe("Testing Country component", () => {
         expect(container).toMatchSnapshot();
       })
 
-    it('Contains the right elements', () => {
-
-        const component: renderer.ReactTestRenderer = renderer.create(
+    it('Contains the right elements', async () => {
+        render(
             <Router>
                 <MockedProvider mocks={mocks} >
                     <RecoilRoot>
@@ -78,9 +75,10 @@ describe("Testing Country component", () => {
                 </MockedProvider>
             </Router>
         );
-
-        expect(component.root.findAllByType('h1')[0].props.children).toBe('Afghanistan');
-
+        expect(await screen.findByText("Afghanistan")).toBeInTheDocument();
+        expect(await screen.findByText("Asia")).toBeInTheDocument();
+        expect(await screen.findByText("Reviews of Afghanistan:")).toBeInTheDocument();
+        expect(await screen.findByText("Review Afghanistan")).toBeInTheDocument();
     });
 
 });

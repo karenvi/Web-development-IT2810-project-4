@@ -26,7 +26,7 @@ query Countries {
         Name,
         ReviewText,
         Date,
-        Rating
+        Rating,
     }
     }
 }
@@ -53,7 +53,7 @@ query PaginatedCountries($offset: Int, $limit: Int, $sortOn: String, $sortDesc: 
     Density,
     GrowthRate,
     WorldPopulationPercentage,
-    __typename
+    __typename,
   }
 }
 `;
@@ -66,10 +66,10 @@ query CountryReviewsByName($country: String) {
         Name,
         ReviewText,
         Date,
-        Rating
-        __typename
-    }
-    __typename
+        Rating,
+        __typename,
+    },
+    __typename,
     }
 }
 `;
@@ -101,9 +101,9 @@ query GetCountryDataByName($country: String) {
         ReviewText,
         Date,
         Rating,
-        __typename
+        __typename,
     },
-    __typename
+    __typename,
     }
 }
 `;

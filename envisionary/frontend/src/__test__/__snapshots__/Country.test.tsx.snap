@@ -341,6 +341,7 @@ exports[`Testing Country component Snapshot test of country component 1`] = `
         class="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
       >
         Reviews of 
+        Afghanistan
         :
       </h2>
     </div>

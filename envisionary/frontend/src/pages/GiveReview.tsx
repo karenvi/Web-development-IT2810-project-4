@@ -106,8 +106,8 @@ function GiveReview() {
           rating: rating
         }
       });
-      setOpen(true) // Opens the success alert.
-
+      setOpen(true);// Opens the success alert.
+      console.log(location.state.country.Country);
       clearReview();
 
       // Clears the country field
@@ -130,7 +130,7 @@ function GiveReview() {
 
   return (
     <>
-    <Box sx={styleTitleOfReviews}><Typography component="h2" variant="h6">Reviews of {location.state.country.country}:</Typography></Box>
+    <Box sx={styleTitleOfReviews}><Typography component="h2" variant="h6">Reviews of {location.state.country.Country}:</Typography></Box>
     <Box sx={styleTitleOfReviews}>
       <Button
         endIcon={<EditIcon />}
