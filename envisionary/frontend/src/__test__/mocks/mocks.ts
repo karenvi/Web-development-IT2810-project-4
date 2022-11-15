@@ -1,5 +1,5 @@
 
-import { GET_COUNTRIES, GET_COUNTRY_DATA_BY_NAME, GET_REVIEWS_BY_COUNTRY_NAME } from "../../graphql/queries";
+import { GET_COUNTRIES, GET_COUNTRY_DATA_BY_NAME } from "../../graphql/queries";
 
 
 export const mocks = [
@@ -30,36 +30,6 @@ export const mocks = [
             Population2015: "51514", Population2020: "49587", Population2022: "49551", Rank: "210", WorldPopulationPercentage: "0"
           },
           ]
-      }
-    }
-  },
-  {
-    request: {
-      query: GET_REVIEWS_BY_COUNTRY_NAME,
-      variables: { country: "Afghanistan" }
-    },
-    result: {
-      data: {
-        countryByName: {
-          Reviews: [
-            {
-              Name: "Trond",
-              ReviewText: "Flott land å feriere i.",
-              Date: "2022-10-26T13:50:35.783Z",
-              Rating: 3.5,
-              __typename: "Review"
-            },
-            {
-              Name: "Hans og Grethe",
-              ReviewText: "Fint og fredelig land for et idyllisk opphold på all-inclusive.",
-              Date: "2022-10-26T13:53:34.973Z",
-              Rating: 5,
-              __typename: "Review"
-
-            },
-          ],
-          __typename: "Country"
-        }
       }
     }
   },

@@ -58,23 +58,7 @@ query PaginatedCountries($offset: Int, $limit: Int, $sortOn: String, $sortDesc: 
 }
 `;
 
-// Get a reviews for a specific country
-export const GET_REVIEWS_BY_COUNTRY_NAME = gql`
-query CountryReviewsByName($country: String) {
-  countryByName(Country: $country) {
-    Reviews{
-        Name,
-        ReviewText,
-        Date,
-        Rating,
-        __typename,
-    },
-    __typename,
-    }
-}
-`;
-
-// Get a reviews for a specific country
+// Get country data for a specific country
 export const GET_COUNTRY_DATA_BY_NAME = gql`
 query GetCountryDataByName($country: String) {
   countryByName(Country: $country) {

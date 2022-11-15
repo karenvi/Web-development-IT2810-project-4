@@ -107,7 +107,6 @@ function GiveReview() {
         }
       });
       setOpen(true);// Opens the success alert.
-      console.log(location.state.country.Country);
       clearReview();
 
       // Clears the country field
