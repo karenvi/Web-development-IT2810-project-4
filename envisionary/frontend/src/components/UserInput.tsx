@@ -7,9 +7,13 @@ import Select from '@mui/material/Select';
 import { useRecoilState } from 'recoil';
 import { categoryState, pageState, searchQueryState } from '../states/states';
 import { useNavigate } from 'react-router-dom';
+import { AppTheme } from '../AppTheme';
+import { ThemeContext } from '../App';
+import { useContext } from 'react';
 
 // This component takes in a search query from user and what category the user has picked to search in.
 function UserInput() {
+  const { theme } = useContext(ThemeContext);
   const [category, setCategory] = useRecoilState(categoryState);
   const [searchQuery, setSearchQuery] = useRecoilState(searchQueryState);
   const [page, setPage] = useRecoilState(pageState);
@@ -23,13 +27,33 @@ function UserInput() {
     e.preventDefault();
   }
 
+  const userInputStyle: AppTheme = {
+    dark: {
+        backgroundColor: '#1e374c',
+        color: 'white',
+    },
+    light: {
+        backgroundColor: 'white',
+        color: 'black',
+    },
+    common: {
+        transition: 'all ls ease',
+    },
+}
+
+const themeStyle = {
+    ...userInputStyle.common,
+    ...(theme === 'light' ? userInputStyle.light : userInputStyle.dark),
+}
+
   return (
     <Box
       sx={{
-        m: 5, p: '35px', width: '60%', maxWidth: '450px', backgroundColor: 'white', display: 'flex', justifyContent: 'center',
+        m: 5, p: '35px', width: '60%', maxWidth: '450px', display: 'flex', justifyContent: 'center',
         boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)',
         borderRadius: '10px'
       }}
+      style={themeStyle}
     >
       <form action="/" method="get" autoComplete="off" onSubmit={onSubmit}>
         <TextField

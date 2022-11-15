@@ -2,7 +2,6 @@
   display: flex;
   height: 90px;
   width: 100vw;
-  background-color: #172A3A;
   box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%),
     0px 1px 10px 0px rgb(0 0 0 / 12%);
   justify-content: center;
@@ -17,7 +16,6 @@
 
 .link {
   text-decoration: none;
-  color: whitesmoke;
   font-weight: 500;
   margin-right: 4vw;
 }
@@ -30,7 +28,6 @@
 
 #logoLink {
   text-decoration: none;
-  color: whitesmoke;
   font-weight: 600;
 }
 
@@ -38,7 +35,6 @@
   display: flex;
   height: 90px;
   width: 100vw;
-  background-color: #172A3A;
   box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%),
     0px 1px 10px 0px rgb(0 0 0 / 12%);
   justify-content: center;
@@ -55,7 +51,6 @@
 
 .link {
   text-decoration: none;
-  color: whitesmoke;
   font-weight: 500;
   margin-right: 4vw;
 }
@@ -68,14 +63,8 @@
 
 #logoLink {
   text-decoration: none;
-  color: whitesmoke;
   font-weight: 600;
 }
-
-.link:hover, #logoLink:hover {
-  color:rgba(255, 255, 255, 0.80);
-}
-
 
 @media only screen and (max-width: 600px) {
   #logoLink {

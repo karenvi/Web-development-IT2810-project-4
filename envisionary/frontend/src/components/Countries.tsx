@@ -1,5 +1,5 @@
 import { Box, Button, Checkbox, Grid, SelectChangeEvent, TableContainer, Typography, Skeleton } from '@mui/material';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { categoryState, pageState, searchQueryState } from '../states/states';
@@ -17,6 +17,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useQuery } from '@apollo/client';
 import { GET_COUNTRIES_PAGINATION } from '../graphql/queries';
+import { AppTheme } from '../AppTheme';
+import { ThemeContext } from '../App';
 
 const pageSize = 10;
 
@@ -28,6 +30,7 @@ const buttonStyling = { backgroundColor: '#31597a', '&:hover': { backgroundColor
 
 
 function Countries() {
+  const { theme } = useContext(ThemeContext);
   const [category, setCategory] = useRecoilState(categoryState);
   const [searchQuery, setSearchQuery] = useRecoilState(searchQueryState);
   const [page, setPage] = useRecoilState(pageState);
@@ -81,23 +84,61 @@ function Countries() {
     setPage(0);
   }
 
+  const tableStyle: AppTheme = {
+    dark: {
+        backgroundColor: '#101d28',
+        color: 'white',
+    },
+    light: {
+        backgroundColor: '#dfe9f2',
+        color: 'black',
+    },
+    common: {
+        transition: 'all 1s ease',
+    },
+  }
+
+  const styleForTable: AppTheme = {
+    dark: {
+      backgroundColor: '#1e374c',
+      color: 'white',
+    },
+    light: {
+        backgroundColor: 'white',
+        color: 'black',
+    },
+    common: {
+        transition: 'all ls ease',
+    },
+  }
+
+  const themeStyle = {
+    ...tableStyle.common,
+    ...(theme === 'light' ? tableStyle.light : tableStyle.dark),
+  }
+
+  const rowStyle = {
+    ...styleForTable.common,
+    ...(theme === 'light' ? styleForTable.light : styleForTable.dark),
+  }
+
   return (
     <Box component="main" sx={{
       display: 'flex', flexDirection: 'column', justifyContent: 'center',
-      alignItems: 'center', width: '100%'
+      alignItems: 'center', width: '100%' 
     }}>
-      <Typography variant="h1" sx={{ fontSize: '45px', color: '#172A3A', mt: '40px', mb: '8px' }}>Search for a {category.toLowerCase()}</Typography>
+      <Typography variant="h1" sx={{ fontSize: '45px', mt: '40px', mb: '8px' }}>Search for a {category.toLowerCase()}</Typography>
       <UserInput />
       <TableContainer sx={{ width: { xs: '95%', sm: '85%', md: '75%', lg: '65%' }, m: '10px', mb: "200px" }} component={Paper}>
         <Table aria-label="Table of countries">
           <TableHead>
-            <TableRow>
+            <TableRow style={rowStyle}>
               {/* Let user pick what the data displayed should be sorted on */}
-              <TableCell colSpan={2} sx={tableHeadStyling}>
+              <TableCell colSpan={2} sx={tableHeadStyling} >
                 <label htmlFor="filter-category">
                   <span className="visually-hidden">Sort by:</span>
                 </label>
-                <FormControl fullWidth sx={{ width: '300px', ml: "10px" }}>
+                <FormControl fullWidth sx={{ width: '300px', ml: "10px" }} >
                   <InputLabel id="select-filter-category">Sort by:</InputLabel>
                   <Select
                     labelId="select-filter-category"
@@ -105,6 +146,7 @@ function Countries() {
                     value={sortingCategory}
                     label="Sort by:"
                     onChange={sortData}
+                    style={rowStyle}
                   >
                     <MenuItem value="Country-asc">Ascending country</MenuItem>
                     <MenuItem value='Continent-asc'>Ascending continent</MenuItem>
@@ -130,11 +172,11 @@ function Countries() {
             </TableRow>
 
             {/* Displaying fetched data */}
-            <TableRow>
-              <TableCell sx={tableHeadStyling}>Country</TableCell>
-              <TableCell sx={tableHeadStyling} align="right">Continent</TableCell>
-              <TableCell sx={tableHeadStyling} align="right">Population (2022)</TableCell>
-              <TableCell sx={tableHeadStyling} align="right">Area (km&#178;)</TableCell>
+            <TableRow style={rowStyle}>
+              <TableCell sx={tableHeadStyling} style={rowStyle}>Country</TableCell>
+              <TableCell sx={tableHeadStyling} align="right" style={rowStyle}>Continent</TableCell>
+              <TableCell sx={tableHeadStyling} align="right" style={rowStyle}>Population (2022)</TableCell>
+              <TableCell sx={tableHeadStyling} align="right" style={rowStyle}>Area (km&#178;)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -142,33 +184,35 @@ function Countries() {
               ? [...Array(10)].map((row, index) => <TableRow
                 key={index}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                style={rowStyle}
               >
-                <TableCell component="th" scope="row" className="pointer"><Skeleton /> </TableCell>
-                <TableCell align="right" className="pointer"><Skeleton /> </TableCell>
-                <TableCell align="right" className="pointer"><Skeleton /> </TableCell>
-                <TableCell align="right" className="pointer"><Skeleton /> </TableCell>
+                <TableCell component="th" scope="row" className="pointer" style={rowStyle}><Skeleton /> </TableCell>
+                <TableCell align="right" className="pointer" style={rowStyle}><Skeleton /> </TableCell>
+                <TableCell align="right" className="pointer" style={rowStyle}><Skeleton /> </TableCell>
+                <TableCell align="right" className="pointer" style={rowStyle}><Skeleton /> </TableCell>
               </TableRow>)
 
               // if data is loaded, show real data rows
               : (data?.paginatedCountries.length === 0
-                ? <TableRow><TableCell colSpan={4}>Sorry, no results matched your search</TableCell></TableRow>
+                ? <TableRow style={rowStyle}><TableCell style={rowStyle} colSpan={4}>Sorry, no results matched your search</TableCell></TableRow>
                 : data?.paginatedCountries.map((row: ICountry) => (
                   <TableRow
                     key={row._id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     onClick={() => { toCountryPage(row) }}
                     hover={true}
+                    style={rowStyle}
                   >
-                    <TableCell component="th" scope="row" className="pointer">{row.Country}</TableCell>
-                    <TableCell align="right" className="pointer">{row.Continent}</TableCell>
-                    <TableCell align="right" className="pointer">{parseInt(row.Population2022).toLocaleString()}</TableCell>
-                    <TableCell align="right" className="pointer">{parseInt(row.Area).toLocaleString()}</TableCell>
+                    <TableCell component="th" scope="row" className="pointer" style={rowStyle}>{row.Country}</TableCell>
+                    <TableCell align="right" className="pointer" style={rowStyle}>{row.Continent}</TableCell>
+                    <TableCell align="right" className="pointer" style={rowStyle}>{parseInt(row.Population2022).toLocaleString()}</TableCell>
+                    <TableCell align="right" className="pointer" style={rowStyle}>{parseInt(row.Area).toLocaleString()}</TableCell>
                   </TableRow>
                 )))}
 
             {/* Pagination */}
-            <TableRow>
-              <TableCell colSpan={4}>
+            <TableRow style={rowStyle}>
+              <TableCell colSpan={4} style={rowStyle}>
                 {data?.paginatedCountries.length !== 0
                   && <Grid container direction="row" justifyContent="space-between" alignItems="flex-end" sx={{ mt: '10px', mb: '20px' }}>
                     <Grid sx={{ ml: "20px" }}>

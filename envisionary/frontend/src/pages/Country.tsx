@@ -11,8 +11,12 @@ import { IReview } from '../types';
 import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import { cardStyling } from './InfoPage';
 import GiveReview from './GiveReview';
+import { AppTheme } from '../AppTheme';
+import { useContext } from 'react';
+import { ThemeContext } from '../App';
 
 function Country() {
+  const { theme } = useContext(ThemeContext);
   const location = useLocation();
   const { loading, error, data, refetch } = useQuery(
     GET_COUNTRY_DATA_BY_NAME, { variables: { country: location.state.country.Country } });
@@ -28,9 +32,28 @@ function Country() {
     numberOfReviews = data.countryByName.Reviews.length;
   }
 
+  const countryStyle: AppTheme = {
+    dark: {
+        backgroundColor: '#1e374c',
+        color: 'white',
+    },
+    light: {
+        backgroundColor: 'white',
+        color: 'black',
+    },
+    common: {
+        transition: 'all 1s ease',
+    },
+  }
+
+  const themeStyle = {
+      ...countryStyle.common,
+      ...(theme === 'light' ? countryStyle.light : countryStyle.dark),
+  }
+
 
   return (
-    <Card component="main" sx={cardStyling}>
+    <Card component="main" sx={cardStyling} style={themeStyle}>
       <Typography component="h1" variant="h3" sx={{ m: 2, fontSize: '40px' }}>{location.state.country.Country}</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', px: '48px', mb: 1 }}>
         <Rating name="read-only" value={avrgRating} precision={0.5} readOnly

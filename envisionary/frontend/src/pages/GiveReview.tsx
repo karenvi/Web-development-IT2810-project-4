@@ -4,13 +4,15 @@ import { Alert, Button, IconButton, Modal, Rating, Snackbar, TextField, Typograp
 import EditIcon from '@mui/icons-material/Edit';
 import StarIcon from '@mui/icons-material/Star';
 import { Box } from '@mui/system';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from "../graphql/mutations"
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { GET_COUNTRY_DATA_BY_NAME, GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
 import { IReview } from '../types';
 import CloseIcon from '@mui/icons-material/Close';
+import { AppTheme } from '../AppTheme';
+import { ThemeContext } from '../App';
 
 
 const styleTitleOfReviews = { width: "100%", display: 'flex', justifyContent: 'flex-start', mb: "20px"};
@@ -36,6 +38,7 @@ const modalStyle = {
 
 function GiveReview() {
   const location = useLocation().state.country.Country;
+  const { theme } = useContext(ThemeContext);
   const [rating, setRating] = useState<number>(0);
   const [author, setAuthor] = useState('');
   const [reviewText, setReviewText] = useState('');
@@ -130,9 +133,30 @@ function GiveReview() {
 
   const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
 
+  const giveReviewStyle: AppTheme = {
+    dark: {
+        backgroundColor: '#1e374c',
+        color: 'white',
+    },
+    light: {
+        backgroundColor: 'white',
+        color: 'black',
+    },
+    common: {
+        transition: 'all ls ease',
+    },
+  }
+
+  const themeStyle = {
+    ...giveReviewStyle.common,
+    ...(theme === 'light' ? giveReviewStyle.light : giveReviewStyle.dark),
+  }
+
   return (
     <>
-    <Box sx={styleTitleOfReviews}><Typography component="h2" variant="h6">Reviews of {location}:</Typography></Box>
+    <Box sx={styleTitleOfReviews}>
+      <Typography component="h2" variant="h6">Reviews of {location}:</Typography>
+    </Box>
     <Box sx={styleTitleOfReviews}>
       <Button
         endIcon={<EditIcon />}
@@ -148,7 +172,7 @@ function GiveReview() {
         onClose={handleModalClose}
       >
         
-      <Box component="main" sx={modalStyle}>
+      <Box component="main" sx={modalStyle} style={themeStyle}>
         <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
           <Typography component="h1" variant="h6">Write a review for {location}</Typography>
           <IconButton aria-label="close modal" onClick={handleModalClose}>
