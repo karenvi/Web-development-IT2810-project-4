@@ -7,7 +7,7 @@ import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from "../graphql/mutations"
-import { GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
+import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import CloseIcon from '@mui/icons-material/Close';
 
 
@@ -54,7 +54,7 @@ function GiveReview() {
   // Use ADD_REVIEW mutation to add review to database
   const [addReview] = useMutation(ADD_REVIEW, {
     refetchQueries: [ // keep local cache updated by refetching reviews after adding new review 
-      {query: GET_REVIEWS_BY_COUNTRY_NAME, variables: {country: location.state.country.Country}}, // DocumentNode object parsed with gql
+      {query: GET_COUNTRY_DATA_BY_NAME, variables: {country: location.state.country.Country}}, // DocumentNode object parsed with gql
       'CountryReviewsByName' // Query name
     ]});
 
