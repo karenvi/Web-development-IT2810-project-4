@@ -20,7 +20,7 @@ import { pageStyle } from './InfoPage';
 function Country() {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
-  const [starOpacity, setStarOpacity] = useRecoilState<number>(starOpacityRating);
+  const [starOpacity] = useRecoilState<number>(starOpacityRating);
   const { loading, error, data, refetch } = useQuery(
     GET_COUNTRY_DATA_BY_NAME, { variables: { country: location.state.country.Country } });
 

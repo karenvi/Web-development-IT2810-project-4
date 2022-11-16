@@ -7,13 +7,11 @@ import { Box } from '@mui/system';
 import { useContext, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from "../graphql/mutations"
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { GET_COUNTRY_DATA_BY_NAME, GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
-import { IReview } from '../types';
+import { GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
 import CloseIcon from '@mui/icons-material/Close';
 import { ThemeContext } from '../App';
 import { useRecoilState } from 'recoil';
-import { starOpacityRating } from '../states/states';
+import { starOpacityRating, toggleColorTheme } from '../states/states';
 import { buttonStyling } from '../components/Countries';
 
 // Miscellanous styling both for light and dark theme
@@ -65,6 +63,7 @@ const inputReviewStyle = {
       },
     },
     light: {
+      width: '100%',
     },  
 }
 
@@ -80,8 +79,8 @@ function GiveReview() {
   const [clear, setClear] = useState("false");
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false)
-  const [starOpacity, setStarOpacity] = useRecoilState<number>(starOpacityRating);
-  const [toggleColor, setToggleColor] = useRecoilState<string>(toggleColorTheme);
+  const [starOpacity] = useRecoilState<number>(starOpacityRating);
+  const [toggleColor] = useRecoilState<string>(toggleColorTheme);
 
   //Functions of setters that are being used multiple times to clear the review field:
   const clearReview = () => {
