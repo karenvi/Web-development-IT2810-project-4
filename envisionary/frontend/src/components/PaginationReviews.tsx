@@ -46,13 +46,8 @@ function PaginationReviews({ sortReviews, country }: Props) {
     }
 
     useEffect(() => {
-        if (theme === 'light') {
-            setPaginationColor('#000000');
-            setStarOpacity(0.55);
-        } else {
-            setPaginationColor('#ffffff');
-            setStarOpacity(1);
-        }
+        setPaginationColor(theme === 'dark' ? '#ffffff' : '#000000');
+        setStarOpacity(theme === 'dark' ? 1 : 0.55);
     }, [theme]);
 
     return (
@@ -98,6 +93,7 @@ function PaginationReviews({ sortReviews, country }: Props) {
                                 shape="rounded"
                                 showFirstButton
                                 showLastButton
+                                sx={{button:{color: paginationColor}}}
                             />
                             <Typography variant="body1" sx={{ m: '10px' }}>{onPage} of {numberOfPages}</Typography>
                         </Stack>}

@@ -139,38 +139,6 @@ function GiveReview() {
     dark: {
         backgroundColor: '#1e374c',
         color: '#ffffff',
-        input: {
-          color: '#ffffff'
-        },
-        "& label": {
-          color: '#ffffff'
-        },
-        "& label.Mui-focused": {
-          color: '#ffffff'
-        },
-        "&:hover label": {
-          color: '#ffffff'
-        },
-        "& .MuiInput-underline:after": {
-          color: '#ffffff'
-        },
-        "& .MuiOutlinedInput-root": {
-          "& fieldset": {
-            borderColor: '#ffffff'
-          },
-          "&:hover fieldset": {
-            borderColor: '#ffffff'
-          },
-          "&.Mui-focused fieldset": {
-            borderColor: '#ffffff'
-          }
-        },
-      '& .MuiOutlinedInput-notchedOutline': {
-          borderColor:  '#ffffff !important',
-      },
-      '& .MuiSvgIcon-root': {
-          color: '#ffffff !important',
-      }, 
     },
     light: {
         backgroundColor: 'white',

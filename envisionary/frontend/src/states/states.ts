@@ -19,3 +19,8 @@ export const starOpacityRating = atom({
   key: 'ratingstarvisibility',
   default: 1,
 });
+
+export const toggleColorTheme = atom({
+  key: 'toggleColorDarkLight',
+  default: "#ffffff",
+});

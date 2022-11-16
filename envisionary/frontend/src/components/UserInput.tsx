@@ -10,51 +10,6 @@ import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../App';
 import { useContext } from 'react';
 
-const userInputStyle = {
-  dark: {
-      backgroundColor: '#172a3a',
-      color: '#ffffff',
-      input: {
-        color: '#ffffff'
-      },
-      "& label": {
-        color: '#ffffff'
-      },
-      "& label.Mui-focused": {
-        color: '#ffffff'
-      },
-      "&:hover label": {
-        color: '#ffffff'
-      },
-      "& .MuiInput-underline:after": {
-        color: '#ffffff'
-      },
-      "& .MuiOutlinedInput-root": {
-        "& fieldset": {
-          borderColor: '#ffffff'
-        },
-        "&:hover fieldset": {
-          borderColor: '#ffffff'
-        },
-        "&.Mui-focused fieldset": {
-          borderColor: '#ffffff'
-        }
-      },
-
-    '& .MuiOutlinedInput-notchedOutline': {
-        borderColor:  '#ffffff !important',
-    },
-    '& .MuiSvgIcon-root': {
-        color: '#ffffff !important',
-    },
-
-  },
-  light: {
-      backgroundColor: 'white',
-      color: 'black',
-  },
-}
-
 // This component takes in a search query from user and what category the user has picked to search in.
 function UserInput() {
   const { theme } = useContext(ThemeContext);
@@ -71,9 +26,97 @@ function UserInput() {
     e.preventDefault();
   }
 
-const themeStyle = {
-    ...(theme === 'light' ? userInputStyle.light : userInputStyle.dark),
+  const inputBoxStyle = {
+    dark: {
+      backgroundColor: '#172a3a',
+      color: "#ffffff",
+  },
+  light: {
+      backgroundColor: '#ffffff',
+      color: '#000000'
+  },
 }
+
+  const searchQueryStyle = {
+    dark: {
+        backgroundColor: '#172a3a',
+        color: "#ffffff",
+        input: {
+          color: "#ffffff",
+        },
+        "& label": {
+          color: "#ffffff",
+        },
+        "& label.MuiFocused": {
+          color: "#ffffff",
+        },
+        "&:hover label": {
+          color: "#ffffff",
+        },
+        "& .MuiInputUnderline:after": {
+          color: "#ffffff",
+        },
+    },
+    light: {
+        backgroundColor: 'white',
+    },
+  }
+
+  const dropDownStyling = {
+    dark: {
+      backgroundColor: "#172a3a",
+      color: "#ffffff",
+      input: {
+        color: "#ffffff",
+      },
+      "& label": {
+        color: "#ffffff",
+      },
+      "& label.Mui-focused": {
+        color: "#ffffff",
+      },
+      "&:hover label": {
+        color: "#ffffff",
+      },
+      "& .MuiInput-underline:after": {
+        color: "#ffffff",
+      },
+      "& .MuiOutlinedInput-root": {
+        "& fieldset": {
+          borderColor: "#ffffff",
+        },
+        "&:hover fieldset": {
+          borderColor: "#ffffff",
+        },
+        "&.Mui-focused fieldset": {
+          borderColor: "#ffffff",
+        },
+      },
+
+      "& .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#ffffff !important",
+      },
+      "& .MuiSvgIcon-root": {
+        color: "#ffffff !important",
+      },
+    },
+    light: {
+      color: "#000000",
+    },
+  };
+
+  const searchStyle = {
+      ...(theme === 'light' ? searchQueryStyle.light : searchQueryStyle.dark),
+  }
+
+  
+  const inputStyle = {
+    ...(theme === 'light' ? inputBoxStyle.light : inputBoxStyle.dark),
+  }
+
+  const dropdownStyle = {
+    ...(theme === 'light' ? dropDownStyling.light : dropDownStyling.dark),
+  }
 
   return (
     <Box
@@ -82,7 +125,7 @@ const themeStyle = {
         boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)',
         borderRadius: '10px'
       }}
-      style={themeStyle}
+      style={inputStyle}
     >
       <form action="/" method="get" autoComplete="off" onSubmit={onSubmit}>
         <TextField
@@ -97,7 +140,7 @@ const themeStyle = {
             setSearchQuery((event.target as HTMLInputElement).value);
             setPage(0);
           }}
-          sx={themeStyle}
+          sx={searchStyle}
         />
       </form>
       <FormControl fullWidth sx={{ width: '150px', ml: "10px" }}>
@@ -112,7 +155,7 @@ const themeStyle = {
           value={category}
           label="Category:"
           onChange={(event) => { setCategory(event.target.value as string) }}
-          sx={themeStyle}
+          sx={dropdownStyle}
         >
           <MenuItem value='Country'>Country</MenuItem>
           <MenuItem value='Continent'>Continent</MenuItem>

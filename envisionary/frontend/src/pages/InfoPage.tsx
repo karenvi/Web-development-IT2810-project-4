@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../App";
 import { AppTheme } from "../AppTheme";
 
-export const cardStyling = { m: '3%', width: { xs: '70%', sm: '60%', lg: '50%' }, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: 5, mb: '200px' }
+export const cardStyling = { m: '3%', width: { xs: '70%', sm: '60%', lg: '50%' }, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: 5 }
 
 
 function InfoPage() {
@@ -11,7 +11,7 @@ function InfoPage() {
 
   const pageStyle: AppTheme = {
     dark: {
-        backgroundColor: '#1e374c',
+        backgroundColor: '#172a3a',
         color: 'white',
     },
     light: {

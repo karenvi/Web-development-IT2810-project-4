@@ -193,7 +193,6 @@ function Countries() {
         sx={{
           width: { xs: "95%", sm: "85%", md: "75%", lg: "65%" },
           m: "10px",
-          mb: "200px",
         }}
         component={Paper}
       >
@@ -314,7 +313,9 @@ function Countries() {
                     className="pointer"
                     style={rowStyle}
                   >
+                    <button id="buttonInTable">
                     {row.Country}
+                    </button>
                   </TableCell>
                   <TableCell align="right" className="pointer" style={rowStyle}>
                     {row.Continent}

@@ -1,8 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { ThemeContext } from '../../App';
-import { AppTheme } from '../../AppTheme';
-import ThemeToggle from '../ThemeToggle';
 import './Header.css'
 
 function Header() {
@@ -23,7 +21,6 @@ function Header() {
       <nav className='header' style={{backgroundColor: '#172a3a'}}>
         <div id="logoContainer"><Link id='logoLink' to="/">ENVISIONARY</Link></div>
           <div className='linkContainer'>
-            <div className='link'><ThemeToggle /></div>
             <Link className='link' to="/">Countries</Link>
             <Link className='link' to="/info-page">Information</Link>
           </div>

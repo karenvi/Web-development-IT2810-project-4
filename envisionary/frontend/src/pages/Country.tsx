@@ -14,10 +14,13 @@ import GiveReview from './GiveReview';
 import { AppTheme } from '../AppTheme';
 import { useContext } from 'react';
 import { ThemeContext } from '../App';
+import { useRecoilState } from 'recoil';
+import { starOpacityRating } from '../states/states';
 
 function Country() {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
+  const [starOpacity, setStarOpacity] = useRecoilState<number>(starOpacityRating);
   const { loading, error, data, refetch } = useQuery(
     GET_COUNTRY_DATA_BY_NAME, { variables: { country: location.state.country.Country } });
 
@@ -53,7 +56,7 @@ function Country() {
       <Typography component="h1" variant="h3" sx={{ m: 2, fontSize: '40px' }}>{location.state.country.Country}</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', px: '48px', mb: 1 }}>
         <Rating name="read-only" value={avrgRating} precision={0.5} readOnly
-          emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+          emptyIcon={<StarIcon style={{ opacity: starOpacity }} fontSize="inherit" />}
         />
         <Typography variant="overline" sx={{ ml: 1 }}> {avrgRating.toFixed(2)} / 5 ({numberOfReviews})</Typography>
       </Box>
