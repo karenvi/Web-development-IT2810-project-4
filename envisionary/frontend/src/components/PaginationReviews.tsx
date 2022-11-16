@@ -13,6 +13,17 @@ interface Props {
     country: string;
 }
 
+const paginationReviewsStyle: AppTheme = {
+    dark: {
+        backgroundColor: '#1e374c',
+        color: '#ffffff',
+    },
+    light: {
+        backgroundColor: '#ffffff',
+        color: '#000000',
+    },
+}
+
 function PaginationReviews({ sortReviews, country }: Props) {
     const { theme } = useContext(ThemeContext);
     const [paginationColor, setPaginationColor] = useState<string>("#ffffff");
@@ -30,21 +41,11 @@ function PaginationReviews({ sortReviews, country }: Props) {
     const numberOfPages = Math.ceil(sortReviews.length / elementsPerPage); // How many pages to display in the pagination bar
     const dataPage = PaginationFunctions(sortReviews, elementsPerPage); // What data to display in the pagination
 
-    const paginationReviewsStyle: AppTheme = {
-        dark: {
-            backgroundColor: '#1e374c',
-            color: '#ffffff',
-        },
-        light: {
-            backgroundColor: '#ffffff',
-            color: '#000000',
-        },
-    }
-
     const themeStyle = {
         ...(theme === 'light' ? paginationReviewsStyle.light : paginationReviewsStyle.dark),
     }
 
+    // Ensure that the stars are more visible in terms of opacity when user has dark mode enabled
     useEffect(() => {
         setPaginationColor(theme === 'dark' ? '#ffffff' : '#000000');
         setStarOpacity(theme === 'dark' ? 1 : 0.55);

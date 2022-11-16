@@ -14,7 +14,7 @@ function Header() {
     } else {
       body[0].style.backgroundColor = '#dfe9f2';
     }
-  },[theme]);
+  }, [theme]);
 
   return (
     <header>

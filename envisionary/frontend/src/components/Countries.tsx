@@ -28,16 +28,83 @@ import { useQuery } from "@apollo/client";
 import { GET_COUNTRIES_PAGINATION } from "../graphql/queries";
 import { AppTheme } from "../context/AppTheme";
 import { ThemeContext } from "../App";
+import { dropDownStyling } from "./UserInput";
 
 const pageSize = 10;
 
 // Styling of the table headers
 const tableHeadStyling = { fontWeight: "bold" };
 
-// Styling of next and prev buttons
-const buttonStyling = {
+// Styling of next and prev buttons and add review button
+export const buttonStyling = {
   backgroundColor: "#31597a",
-  "&:hover": { backgroundColor: "#172A3A" },
+  "&:hover": { backgroundColor: "#2c506d" },
+};
+
+const styleForTableRow: AppTheme = {
+  dark: {
+    backgroundColor: "#172a3a",
+    color: "white",
+  },
+  light: {
+    backgroundColor: "white",
+    color: "black",
+  },
+};
+
+// Styling of various elements both light and dark theme
+const styleInputFields = {
+  dark: {
+    backgroundColor: "#172a3a",
+    color: "#ffffff",
+    input: {
+      color: "#ffffff",
+    },
+    "& label": {
+      color: "#ffffff",
+    },
+    "& label.Mui-focused": {
+      color: "#ffffff",
+    },
+    "&:hover label": {
+      color: "#ffffff",
+    },
+    "& .MuiInput-underline:after": {
+      color: "#ffffff",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#ffffff",
+      },
+      "&:hover fieldset": {
+        borderColor: "#ffffff",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#ffffff",
+      },
+    },
+
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#ffffff !important",
+    },
+    "& .MuiSvgIcon-root": {
+      color: "#ffffff !important",
+    },
+    
+    
+  },
+  light: {
+    color: "#000000",
+  },
+};
+
+const textStyling: AppTheme = {
+  dark: {
+    color: "white",
+  },
+  light: {
+    color: "black",
+  },
 };
 
 function Countries() {
@@ -95,69 +162,6 @@ function Countries() {
     setPage(0);
   };
 
-  const styleForTableRow: AppTheme = {
-    dark: {
-      backgroundColor: "#172a3a",
-      color: "white",
-    },
-    light: {
-      backgroundColor: "white",
-      color: "black",
-    },
-  };
-
-  const styleInputFields = {
-    dark: {
-      backgroundColor: "#172a3a",
-      color: "#ffffff",
-      input: {
-        color: "#ffffff",
-      },
-      "& label": {
-        color: "#ffffff",
-      },
-      "& label.Mui-focused": {
-        color: "#ffffff",
-      },
-      "&:hover label": {
-        color: "#ffffff",
-      },
-      "& .MuiInput-underline:after": {
-        color: "#ffffff",
-      },
-      "& .MuiOutlinedInput-root": {
-        "& fieldset": {
-          borderColor: "#ffffff",
-        },
-        "&:hover fieldset": {
-          borderColor: "#ffffff",
-        },
-        "&.Mui-focused fieldset": {
-          borderColor: "#ffffff",
-        },
-      },
-
-      "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: "#ffffff !important",
-      },
-      "& .MuiSvgIcon-root": {
-        color: "#ffffff !important",
-      },
-    },
-    light: {
-      color: "#000000",
-    },
-  };
-
-  const textStyling: AppTheme = {
-    dark: {
-      color: "white",
-    },
-    light: {
-      color: "black",
-    },
-  };
-
   const rowStyle = {
     ...(theme === "light" ? styleForTableRow.light : styleForTableRow.dark),
   };
@@ -168,6 +172,10 @@ function Countries() {
 
   const inputStyle = {
     ...(theme === "dark" ? styleInputFields.dark : styleInputFields.light),
+  };
+
+  const inputDropDownStyle = {
+    ...(theme === "dark" ? dropDownStyling.dark : dropDownStyling.light),
   };
 
   return (
@@ -204,7 +212,8 @@ function Countries() {
                 <label htmlFor="filter-category">
                   <span className="visually-hidden">Sort by:</span>
                 </label>
-                <FormControl fullWidth sx={{ width: "300px", ml: "10px" }}>
+                <Box sx={{ width: "300px", ml: "10px"}}>
+                <FormControl fullWidth sx={inputDropDownStyle}>
                   <InputLabel id="select-filter-category">Sort by:</InputLabel>
                   <Select
                     labelId="select-filter-category"
@@ -212,8 +221,9 @@ function Countries() {
                     value={sortingCategory}
                     label="Sort by:"
                     onChange={sortData}
-                    sx={inputStyle}
+                    sx={inputDropDownStyle}
                   >
+                  
                     <MenuItem value="Country-asc">Ascending country</MenuItem>
                     <MenuItem value="Continent-asc">
                       Ascending continent
@@ -223,7 +233,9 @@ function Countries() {
                       Descending continent
                     </MenuItem>
                   </Select>
+                  
                 </FormControl>
+                </Box>
               </TableCell>
               <TableCell
                 colSpan={2}
@@ -237,7 +249,6 @@ function Countries() {
                   onChange={(event) => {
                     setHideUnreviewed(event.target.checked);
                     setPage(0);
-                    console.log(data, page);
                     refetch({ offset: 0 }); // refetch to check if there are any new countries with reviews not in local cache
                   }}
                   inputProps={{ "aria-label": "controlled" }}

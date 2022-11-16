@@ -11,11 +11,11 @@ import { IReview } from '../types';
 import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import { cardStyling } from './InfoPage';
 import GiveReview from './GiveReview';
-import { AppTheme } from '../context/AppTheme';
 import { useContext } from 'react';
 import { ThemeContext } from '../App';
 import { useRecoilState } from 'recoil';
 import { starOpacityRating } from '../states/states';
+import { pageStyle } from './InfoPage';
 
 function Country() {
   const { theme } = useContext(ThemeContext);
@@ -35,19 +35,8 @@ function Country() {
     numberOfReviews = data.countryByName.Reviews.length;
   }
 
-  const countryStyle: AppTheme = {
-    dark: {
-        backgroundColor: '#172a3a',
-        color: 'white',
-    },
-    light: {
-        backgroundColor: 'white',
-        color: 'black',
-    },
-  }
-
   const themeStyle = {
-      ...(theme === 'light' ? countryStyle.light : countryStyle.dark),
+      ...(theme === 'light' ? pageStyle.light : pageStyle.dark),
   }
 
 

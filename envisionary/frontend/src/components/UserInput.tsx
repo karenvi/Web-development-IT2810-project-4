@@ -10,6 +10,98 @@ import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../App';
 import { useContext } from 'react';
 
+export const dropDownStyling = {
+  dark: {
+    backgroundColor: "#172a3a",
+    color: "#ffffff",
+    input: {
+      color: "#ffffff",
+    },
+    "& label": {
+      color: "#ffffff",
+    },
+    "& label.Mui-focused": {
+      color: "#ffffff",
+    },
+    "&:hover label": {
+      color: "#ffffff",
+    },
+    "& .MuiInput-underline:after": {
+      color: "#ffffff",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#ffffff",
+      },
+      "&:hover fieldset": {
+        borderColor: "#ffffff",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#ffffff",
+      },
+    },
+
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderColor: "#ffffff !important",
+    },
+    "& .MuiSvgIcon-root": {
+      color: "#ffffff !important",
+    },
+  },
+  light: {
+    color: "#000000",
+  },
+};
+
+const inputBoxStyle = {
+  dark: {
+    backgroundColor: '#172a3a',
+    color: "#ffffff",
+},
+light: {
+    backgroundColor: '#ffffff',
+    color: '#000000'
+},
+}
+
+const searchQueryStyle = {
+  dark: {
+    backgroundColor: '#172a3a',
+    color: "#ffffff",
+
+    input: {
+      color: "#ffffff",
+    },
+    "& label": {
+      color: "#ffffff",
+    },
+    "& label.MuiFocused": {
+      color: "#ffffff",
+    },
+    "&:hover label": {
+      color: "#ffffff",
+    },
+    "& .MuiInputUnderline:after": {
+      color: "#ffffff",
+    },
+    "& .MuiOutlinedInput-root": {
+      "&.Mui-focused fieldset": {
+        borderColor: '#ffffff',
+      }
+    },
+    '& fieldset.MuiOutlinedInput-notchedOutline': {
+      borderColor: '#ffffff',
+    },
+    '&:hover fieldset.MuiOutlinedInput-notchedOutline': {
+      borderColor: '#ffffff',
+    },
+  },
+  light: {
+      backgroundColor: 'white',
+  },
+}
+
+
 // This component takes in a search query from user and what category the user has picked to search in.
 function UserInput() {
   const { theme } = useContext(ThemeContext);
@@ -26,90 +118,10 @@ function UserInput() {
     e.preventDefault();
   }
 
-  const inputBoxStyle = {
-    dark: {
-      backgroundColor: '#172a3a',
-      color: "#ffffff",
-  },
-  light: {
-      backgroundColor: '#ffffff',
-      color: '#000000'
-  },
-}
-
-  const searchQueryStyle = {
-    dark: {
-        backgroundColor: '#172a3a',
-        color: "#ffffff",
-        input: {
-          color: "#ffffff",
-        },
-        "& label": {
-          color: "#ffffff",
-        },
-        "& label.MuiFocused": {
-          color: "#ffffff",
-        },
-        "&:hover label": {
-          color: "#ffffff",
-        },
-        "& .MuiInputUnderline:after": {
-          color: "#ffffff",
-        },
-    },
-    light: {
-        backgroundColor: 'white',
-    },
-  }
-
-  const dropDownStyling = {
-    dark: {
-      backgroundColor: "#172a3a",
-      color: "#ffffff",
-      input: {
-        color: "#ffffff",
-      },
-      "& label": {
-        color: "#ffffff",
-      },
-      "& label.Mui-focused": {
-        color: "#ffffff",
-      },
-      "&:hover label": {
-        color: "#ffffff",
-      },
-      "& .MuiInput-underline:after": {
-        color: "#ffffff",
-      },
-      "& .MuiOutlinedInput-root": {
-        "& fieldset": {
-          borderColor: "#ffffff",
-        },
-        "&:hover fieldset": {
-          borderColor: "#ffffff",
-        },
-        "&.Mui-focused fieldset": {
-          borderColor: "#ffffff",
-        },
-      },
-
-      "& .MuiOutlinedInput-notchedOutline": {
-        borderColor: "#ffffff !important",
-      },
-      "& .MuiSvgIcon-root": {
-        color: "#ffffff !important",
-      },
-    },
-    light: {
-      color: "#000000",
-    },
-  };
-
   const searchStyle = {
       ...(theme === 'light' ? searchQueryStyle.light : searchQueryStyle.dark),
   }
 
-  
   const inputStyle = {
     ...(theme === 'light' ? inputBoxStyle.light : inputBoxStyle.dark),
   }
@@ -144,7 +156,7 @@ function UserInput() {
         />
       </form>
       <FormControl fullWidth sx={{ width: '150px', ml: "10px" }}>
-        <InputLabel id="demo-simple-select-label">Category:</InputLabel>
+        <InputLabel id="demo-simple-select-label" sx={dropdownStyle}>Category:</InputLabel>
         <label htmlFor="demo-simple-select">
           <span className="visually-hidden">Select which category to search in</span>
         </label>

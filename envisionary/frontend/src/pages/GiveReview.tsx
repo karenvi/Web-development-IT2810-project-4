@@ -14,11 +14,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import { ThemeContext } from '../App';
 import { useRecoilState } from 'recoil';
 import { starOpacityRating } from '../states/states';
+import { buttonStyling } from '../components/Countries';
 
-
+// Miscellanous styling both for light and dark theme
 const styleTitleOfReviews = { width: "100%", display: 'flex', justifyContent: 'flex-start', mb: "20px"};
-const styleReviewButton = { backgroundColor: '#31597a', '&:hover': { backgroundColor: '#172A3A' }};
 
+// Styling of modal
 const modalStyle = {
   position: 'absolute' as 'absolute',
   top: '50%',
@@ -35,6 +36,37 @@ const modalStyle = {
   boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)',
   borderRadius: '10px',
 };
+
+const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
+
+// Dark and light mode styling
+const giveReviewStyle = {
+  dark: {
+      backgroundColor: '#1e374c',
+      color: '#ffffff',
+  },
+  light: {
+      backgroundColor: 'white',
+      color: 'black',
+  },
+}
+
+const inputReviewStyle = {
+    dark: {
+      width: '100%',
+      input: {
+        color: "#ffffff",
+      },
+      '& fieldset.MuiOutlinedInput-notchedOutline': {
+        borderColor: '#ffffff',
+      },
+      '&:hover fieldset.MuiOutlinedInput-notchedOutline': {
+        borderColor: '#ffffff',
+      },
+    },
+    light: {
+    },  
+}
 
 
 function GiveReview() {
@@ -133,21 +165,14 @@ function GiveReview() {
     setOpen(false);
   }
 
-  const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
 
-  const giveReviewStyle = {
-    dark: {
-        backgroundColor: '#1e374c',
-        color: '#ffffff',
-    },
-    light: {
-        backgroundColor: 'white',
-        color: 'black',
-    },
-  }
 
   const reviewStyle = {
     ...(theme === 'light' ? giveReviewStyle.light : giveReviewStyle.dark),
+  }
+
+  const reviewInputStyle = {
+    ...(theme === 'light' ? inputReviewStyle.light : inputReviewStyle.dark),
   }
 
   return (
@@ -161,7 +186,7 @@ function GiveReview() {
         id="button-write-review"
         variant="contained"
         onClick={handleModalOpen}
-        sx={styleReviewButton}
+        sx={buttonStyling}
       >
        Review {location}
       </Button>
@@ -178,6 +203,7 @@ function GiveReview() {
           </IconButton>
         </Box>
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
+        <Box sx={{width: '50%', minWidth: '100px'}}>
         <TextField id="name-field"
           required
           label=""
@@ -187,8 +213,9 @@ function GiveReview() {
           error={invalidAuthor}
           helperText={authorError}
           onChange={(e) => setAuthor(e.target.value)}
-          sx={reviewStyle}
+          sx={reviewInputStyle}
         />
+        </Box>
 
         <Typography component="label" htmlFor="rating-stars" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Rating</Typography>
         <Rating id="rating-stars"
@@ -202,7 +229,7 @@ function GiveReview() {
         />
 
         <Typography component="label" htmlFor="review-content-field" variant="h6" sx={reviewHeaderStyling}>Review Content</Typography>
-        <Box sx={{width: '50vw', mixWidth: '100px', maxWidth: '450px', mb: "20px"}}>
+        <Box sx={{width: '50vw', minWidth: '100px', maxWidth: '450px', mb: "20px"}}>
         <TextField
           id="review-content-field"
           label=""
@@ -211,11 +238,13 @@ function GiveReview() {
           rows={7}
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
+          sx={reviewInputStyle}
+          InputProps={{ inputProps: { style: { color: '#ffffff' }}}}
         />
         </Box>
 
         <Button variant="contained"
-          sx={styleReviewButton}
+          sx={buttonStyling}
           onClick={(event) => {
             event.preventDefault();
             submit()

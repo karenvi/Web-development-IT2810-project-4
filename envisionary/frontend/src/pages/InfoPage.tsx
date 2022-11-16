@@ -5,20 +5,20 @@ import { AppTheme } from "../context/AppTheme";
 
 export const cardStyling = { m: '3%', width: { xs: '70%', sm: '60%', lg: '50%' }, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: 5 }
 
-
+export const pageStyle: AppTheme = {
+  dark: {
+      backgroundColor: '#172a3a',
+      color: 'white',
+  },
+  light: {
+      backgroundColor: 'white',
+      color: 'black',
+  },
+}
 function InfoPage() {
   const { theme } = useContext(ThemeContext);
 
-  const pageStyle: AppTheme = {
-    dark: {
-        backgroundColor: '#172a3a',
-        color: 'white',
-    },
-    light: {
-        backgroundColor: 'white',
-        color: 'black',
-    },
-  }
+
 
   const themeStyle = {
     ...(theme === 'light' ? pageStyle.light : pageStyle.dark),
