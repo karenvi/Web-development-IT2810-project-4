@@ -26,7 +26,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useQuery } from "@apollo/client";
 import { GET_COUNTRIES_PAGINATION } from "../graphql/queries";
-import { AppTheme } from "../AppTheme";
+import { AppTheme } from "../context/AppTheme";
 import { ThemeContext } from "../App";
 
 const pageSize = 10;

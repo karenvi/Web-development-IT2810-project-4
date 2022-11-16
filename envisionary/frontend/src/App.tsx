@@ -5,7 +5,7 @@ import Feed from "./pages/Feed";
 import Country from "./pages/Country";
 import InfoPage from "./pages/InfoPage";
 import React, { createContext, useEffect, useState } from "react";
-import ThemeToggle from './components/ThemeToggle';
+import ThemeToggle from './context/ThemeToggle';
 import { Box } from "@mui/material";
 import { useRecoilState } from "recoil";
 import { toggleColorTheme } from "./states/states";

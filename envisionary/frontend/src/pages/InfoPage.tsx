@@ -1,7 +1,7 @@
 import { Card, Box, Typography } from "@mui/material";
 import { useContext } from "react";
 import { ThemeContext } from "../App";
-import { AppTheme } from "../AppTheme";
+import { AppTheme } from "../context/AppTheme";
 
 export const cardStyling = { m: '3%', width: { xs: '70%', sm: '60%', lg: '50%' }, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', p: 5 }
 

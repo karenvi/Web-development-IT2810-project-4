@@ -1,7 +1,7 @@
 import { FormControlLabel, FormGroup, Switch } from "@mui/material";
 import { useContext } from "react";
 import { ThemeContext } from "../App";
-import { AppTheme } from "../AppTheme";
+import { AppTheme } from "./AppTheme";
 
 const ThemeToggle = () => {
     const { theme, setTheme } = useContext(ThemeContext);

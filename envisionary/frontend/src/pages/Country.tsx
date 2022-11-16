@@ -11,7 +11,7 @@ import { IReview } from '../types';
 import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import { cardStyling } from './InfoPage';
 import GiveReview from './GiveReview';
-import { AppTheme } from '../AppTheme';
+import { AppTheme } from '../context/AppTheme';
 import { useContext } from 'react';
 import { ThemeContext } from '../App';
 import { useRecoilState } from 'recoil';

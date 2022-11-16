@@ -3,7 +3,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { IReview } from "../types"
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import PaginationFunctions from "../utils/PaginationFunctions";
-import { AppTheme } from "../AppTheme";
+import { AppTheme } from "../context/AppTheme";
 import { ThemeContext } from "../App";
 import { useRecoilState } from "recoil";
 import { starOpacityRating } from "../states/states";
