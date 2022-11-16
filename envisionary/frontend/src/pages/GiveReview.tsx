@@ -81,7 +81,7 @@ function GiveReview() {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false)
   const [starOpacity, setStarOpacity] = useRecoilState<number>(starOpacityRating);
-
+  const [toggleColor, setToggleColor] = useRecoilState<string>(toggleColorTheme);
 
   //Functions of setters that are being used multiple times to clear the review field:
   const clearReview = () => {
@@ -239,7 +239,7 @@ function GiveReview() {
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
           sx={reviewInputStyle}
-          InputProps={{ inputProps: { style: { color: '#ffffff' }}}}
+          InputProps={{ inputProps: { style: { color: toggleColor }}}}
         />
         </Box>
 
