@@ -34,20 +34,16 @@ function Country() {
 
   const countryStyle: AppTheme = {
     dark: {
-        backgroundColor: '#1e374c',
+        backgroundColor: '#172a3a',
         color: 'white',
     },
     light: {
         backgroundColor: 'white',
         color: 'black',
     },
-    common: {
-        transition: 'all 1s ease',
-    },
   }
 
   const themeStyle = {
-      ...countryStyle.common,
       ...(theme === 'light' ? countryStyle.light : countryStyle.dark),
   }
 

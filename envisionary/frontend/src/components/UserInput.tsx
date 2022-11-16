@@ -7,9 +7,53 @@ import Select from '@mui/material/Select';
 import { useRecoilState } from 'recoil';
 import { categoryState, pageState, searchQueryState } from '../states/states';
 import { useNavigate } from 'react-router-dom';
-import { AppTheme } from '../AppTheme';
 import { ThemeContext } from '../App';
 import { useContext } from 'react';
+
+const userInputStyle = {
+  dark: {
+      backgroundColor: '#172a3a',
+      color: '#ffffff',
+      input: {
+        color: '#ffffff'
+      },
+      "& label": {
+        color: '#ffffff'
+      },
+      "& label.Mui-focused": {
+        color: '#ffffff'
+      },
+      "&:hover label": {
+        color: '#ffffff'
+      },
+      "& .MuiInput-underline:after": {
+        color: '#ffffff'
+      },
+      "& .MuiOutlinedInput-root": {
+        "& fieldset": {
+          borderColor: '#ffffff'
+        },
+        "&:hover fieldset": {
+          borderColor: '#ffffff'
+        },
+        "&.Mui-focused fieldset": {
+          borderColor: '#ffffff'
+        }
+      },
+
+    '& .MuiOutlinedInput-notchedOutline': {
+        borderColor:  '#ffffff !important',
+    },
+    '& .MuiSvgIcon-root': {
+        color: '#ffffff !important',
+    },
+
+  },
+  light: {
+      backgroundColor: 'white',
+      color: 'black',
+  },
+}
 
 // This component takes in a search query from user and what category the user has picked to search in.
 function UserInput() {
@@ -27,22 +71,7 @@ function UserInput() {
     e.preventDefault();
   }
 
-  const userInputStyle: AppTheme = {
-    dark: {
-        backgroundColor: '#1e374c',
-        color: 'white',
-    },
-    light: {
-        backgroundColor: 'white',
-        color: 'black',
-    },
-    common: {
-        transition: 'all ls ease',
-    },
-}
-
 const themeStyle = {
-    ...userInputStyle.common,
     ...(theme === 'light' ? userInputStyle.light : userInputStyle.dark),
 }
 
@@ -68,6 +97,7 @@ const themeStyle = {
             setSearchQuery((event.target as HTMLInputElement).value);
             setPage(0);
           }}
+          sx={themeStyle}
         />
       </form>
       <FormControl fullWidth sx={{ width: '150px', ml: "10px" }}>
@@ -82,6 +112,7 @@ const themeStyle = {
           value={category}
           label="Category:"
           onChange={(event) => { setCategory(event.target.value as string) }}
+          sx={themeStyle}
         >
           <MenuItem value='Country'>Country</MenuItem>
           <MenuItem value='Continent'>Continent</MenuItem>

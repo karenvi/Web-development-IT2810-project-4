@@ -11,8 +11,9 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { GET_COUNTRY_DATA_BY_NAME, GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
 import { IReview } from '../types';
 import CloseIcon from '@mui/icons-material/Close';
-import { AppTheme } from '../AppTheme';
 import { ThemeContext } from '../App';
+import { useRecoilState } from 'recoil';
+import { starOpacityRating } from '../states/states';
 
 
 const styleTitleOfReviews = { width: "100%", display: 'flex', justifyContent: 'flex-start', mb: "20px"};
@@ -47,6 +48,7 @@ function GiveReview() {
   const [clear, setClear] = useState("false");
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false)
+  const [starOpacity, setStarOpacity] = useRecoilState<number>(starOpacityRating);
 
 
   //Functions of setters that are being used multiple times to clear the review field:
@@ -133,22 +135,50 @@ function GiveReview() {
 
   const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
 
-  const giveReviewStyle: AppTheme = {
+  const giveReviewStyle = {
     dark: {
         backgroundColor: '#1e374c',
-        color: 'white',
+        color: '#ffffff',
+        input: {
+          color: '#ffffff'
+        },
+        "& label": {
+          color: '#ffffff'
+        },
+        "& label.Mui-focused": {
+          color: '#ffffff'
+        },
+        "&:hover label": {
+          color: '#ffffff'
+        },
+        "& .MuiInput-underline:after": {
+          color: '#ffffff'
+        },
+        "& .MuiOutlinedInput-root": {
+          "& fieldset": {
+            borderColor: '#ffffff'
+          },
+          "&:hover fieldset": {
+            borderColor: '#ffffff'
+          },
+          "&.Mui-focused fieldset": {
+            borderColor: '#ffffff'
+          }
+        },
+      '& .MuiOutlinedInput-notchedOutline': {
+          borderColor:  '#ffffff !important',
+      },
+      '& .MuiSvgIcon-root': {
+          color: '#ffffff !important',
+      }, 
     },
     light: {
         backgroundColor: 'white',
         color: 'black',
     },
-    common: {
-        transition: 'all ls ease',
-    },
   }
 
-  const themeStyle = {
-    ...giveReviewStyle.common,
+  const reviewStyle = {
     ...(theme === 'light' ? giveReviewStyle.light : giveReviewStyle.dark),
   }
 
@@ -172,7 +202,7 @@ function GiveReview() {
         onClose={handleModalClose}
       >
         
-      <Box component="main" sx={modalStyle} style={themeStyle}>
+      <Box component="main" sx={modalStyle} style={reviewStyle}>
         <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
           <Typography component="h1" variant="h6">Write a review for {location}</Typography>
           <IconButton aria-label="close modal" onClick={handleModalClose}>
@@ -183,13 +213,13 @@ function GiveReview() {
         <TextField id="name-field"
           required
           label=""
-          sx={{ width: 250 }}
           placeholder="Name"
           variant="outlined"
           value={author}
           error={invalidAuthor}
           helperText={authorError}
           onChange={(e) => setAuthor(e.target.value)}
+          sx={reviewStyle}
         />
 
         <Typography component="label" htmlFor="rating-stars" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Rating</Typography>
@@ -200,20 +230,21 @@ function GiveReview() {
           onChange={(event, newValue) => {
             newValue === null ? setRating(0) : setRating(newValue);
           }}
-          emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+          emptyIcon={<StarIcon style={{ opacity: starOpacity }} fontSize="inherit" />}
         />
 
         <Typography component="label" htmlFor="review-content-field" variant="h6" sx={reviewHeaderStyling}>Review Content</Typography>
+        <Box sx={{width: '50vw', mixWidth: '100px', maxWidth: '450px', mb: "20px"}}>
         <TextField
           id="review-content-field"
           label=""
           placeholder="Write your review..."
           multiline
           rows={7}
-          sx={{ width: '50vw', mixWidth: '100px', maxWidth: '450px', mb: "20px"}}
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
         />
+        </Box>
 
         <Button variant="contained"
           sx={styleReviewButton}

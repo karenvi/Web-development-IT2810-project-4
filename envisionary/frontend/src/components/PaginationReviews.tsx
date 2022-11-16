@@ -5,6 +5,8 @@ import { ChangeEvent, useContext, useEffect, useState } from "react";
 import PaginationFunctions from "../utils/PaginationFunctions";
 import { AppTheme } from "../AppTheme";
 import { ThemeContext } from "../App";
+import { useRecoilState } from "recoil";
+import { starOpacityRating } from "../states/states";
 
 interface Props {
     sortReviews: Array<IReview>;
@@ -14,6 +16,7 @@ interface Props {
 function PaginationReviews({ sortReviews, country }: Props) {
     const { theme } = useContext(ThemeContext);
     const [paginationColor, setPaginationColor] = useState<string>("#ffffff");
+    const [starOpacity, setStarOpacity] = useRecoilState<number>(starOpacityRating);
     const [onPage, setOnPage] = useState(1);
     let number = 0;
 
@@ -29,28 +32,26 @@ function PaginationReviews({ sortReviews, country }: Props) {
 
     const paginationReviewsStyle: AppTheme = {
         dark: {
-            backgroundColor: '#2c5171',
-            color: 'white',
+            backgroundColor: '#1e374c',
+            color: '#ffffff',
         },
         light: {
-            backgroundColor: 'white',
-            color: 'black',
-        },
-        common: {
-            transition: 'all 1s ease',
+            backgroundColor: '#ffffff',
+            color: '#000000',
         },
     }
 
     const themeStyle = {
-        ...paginationReviewsStyle.common,
         ...(theme === 'light' ? paginationReviewsStyle.light : paginationReviewsStyle.dark),
     }
 
     useEffect(() => {
         if (theme === 'light') {
             setPaginationColor('#000000');
+            setStarOpacity(0.55);
         } else {
             setPaginationColor('#ffffff');
+            setStarOpacity(1);
         }
     }, [theme]);
 
@@ -70,7 +71,7 @@ function PaginationReviews({ sortReviews, country }: Props) {
                                         value={row.Rating}
                                         precision={0.5}
                                         readOnly
-                                        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                                        emptyIcon={<StarIcon style={{ opacity: starOpacity }} fontSize="inherit" />}
                                     />
                                 </Grid>
                                 <Grid item md={4} sx={{ display: 'flex', flexDirection: 'row', width: "100%", justifyContent: { xs: 'start', sm: 'start', md: 'end' } }}>

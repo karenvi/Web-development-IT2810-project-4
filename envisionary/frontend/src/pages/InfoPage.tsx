@@ -18,13 +18,9 @@ function InfoPage() {
         backgroundColor: 'white',
         color: 'black',
     },
-    common: {
-        transition: 'all 1s ease',
-    },
   }
 
   const themeStyle = {
-    ...pageStyle.common,
     ...(theme === 'light' ? pageStyle.light : pageStyle.dark),
   }
 

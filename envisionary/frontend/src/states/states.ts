@@ -14,3 +14,8 @@ export const pageState = atom({
   key: 'pageforpagination',
   default: 0,
 });
+
+export const starOpacityRating = atom({
+  key: 'ratingstarvisibility',
+  default: 1,
+});

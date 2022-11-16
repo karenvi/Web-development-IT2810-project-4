@@ -8,25 +8,6 @@ import './Header.css'
 function Header() {
   const { theme } = useContext(ThemeContext);
 
-  const headerStyle: AppTheme = {
-    dark: {
-        backgroundColor: '#091015',
-        color: 'white',
-    },
-    light: {
-        backgroundColor: '#a9c4dc',
-        color: 'black',
-    },
-    common: {
-        transition: 'all 1s ease',
-    },
-  }
-
-  const themeStyle = {
-    ...headerStyle.common,
-    ...(theme === 'light' ? headerStyle.light : headerStyle.dark),
-  }
-
   // Ensure that the body has the same color depending on theme
   useEffect(() => {
     const body = document.getElementsByTagName("body");
@@ -38,8 +19,8 @@ function Header() {
   },[theme]);
 
   return (
-    <header style={themeStyle}>
-      <nav className='header'>
+    <header>
+      <nav className='header' style={{backgroundColor: '#172a3a'}}>
         <div id="logoContainer"><Link id='logoLink' to="/">ENVISIONARY</Link></div>
           <div className='linkContainer'>
             <div className='link'><ThemeToggle /></div>
