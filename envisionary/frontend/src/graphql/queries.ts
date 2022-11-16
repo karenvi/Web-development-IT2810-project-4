@@ -26,7 +26,7 @@ query Countries {
         Name,
         ReviewText,
         Date,
-        Rating
+        Rating,
     }
     }
 }
@@ -53,25 +53,12 @@ query PaginatedCountries($offset: Int, $limit: Int, $sortOn: String, $sortDesc: 
     Density,
     GrowthRate,
     WorldPopulationPercentage,
+    __typename,
   }
 }
 `;
 
-// Get a reviews for a specific country
-export const GET_REVIEWS_BY_COUNTRY_NAME = gql`
-query CountryReviewsByName($country: String) {
-  countryByName(Country: $country) {
-    Reviews{
-        Name,
-        ReviewText,
-        Date,
-        Rating
-    }
-    }
-}
-`;
-
-// Get a reviews for a specific country
+// Get country data for a specific country
 export const GET_COUNTRY_DATA_BY_NAME = gql`
 query GetCountryDataByName($country: String) {
   countryByName(Country: $country) {
@@ -97,8 +84,10 @@ query GetCountryDataByName($country: String) {
         Name,
         ReviewText,
         Date,
-        Rating
-    }
+        Rating,
+        __typename,
+    },
+    __typename,
     }
 }
 `;

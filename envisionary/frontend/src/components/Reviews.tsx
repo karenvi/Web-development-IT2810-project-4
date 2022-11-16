@@ -1,13 +1,13 @@
 import { useLocation } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
+import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import { IReview } from "../types"
 import PaginationReviews from "./PaginationReviews";
 
 function Reviews() {
   const location = useLocation();
-  const { loading, error, data } = useQuery(GET_REVIEWS_BY_COUNTRY_NAME, { variables: { country: location.state.country.Country } });
-
+  const { loading, error, data } = useQuery(GET_COUNTRY_DATA_BY_NAME, { variables: { country: location.state.country.Country } });
+  
   if (loading) return <p>Loading reviews ...</p>;
   if (error) return <p>Could not get reviews</p>;
 

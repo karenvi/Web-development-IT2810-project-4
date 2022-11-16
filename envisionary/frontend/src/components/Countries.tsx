@@ -112,9 +112,11 @@ function Countries() {
   const [category, setCategory] = useRecoilState(categoryState);
   const [searchQuery, setSearchQuery] = useRecoilState(searchQueryState);
   const [page, setPage] = useRecoilState(pageState);
-  // This state takes in the value from the dropdown
+
+  // This state takes in the value from the search dropdown 
   const [sortingCategory, setSortingCategory] = useState("Country-asc");
-  // A clean "value" from the dropdown, default country and ascending order
+
+  // A clean "value" from the sorting dropdown, default country and ascending order
   const [finalSortingCategory, setFinalSortingCategory] = useState("Country");
   const [sortDescending, setSortDescending] = useState(false);
   const [hideUnreviewedCountries, setHideUnreviewed] = useState(false);
@@ -249,7 +251,7 @@ function Countries() {
                   onChange={(event) => {
                     setHideUnreviewed(event.target.checked);
                     setPage(0);
-                    refetch({ offset: 0 }); // refetch to check if there are any new countries with reviews not in local cache
+                    refetch({ hideUnreviewed: event.target.checked, offset: 0 }); // refetch to check if there are any new countries with reviews not in local cache
                   }}
                   inputProps={{ "aria-label": "controlled" }}
                   sx={inputStyle}

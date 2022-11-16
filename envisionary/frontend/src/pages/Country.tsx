@@ -21,8 +21,7 @@ function Country() {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
   const [starOpacity] = useRecoilState<number>(starOpacityRating);
-  const { loading, error, data, refetch } = useQuery(
-    GET_COUNTRY_DATA_BY_NAME, { variables: { country: location.state.country.Country } });
+  const { loading, error, data, refetch } = useQuery(GET_COUNTRY_DATA_BY_NAME, { variables: { country: location.state.country.Country } });
 
   // Fetches any new reviews before calculating average rating
   refetch();
