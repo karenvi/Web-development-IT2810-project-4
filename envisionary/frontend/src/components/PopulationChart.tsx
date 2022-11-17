@@ -12,7 +12,6 @@ import {
 import { useLocation } from 'react-router-dom';
 import { Box } from "@mui/material";
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
-import { canUseLayoutEffect } from "@apollo/client/utilities";
 import { ThemeContext } from "../App";
 import { useContext, useEffect, useState } from "react";
 
