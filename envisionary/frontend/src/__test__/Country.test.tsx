@@ -58,7 +58,7 @@ describe("Testing Country component", () => {
         const { container } = render(
           <MockedProvider mocks={mocks}>
             <RecoilRoot>
-                <Country/>
+              <Country/>
             </RecoilRoot>
           </MockedProvider>,
         )
