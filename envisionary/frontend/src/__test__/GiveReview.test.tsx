@@ -43,7 +43,7 @@ describe("Testing GiveReview component", () => {
 
 /**
  * Couldn't get this to work. There's something different about the contend field compared to the name field
- * that makes some async stuff go wrong. Jest insists that things should be wrapped in act(), but that's a dead end. 
+ * that makes something go wrong. Jest insists that things should be wrapped in act(), but that's a dead end. 
  *  */    
 
 /* 
