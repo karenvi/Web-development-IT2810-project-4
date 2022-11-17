@@ -3,7 +3,8 @@
 exports[`Testing Country component Snapshot test of country component 1`] = `
 <div>
   <main
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1cc5j3n-MuiPaper-root-MuiCard-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1fmu37l-MuiPaper-root-MuiCard-root"
+    style="background-color: rgb(23, 42, 58); color: white;"
   >
     <h1
       class="MuiTypography-root MuiTypography-h3 css-3pne0l-MuiTypography-root"
@@ -349,7 +350,7 @@ exports[`Testing Country component Snapshot test of country component 1`] = `
       class="MuiBox-root css-jhhoj"
     >
       <button
-        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1lf956w-MuiButtonBase-root-MuiButton-root"
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-142aol9-MuiButtonBase-root-MuiButton-root"
         id="button-write-review"
         tabindex="0"
         type="button"
@@ -381,6 +382,7 @@ exports[`Testing Country component Snapshot test of country component 1`] = `
     >
       <div
         class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded css-1ab4lby-MuiPaper-root"
+        style="background-color: rgb(30, 55, 76); color: rgb(255, 255, 255);"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1ebqi03-MuiGrid-root"
@@ -613,7 +615,7 @@ exports[`Testing Country component Snapshot test of country component 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-4 css-z2noyp-MuiGrid-root"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-1b68qyq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-14h8uwo-MuiTypography-root"
             >
               26.10.2022, 21:51
             </p>
@@ -631,6 +633,7 @@ exports[`Testing Country component Snapshot test of country component 1`] = `
       </div>
       <div
         class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded css-1ab4lby-MuiPaper-root"
+        style="background-color: rgb(30, 55, 76); color: rgb(255, 255, 255);"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1ebqi03-MuiGrid-root"
@@ -859,7 +862,7 @@ exports[`Testing Country component Snapshot test of country component 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-4 css-z2noyp-MuiGrid-root"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-1b68qyq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-14h8uwo-MuiTypography-root"
             >
               26.10.2022, 15:53
             </p>
@@ -877,6 +880,7 @@ exports[`Testing Country component Snapshot test of country component 1`] = `
       </div>
       <div
         class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded css-1ab4lby-MuiPaper-root"
+        style="background-color: rgb(30, 55, 76); color: rgb(255, 255, 255);"
       >
         <div
           class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 css-1ebqi03-MuiGrid-root"
@@ -1108,7 +1112,7 @@ exports[`Testing Country component Snapshot test of country component 1`] = `
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-md-4 css-z2noyp-MuiGrid-root"
           >
             <p
-              class="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-1b68qyq-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-body1 MuiTypography-alignRight css-14h8uwo-MuiTypography-root"
             >
               26.10.2022, 15:50
             </p>

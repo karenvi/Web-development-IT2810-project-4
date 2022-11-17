@@ -5,13 +5,24 @@ exports[`Testing Countries component snapshot test 1`] = `
   className="MuiBox-root css-hbm2t4"
 >
   <h1
-    className="MuiTypography-root MuiTypography-h1 css-v6dhnz-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-h1 css-1dwxtnu-MuiTypography-root"
+    style={
+      Object {
+        "color": "white",
+      }
+    }
   >
     Search for a 
     country
   </h1>
   <div
-    className="MuiBox-root css-eolfkn"
+    className="MuiBox-root css-1gtztm6"
+    style={
+      Object {
+        "backgroundColor": "#172a3a",
+        "color": "#ffffff",
+      }
+    }
   >
     <form
       action="/"
@@ -20,7 +31,7 @@ exports[`Testing Countries component snapshot test 1`] = `
       onSubmit={[Function]}
     >
       <div
-        className="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+        className="MuiFormControl-root MuiTextField-root css-xveny1-MuiFormControl-root-MuiTextField-root"
         onInput={[Function]}
       >
         <label
@@ -70,7 +81,7 @@ exports[`Testing Countries component snapshot test 1`] = `
       className="MuiFormControl-root MuiFormControl-fullWidth css-1tp1e4i-MuiFormControl-root"
     >
       <label
-        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+        className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-154uufs-MuiFormLabel-root-MuiInputLabel-root"
         data-shrink={true}
         id="demo-simple-select-label"
       >
@@ -86,7 +97,7 @@ exports[`Testing Countries component snapshot test 1`] = `
         </span>
       </label>
       <div
-        className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+        className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-2h9eqm-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
         onClick={[Function]}
       >
         <div
@@ -142,12 +153,18 @@ exports[`Testing Countries component snapshot test 1`] = `
     </div>
   </div>
   <div
-    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-1sp1wcs-MuiPaper-root-MuiTableContainer-root"
+    className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-1jzwcf2-MuiPaper-root-MuiTableContainer-root"
   >
     <table
       aria-label="Table of countries"
       className="MuiTable-root css-rqglhn-MuiTable-root"
       role={null}
+      style={
+        Object {
+          "backgroundColor": "#172a3a",
+          "color": "white",
+        }
+      }
     >
       <thead
         className="MuiTableHead-root css-15wwp11-MuiTableHead-root"
@@ -156,6 +173,12 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
@@ -173,67 +196,71 @@ exports[`Testing Countries component snapshot test 1`] = `
               </span>
             </label>
             <div
-              className="MuiFormControl-root MuiFormControl-fullWidth css-im9t9x-MuiFormControl-root"
+              className="MuiBox-root css-12zgw5k"
             >
-              <label
-                className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
-                data-shrink={true}
-                id="select-filter-category"
-              >
-                Sort by:
-              </label>
               <div
-                className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
-                onClick={[Function]}
+                className="MuiFormControl-root MuiFormControl-fullWidth css-1v50yi8-MuiFormControl-root"
               >
+                <label
+                  className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+                  data-shrink={true}
+                  id="select-filter-category"
+                >
+                  Sort by:
+                </label>
                 <div
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-labelledby="select-filter-category filter-category"
-                  className="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
-                  id="filter-category"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseDown={[Function]}
-                  role="button"
-                  tabIndex={0}
+                  className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1ow3ue9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                  onClick={[Function]}
                 >
-                  Ascending country
-                </div>
-                <input
-                  aria-hidden={true}
-                  className="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                  disabled={false}
-                  onAnimationStart={[Function]}
-                  onChange={[Function]}
-                  required={false}
-                  tabIndex={-1}
-                  value="Country-asc"
-                />
-                <svg
-                  aria-hidden={true}
-                  className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
-                  data-testid="ArrowDropDownIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M7 10l5 5 5-5z"
-                  />
-                </svg>
-                <fieldset
-                  aria-hidden={true}
-                  className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
-                >
-                  <legend
-                    className="css-14lo706"
+                  <div
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-labelledby="select-filter-category filter-category"
+                    className="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input"
+                    id="filter-category"
+                    onBlur={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onMouseDown={[Function]}
+                    role="button"
+                    tabIndex={0}
                   >
-                    <span>
-                      Sort by:
-                    </span>
-                  </legend>
-                </fieldset>
+                    Ascending country
+                  </div>
+                  <input
+                    aria-hidden={true}
+                    className="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                    disabled={false}
+                    onAnimationStart={[Function]}
+                    onChange={[Function]}
+                    required={false}
+                    tabIndex={-1}
+                    value="Country-asc"
+                  />
+                  <svg
+                    aria-hidden={true}
+                    className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+                    data-testid="ArrowDropDownIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M7 10l5 5 5-5z"
+                    />
+                  </svg>
+                  <fieldset
+                    aria-hidden={true}
+                    className="MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline"
+                  >
+                    <legend
+                      className="css-14lo706"
+                    >
+                      <span>
+                        Sort by:
+                      </span>
+                    </legend>
+                  </fieldset>
+                </div>
               </div>
             </div>
           </th>
@@ -242,10 +269,16 @@ exports[`Testing Countries component snapshot test 1`] = `
             className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1o98s2t-MuiTableCell-root"
             colSpan={2}
             scope="col"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             Hide unreviewed countries
             <span
-              className="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+              className="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-root MuiCheckbox-colorPrimary css-1649q4u-MuiButtonBase-root-MuiCheckbox-root"
               onBlur={[Function]}
               onContextMenu={[Function]}
               onDragLeave={[Function]}
@@ -285,11 +318,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-11sptls-MuiTableCell-root"
             scope="col"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             Country
           </th>
@@ -297,6 +342,12 @@ exports[`Testing Countries component snapshot test 1`] = `
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1o98s2t-MuiTableCell-root"
             scope="col"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             Continent
           </th>
@@ -304,6 +355,12 @@ exports[`Testing Countries component snapshot test 1`] = `
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1o98s2t-MuiTableCell-root"
             scope="col"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             Population (2022)
           </th>
@@ -311,6 +368,12 @@ exports[`Testing Countries component snapshot test 1`] = `
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1o98s2t-MuiTableCell-root"
             scope="col"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             Area (km²)
           </th>
@@ -323,11 +386,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -343,6 +418,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -358,6 +439,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -373,6 +460,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -389,11 +482,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -409,6 +514,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -424,6 +535,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -439,6 +556,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -455,11 +578,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -475,6 +610,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -490,6 +631,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -505,6 +652,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -521,11 +674,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -541,6 +706,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -556,6 +727,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -571,6 +748,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -587,11 +770,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -607,6 +802,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -622,6 +823,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -637,6 +844,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -653,11 +866,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -673,6 +898,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -688,6 +919,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -703,6 +940,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -719,11 +962,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -739,6 +994,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -754,6 +1015,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -769,6 +1036,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -785,11 +1058,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -805,6 +1090,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -820,6 +1111,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -835,6 +1132,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -851,11 +1154,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -871,6 +1186,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -886,6 +1207,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -901,6 +1228,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -917,11 +1250,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-34nofg-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <th
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
             scope="row"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -937,6 +1282,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -952,6 +1303,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -967,6 +1324,12 @@ exports[`Testing Countries component snapshot test 1`] = `
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <span
               className="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -983,11 +1346,23 @@ exports[`Testing Countries component snapshot test 1`] = `
         <tr
           className="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
           role={null}
+          style={
+            Object {
+              "backgroundColor": "#172a3a",
+              "color": "white",
+            }
+          }
         >
           <td
             aria-sort={null}
             className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
             colSpan={4}
+            style={
+              Object {
+                "backgroundColor": "#172a3a",
+                "color": "white",
+              }
+            }
           >
             <div
               className="MuiGrid-root MuiGrid-container css-zo8441-MuiGrid-root"
@@ -996,7 +1371,7 @@ exports[`Testing Countries component snapshot test 1`] = `
                 className="MuiGrid-root css-gfmvt9-MuiGrid-root"
               >
                 <button
-                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1lf956w-MuiButtonBase-root-MuiButton-root"
+                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-142aol9-MuiButtonBase-root-MuiButton-root"
                   disabled={true}
                   onBlur={[Function]}
                   onClick={[Function]}
@@ -1027,7 +1402,7 @@ exports[`Testing Countries component snapshot test 1`] = `
                 className="MuiGrid-root css-1ivdjg1-MuiGrid-root"
               >
                 <button
-                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1lf956w-MuiButtonBase-root-MuiButton-root"
+                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-142aol9-MuiButtonBase-root-MuiButton-root"
                   disabled={false}
                   onBlur={[Function]}
                   onClick={[Function]}

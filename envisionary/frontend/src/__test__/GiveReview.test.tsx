@@ -4,6 +4,7 @@ import renderer from 'react-test-renderer';
 import { MockedProvider } from '@apollo/client/testing';
 import { mocks } from './mocks/mocks';
 import userEvent from "@testing-library/user-event";
+import { RecoilRoot } from "recoil";
 
 
 /**
@@ -30,31 +31,15 @@ jest.mock('react-router-dom', () => {
 });
 
 describe("Testing GiveReview component", () => {
-    beforeEach(async () => {
+    beforeEach(() => {
         render(
             <MockedProvider mocks={mocks} addTypename={false}>
+                <RecoilRoot>
                     <GiveReview />
+                </RecoilRoot>
             </MockedProvider>
         );
     });
-
-    it("snapshot test", () => {
-        const component: renderer.ReactTestRenderer = renderer.create(
-                <MockedProvider mocks={mocks} addTypename={false}>
-                    <GiveReview />
-                </MockedProvider>
-        );
-
-        const tree = component.toJSON();
-        expect(tree).toMatchSnapshot(); 
-    });
-
-
-    it("empty review content field", async () => {
-        userEvent.click(await waitFor(() => screen.findByText('Review Afghanistan')));
-        expect(await screen.findByTestId('review-content-field-test')).toHaveValue('');
-    });
-
 
 /**
  * Couldn't get this to work. There's something different about the contend field compared to the name field
@@ -79,6 +64,7 @@ describe("Testing GiveReview component", () => {
         expect(await screen.findByTestId('name-field-test')).toHaveValue("Muahaha, if it isn't Sonic >:) ");
     });
  */
+
     it("empty name field", async () => {
         userEvent.click(await waitFor(() => screen.findByText('Review Afghanistan')));
 
@@ -120,5 +106,18 @@ describe("Testing GiveReview component", () => {
         expect(await screen.findByTestId('name-field-test')).toHaveValue('$/2gutta');
         userEvent.click(await screen.findByText('Submit'));
         expect(await screen.findByText('A name must start with normal letters (a-z)')).toBeInTheDocument();
+    });
+
+    it("snapshot test", () => {
+        const component: renderer.ReactTestRenderer = renderer.create(
+            <MockedProvider mocks={mocks} addTypename={false}>
+                <RecoilRoot>
+                    <GiveReview />
+                </RecoilRoot>
+            </MockedProvider>
+        );
+
+        const tree = component.toJSON();
+        expect(tree).toMatchSnapshot(); 
     });
 });

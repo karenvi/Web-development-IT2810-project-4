@@ -1,8 +1,10 @@
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 import { failMock, mocks, noReviewsMock } from './mocks/mocks';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import Reviews from '../components/Reviews';
+import { RecoilRoot } from 'recoil';
+import userEvent from '@testing-library/user-event';
 export {};
 
 /**
@@ -33,7 +35,9 @@ describe("Testing Reviews component", () => {
 
         const component: renderer.ReactTestRenderer = renderer.create(
                 <MockedProvider mocks={mocks} addTypename={false}>
-                    <Reviews />
+                    <RecoilRoot>
+                        <Reviews />
+                    </RecoilRoot>
                 </MockedProvider>
         );
 
@@ -42,9 +46,11 @@ describe("Testing Reviews component", () => {
     });
 
     it('Loads reviews correctly', async () => {
-        render(
+        render(        
             <MockedProvider mocks={mocks} addTypename={false}>
+                <RecoilRoot>
                     <Reviews />
+                </RecoilRoot>
             </MockedProvider>
         );
 
@@ -64,7 +70,9 @@ describe("Testing Reviews component", () => {
     it('Should show error message', async () => {
         render(
             <MockedProvider mocks={failMock} addTypename={false}>
+                <RecoilRoot>
                     <Reviews />
+                </RecoilRoot>
             </MockedProvider>
         );
 
@@ -74,7 +82,9 @@ describe("Testing Reviews component", () => {
     it('Should show message when there are no reviews', async () => {
         render(
             <MockedProvider mocks={noReviewsMock} addTypename={false}>
+                <RecoilRoot>
                     <Reviews />
+                </RecoilRoot>
             </MockedProvider>
         );
 

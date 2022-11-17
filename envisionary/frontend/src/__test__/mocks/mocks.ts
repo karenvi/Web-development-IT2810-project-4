@@ -93,7 +93,7 @@ export const mocks = [
       query: ADD_REVIEW,
       variables: { country: "Afghanistan", name:"Doctor Ivo Robotnik", reviewText: "", date: new Date(), rating: 0 }
     },
-    restult: {
+    result: {
       data: {
         countryByName: {
           Reviews: [
