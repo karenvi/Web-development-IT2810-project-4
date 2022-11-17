@@ -220,6 +220,7 @@ function Countries() {
                   <Select
                     labelId="select-filter-category"
                     id="filter-category"
+                    inputProps={{ "data-testid": "select-sortby" }}
                     value={sortingCategory}
                     label="Sort by:"
                     onChange={sortData}
@@ -334,10 +335,10 @@ function Countries() {
                     {row.Continent}
                   </TableCell>
                   <TableCell align="right" className="pointer" style={rowStyle}>
-                    {parseInt(row.Population2022).toLocaleString()}
+                    {parseInt(row.Population2022).toLocaleString('no-NO')}
                   </TableCell>
                   <TableCell align="right" className="pointer" style={rowStyle}>
-                    {parseInt(row.Area).toLocaleString()}
+                    {parseInt(row.Area).toLocaleString('no-NO')}
                   </TableCell>
                 </TableRow>
               ))

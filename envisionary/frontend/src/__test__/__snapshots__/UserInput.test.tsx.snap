@@ -5,9 +5,8 @@ exports[`Testing UserInput component snapshot test 1`] = `
   className="MuiBox-root css-1gtztm6"
   style={
     Object {
-      "backgroundColor": "#1e374c",
-      "color": "white",
-      "transition": "all ls ease",
+      "backgroundColor": "#172a3a",
+      "color": "#ffffff",
     }
   }
 >
@@ -18,7 +17,7 @@ exports[`Testing UserInput component snapshot test 1`] = `
     onSubmit={[Function]}
   >
     <div
-      className="MuiFormControl-root MuiTextField-root css-1u3bzj6-MuiFormControl-root-MuiTextField-root"
+      className="MuiFormControl-root MuiTextField-root css-xveny1-MuiFormControl-root-MuiTextField-root"
       onInput={[Function]}
     >
       <label
@@ -68,7 +67,7 @@ exports[`Testing UserInput component snapshot test 1`] = `
     className="MuiFormControl-root MuiFormControl-fullWidth css-1tp1e4i-MuiFormControl-root"
   >
     <label
-      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-1sumxir-MuiFormLabel-root-MuiInputLabel-root"
+      className="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiFormLabel-filled MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-outlined css-154uufs-MuiFormLabel-root-MuiInputLabel-root"
       data-shrink={true}
       id="demo-simple-select-label"
     >
@@ -84,7 +83,7 @@ exports[`Testing UserInput component snapshot test 1`] = `
       </span>
     </label>
     <div
-      className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+      className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-2h9eqm-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
       onClick={[Function]}
     >
       <div
