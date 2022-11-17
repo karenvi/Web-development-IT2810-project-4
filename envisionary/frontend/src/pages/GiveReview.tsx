@@ -7,9 +7,7 @@ import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from "../graphql/mutations"
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { GET_COUNTRY_DATA_BY_NAME, GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
-import { IReview } from '../types';
+import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import CloseIcon from '@mui/icons-material/Close';
 
 
@@ -35,7 +33,7 @@ const modalStyle = {
 
 
 function GiveReview() {
-  const location = useLocation().state.country.Country;
+  const location = useLocation();
   const [rating, setRating] = useState<number>(0);
   const [author, setAuthor] = useState('');
   const [reviewText, setReviewText] = useState('');
@@ -56,7 +54,7 @@ function GiveReview() {
   // Use ADD_REVIEW mutation to add review to database
   const [addReview] = useMutation(ADD_REVIEW, {
     refetchQueries: [ // keep local cache updated by refetching reviews after adding new review 
-      {query: GET_REVIEWS_BY_COUNTRY_NAME, variables: {Country: location}}, // DocumentNode object parsed with gql
+      {query: GET_COUNTRY_DATA_BY_NAME, variables: {country: location.state.country.Country}}, // DocumentNode object parsed with gql
       'CountryReviewsByName' // Query name
     ]});
 
@@ -101,15 +99,14 @@ function GiveReview() {
       addReview({
         variables:
         {
-          country: location,
+          country: location.state.country.Country,
           name: author,
           reviewText: reviewText,
           date: new Date().toISOString(),
           rating: rating
         }
       });
-      setOpen(true) // Opens the success alert.
-
+      setOpen(true);// Opens the success alert.
       clearReview();
 
       // Clears the country field
@@ -132,7 +129,7 @@ function GiveReview() {
 
   return (
     <>
-    <Box sx={styleTitleOfReviews}><Typography component="h2" variant="h6">Reviews of {location}:</Typography></Box>
+    <Box sx={styleTitleOfReviews}><Typography component="h2" variant="h6">Reviews of {location.state.country.Country}:</Typography></Box>
     <Box sx={styleTitleOfReviews}>
       <Button
         endIcon={<EditIcon />}
@@ -141,7 +138,7 @@ function GiveReview() {
         onClick={handleModalOpen}
         sx={styleReviewButton}
       >
-       Review {location}
+       Review {location.state.country.Country}
       </Button>
       </Box>
       <Modal open={openModal}
@@ -150,7 +147,7 @@ function GiveReview() {
         
       <Box component="main" sx={modalStyle}>
         <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
-          <Typography component="h1" variant="h6">Write a review for {location}</Typography>
+          <Typography component="h1" variant="h6">Write a review for {location.state.country.Country}</Typography>
           <IconButton aria-label="close modal" onClick={handleModalClose}>
             <CloseIcon />
           </IconButton>

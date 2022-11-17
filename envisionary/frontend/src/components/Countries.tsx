@@ -31,9 +31,11 @@ function Countries() {
   const [category, setCategory] = useRecoilState(categoryState);
   const [searchQuery, setSearchQuery] = useRecoilState(searchQueryState);
   const [page, setPage] = useRecoilState(pageState);
-  // This state takes in the value from the dropdown
+
+  // This state takes in the value from the search dropdown 
   const [sortingCategory, setSortingCategory] = useState("Country-asc");
-  // A clean "value" from the dropdown, default country and ascending order
+
+  // A clean "value" from the sorting dropdown, default country and ascending order
   const [finalSortingCategory, setFinalSortingCategory] = useState("Country");
   const [sortDescending, setSortDescending] = useState(false);
   const [hideUnreviewedCountries, setHideUnreviewed] = useState(false);
@@ -122,8 +124,7 @@ function Countries() {
                   onChange={(event) => {
                     setHideUnreviewed(event.target.checked);
                     setPage(0);
-                    console.log(data, page);
-                    refetch({ offset: 0 }); // refetch to check if there are any new countries with reviews not in local cache
+                    refetch({ hideUnreviewed: event.target.checked, offset: 0 }); // refetch to check if there are any new countries with reviews not in local cache
                   }}
                   inputProps={{ 'aria-label': 'controlled' }}
                 />
@@ -160,8 +161,14 @@ function Countries() {
                     onClick={() => { toCountryPage(row) }}
                     hover={true}
                   >
-                    <TableCell component="th" scope="row" className="pointer">{row.Country}</TableCell>
-                    <TableCell align="right" className="pointer">{row.Continent}</TableCell>
+                    <TableCell component="th" scope="row" className="pointer">
+                      <button id="buttonInTable">
+                          {row.Country}
+                      </button>
+                    </TableCell>
+                    <TableCell align="right" className="pointer">
+                      {row.Continent}
+                    </TableCell>
                     <TableCell align="right" className="pointer">{parseInt(row.Population2022).toLocaleString('no-NO')}</TableCell>
                     <TableCell align="right" className="pointer">{parseInt(row.Area).toLocaleString('no-NO')}</TableCell>
                   </TableRow>
