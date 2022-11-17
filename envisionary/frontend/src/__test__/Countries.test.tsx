@@ -1,12 +1,11 @@
 import { MockedProvider } from '@apollo/client/testing';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { HashRouter, HashRouter as Router } from "react-router-dom";
-import { create, ReactTestRenderer } from 'react-test-renderer';
+import { HashRouter as Router } from "react-router-dom";
 import { RecoilRoot } from 'recoil';
 import Countries from '../components/Countries';
-import { differentQueryMocks, errorMock, hideReviewedCountriesMock, mocks } from './mocks/mocks';
-import { act, getByLabelText, render, screen, within } from '@testing-library/react';
+import { differentQueryMocks, emptyNextPageMocks, errorMock, hideReviewedCountriesMock, mocks, sortMock } from './mocks/mocks';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 export {};
 
@@ -83,37 +82,6 @@ describe("Testing Countries component", () => {
 
       // Contains three rows of countries and three other rows from the table
       expect((await screen.findAllByRole('row')).length).toBe(6) 
-      
-    })
-
-    it('Table contains correct elements while searching in the continent category', async () => {
-      // ARRANGE
-      render(
-        <Router>
-          <MockedProvider mocks={differentQueryMocks} addTypename={false}>
-              <RecoilRoot>
-                  <Countries />
-              </RecoilRoot>
-          </MockedProvider>
-        </Router>
-      )
-    
-      // ACT
-      // act(async () => {
-      userEvent.click(screen.getByLabelText("Category:"))
-      // })
-      // act(async () => {
-        // await waitFor(() => {
-          userEvent.click(await screen.findByRole("option", {name: "Continent"}))
-      // })
-      userEvent.type(screen.getByLabelText("Search for continent"), "asia")
-
-      // ASSERT
-      expect(await screen.findByText("North Korea")).toBeInTheDocument();
-      expect(await screen.findByText("Malaysia")).toBeInTheDocument();
-
-      // Contains three rows of countries and three other rows from the table
-      expect((await screen.findAllByRole('row')).length).toBe(5) 
       
     })
 
@@ -198,5 +166,117 @@ describe("Testing Countries component", () => {
       expect((await screen.findAllByRole('row')).length).toBe(4) 
       
     })
+
+    // it('Tests drop down menu for descending country order', async () => {
+    //   // ARRANGE
+    //   render(
+    //     <Router>
+    //       <MockedProvider mocks={sortMock} addTypename={false}>
+    //           <RecoilRoot>
+    //               <Countries />
+    //           </RecoilRoot>
+    //       </MockedProvider>
+    //     </Router>
+    //   )
+
+    //   // ACT
+    //   userEvent.click(screen.getByLabelText("Sort by:"))
+    //   userEvent.click(screen.getByRole("option", {name: "Descending country"}))
+      
+    //   // ASSERT
+    //   expect(await screen.findByRole("button", {name: "Sort by: Descending country"})).toHaveTextContent("Descending country")
+      
+    // })
+
+    // it('Tests drop down menu for ascending continent order', async () => {
+    //   // ARRANGE
+    //   render(
+    //     <Router>
+    //       <MockedProvider mocks={sortMock} addTypename={false}>
+    //           <RecoilRoot>
+    //               <Countries />
+    //           </RecoilRoot>
+    //       </MockedProvider>
+    //     </Router>
+    //   )
+
+    //   // ACT
+    //   userEvent.click(screen.getByLabelText("Sort by:"))
+    //   userEvent.click(screen.getByRole("option", {name: "Ascending continent"}))
+      
+    //   // ASSERT
+    //   expect(await screen.findByRole("button", {name: "Sort by: Ascending continent"})).toHaveTextContent("Ascending continent")
+      
+    // })
+
+    it('Tests clicking on the next button', async () => {
+      // ARRANGE
+      render(
+        <Router>
+          <MockedProvider mocks={mocks} addTypename={false}>
+              <RecoilRoot>
+                  <Countries />
+              </RecoilRoot>
+          </MockedProvider>
+        </Router>
+      )
+
+      // ACT
+      userEvent.click(screen.getByText("Next"))
+
+      // ASSERT
+      expect(await screen.findByText("North Korea")).toBeInTheDocument();
+      expect(await screen.findByText("North Macedonia")).toBeInTheDocument();
+      expect((await screen.findAllByRole('row')).length).toBe(5);
+
+    })
+
+    it('Tests clicking on the previous button', async () => {
+      // ARRANGE
+      render(
+        <Router>
+          <MockedProvider mocks={mocks} addTypename={false}>
+              <RecoilRoot>
+                  <Countries />
+              </RecoilRoot>
+          </MockedProvider>
+        </Router>
+      )
+
+      // ACT
+      userEvent.click(screen.getByText("Next"))
+      userEvent.click(screen.getByText("Previous"))
+
+      // ASSERT
+      expect(await screen.findByText("North Korea")).toBeInTheDocument();
+      expect(await screen.findByText("North Macedonia")).toBeInTheDocument();
+      expect(await screen.findByText("Northern Mariana Islands")).toBeInTheDocument();
+      expect(await screen.findByText("Malaysia")).toBeInTheDocument();
+      expect((await screen.findAllByRole('row')).length).toBe(7);
+
+    })
+
+    it('Tests an edge case where there are no countries on the next page', async () => {
+      // ARRANGE
+      render(
+        <Router>
+          <MockedProvider mocks={emptyNextPageMocks} addTypename={false}>
+              <RecoilRoot>
+                  <Countries />
+              </RecoilRoot>
+          </MockedProvider>
+        </Router>
+      )
+
+      // ACT
+      userEvent.click(screen.getByText("Next"))
+
+      // ASSERT
+      expect(await screen.findByText("Sorry, no results matched your search")).toBeInTheDocument();
+
+      userEvent.click(await screen.findByText("Previous page"))
+
+    })
+
 
 });

@@ -51,7 +51,6 @@ function Countries() {
       hideUnreviewed: hideUnreviewedCountries,
     }
   });
-  // console.log(data)
 
   //if (loading) return <p>Loading...</p>; TODO: ADD ANOTHER SOLUTION FOR COMMUNICATING "LOADING" TO USER
   if (error) return <p>Error - could not load data.</p>;
@@ -103,6 +102,7 @@ function Countries() {
                   <Select
                     labelId="select-filter-category"
                     id="filter-category"
+                    inputProps={{ "data-testid": "select-sortby" }}
                     value={sortingCategory}
                     label="Sort by:"
                     onChange={sortData}

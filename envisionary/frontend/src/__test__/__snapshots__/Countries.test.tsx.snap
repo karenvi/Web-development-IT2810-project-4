@@ -204,6 +204,7 @@ exports[`Testing Countries component snapshot test 1`] = `
                 <input
                   aria-hidden={true}
                   className="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                  data-testid="select-sortby"
                   disabled={false}
                   onAnimationStart={[Function]}
                   onChange={[Function]}
