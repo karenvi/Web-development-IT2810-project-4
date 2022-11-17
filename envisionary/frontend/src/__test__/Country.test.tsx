@@ -57,7 +57,9 @@ describe("Testing Country component", () => {
     it('Snapshot test of country component', async () => {
         const { container } = render(
           <MockedProvider mocks={mocks}>
-            <Country/>
+            <RecoilRoot>
+              <Country/>
+            </RecoilRoot>
           </MockedProvider>,
         )
         await waitFor(() => new Promise((res) => setTimeout(res, 100)));

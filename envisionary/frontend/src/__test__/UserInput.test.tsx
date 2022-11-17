@@ -8,6 +8,7 @@ import { RecoilObserver } from "./testStates/testStates";
 import { searchQueryState } from "../states/states";
 import { mocks } from './mocks/mocks';
 import { MockedProvider } from "@apollo/client/testing";
+import userEvent from "@testing-library/user-event";
 export {};
 
 
@@ -27,8 +28,6 @@ describe("Testing UserInput component", () => {
 
         const tree = component.toJSON();
         expect(tree).toMatchSnapshot();
-
-
 
     });
 
@@ -87,9 +86,23 @@ describe("Testing UserInput component", () => {
         expect(spans[0].props.children).toBe('Search for country');
         expect(spans[1].props.children).toBe('Select which category to search in');
         expect(spans[2].props.children).toBe('Category:');
-
-
-
-
     })
+
+    it('change value to drop down menu', async () => {
+      // ARRANGE
+      render(
+        <Router>
+          <MockedProvider mocks={mocks} addTypename={false}>
+              <RecoilRoot>
+                  <UserInput />
+              </RecoilRoot>
+          </MockedProvider>
+        </Router>
+      )
+      
+      userEvent.click(screen.getByRole("button", {name: "Category: Country"}))
+      userEvent.click(screen.getByRole("option", {name: "Continent"}))
+
+      expect(screen.getByRole("button", {name: "Category: Continent"})).toHaveTextContent("Continent")
+  })
 });

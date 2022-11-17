@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   overflow-x: hidden;
 }
 
@@ -30,6 +30,21 @@ body {
 /* Makes things that are clickable seem clickable by changing cursor (https://css-tricks.com/snippets/css/give-clickable-elements-a-pointer-cursor/) which helps accessibility */
 a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
   cursor: pointer;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 /* Have a button for each country so that it can be navigated to using the "tab"-key to increase accessibility.  */

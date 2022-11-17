@@ -12,26 +12,31 @@ import {
 import { useLocation } from 'react-router-dom';
 import { Box } from "@mui/material";
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
-
-
-// Formatting for Rechart Tooltip (inspiration: https://codesandbox.io/s/unruffled-napier-pzbdld?file=/src/CustomTooltip.js:0-572)
-const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>): JSX.Element | null => {
-  if (active && payload && payload.length) {
-    return (
-      <Box sx={{
-        marginTop: { xs: "50px", md: "30px" }, p: '5px', backgroundColor: 'white', justifyContent: 'center', borderRadius: '10px', fontSize: { xs: '2vw', md: "1vw", xl: "0.8vw" }, boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)',
-      }}>
-        <p><b>Year:</b> {label} <br /> <b>Population:</b> {payload[0].value}</p>
-      </Box>
-    );
-  }
-  return null;
-};
+import { canUseLayoutEffect } from "@apollo/client/utilities";
+import { ThemeContext } from "../App";
+import { useContext, useEffect, useState } from "react";
 
 
 function PopulationChart() {
 
   const location = useLocation()
+  const { theme } = useContext(ThemeContext);
+
+  // Make sure that the graph also is adjusting to the user chosen mode (light/dark)
+  const [cartesianGridColor, setCartesianGridColor] = useState<string>("#ffffff");
+  const [graphColor, setGraphColor] = useState<string>("#dfe9f2");
+
+
+  useEffect(() => {
+    if (theme === 'light') {
+      setCartesianGridColor("#000000");
+      setGraphColor("#26435e");
+    } else {
+      setCartesianGridColor("#ffffff");
+      setGraphColor("#dfe9f2");
+    }
+  }, [theme]);
+
   const data = [
     {
       name: "1970",
@@ -89,6 +94,20 @@ function PopulationChart() {
     } 
   }
 
+  // Formatting for Rechart Tooltip (inspiration: https://codesandbox.io/s/unruffled-napier-pzbdld?file=/src/CustomTooltip.js:0-572)
+  const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameType>): JSX.Element | null => {
+    if (active && payload && payload.length) {
+      return (
+        <Box sx={{
+          marginTop: { xs: "50px", md: "30px" }, p: '5px', backgroundColor: `${theme === 'dark' ? '#101d28' : 'white'}`, justifyContent: 'center', borderRadius: '10px', fontSize: { xs: '2vw', md: "1vw", xl: "0.8vw" }, boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)',
+        }}>
+          <p><b>Year:</b> {label} <br /> <b>Population:</b> {payload[0].value}</p>
+        </Box>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
     {validateFormatUnit() ?
@@ -104,11 +123,11 @@ function PopulationChart() {
         }}
       >
         <CartesianGrid strokeDasharray="5 5" />
-        <XAxis dataKey="name" />
-        <YAxis dataKey="Population" tickFormatter={FormatYaxis} />
+        <XAxis dataKey="name" stroke={cartesianGridColor} />
+        <YAxis dataKey="Population" tickFormatter={FormatYaxis} stroke={cartesianGridColor}/>
         <Tooltip content={<CustomTooltip />} wrapperStyle={{ outline: "none" }} />
         <Legend />
-        <Line type="monotone" dataKey="Population" activeDot={{ r: 10 }} strokeWidth={3} />
+        <Line type="monotone" dataKey="Population" activeDot={{ r: 10 }} strokeWidth={3} stroke={graphColor} />
       </LineChart>
     </ResponsiveContainer> : <p>Sorry, we are unable to preview data in correct tickFormatter.</p>}
     </>
