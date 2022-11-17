@@ -5,13 +5,13 @@ Array [
   <div
     className="MuiBox-root css-jhhoj"
   >
-    <h6
+    <h2
       className="MuiTypography-root MuiTypography-h6 css-2ulfj5-MuiTypography-root"
     >
       Reviews of 
       Afghanistan
       :
-    </h6>
+    </h2>
   </div>,
   <div
     className="MuiBox-root css-jhhoj"

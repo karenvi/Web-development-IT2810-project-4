@@ -5,6 +5,7 @@ export interface IReview {
     ReviewText: string;
     Date: string;
     Rating: number;
+    __typename: string;
 }
 
 export interface ICountry {
@@ -27,6 +28,7 @@ export interface ICountry {
     GrowthRate: string;
     WorldPopulationPercentage: string;
     Reviews: Array<IReview>;
+    __typename: string;
 }
 
 export interface IPagination {
@@ -35,4 +37,5 @@ export interface IPagination {
     Continent: string;
     Population2022: string;
     Area: string;
+    __typename: string;
 }

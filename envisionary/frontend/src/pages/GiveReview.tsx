@@ -7,9 +7,7 @@ import { Box } from '@mui/system';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from "../graphql/mutations"
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { GET_COUNTRY_DATA_BY_NAME, GET_REVIEWS_BY_COUNTRY_NAME } from '../graphql/queries';
-import { IReview } from '../types';
+import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import CloseIcon from '@mui/icons-material/Close';
 
 
@@ -22,7 +20,7 @@ const modalStyle = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '50vw',
-  maxWidth: '600px',
+  maxWidth: '500px',
   minWidth: '100px',
   bgcolor: '#ffffff',
   p: 4,
@@ -35,12 +33,12 @@ const modalStyle = {
 
 
 export function GiveReview() {
-  const location = useLocation().state.country.Country;
+  const location = useLocation();
   const [rating, setRating] = useState<number>(0);
   const [author, setAuthor] = useState('');
   const [reviewText, setReviewText] = useState('');
   const [invalidAuthor, setInvalidAuthor] = useState<boolean>(false);
-  const [authorError, setAuthorError] = useState<string>("");
+  const [authorError, setAuthorError] = useState<string>(" ");
   const [clear, setClear] = useState("false");
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false)
@@ -56,7 +54,7 @@ export function GiveReview() {
   // Use ADD_REVIEW mutation to add review to database
   const [addReview] = useMutation(ADD_REVIEW, {
     refetchQueries: [ // keep local cache updated by refetching reviews after adding new review 
-      {query: GET_REVIEWS_BY_COUNTRY_NAME, variables: {Country: location}}, // DocumentNode object parsed with gql
+      {query: GET_COUNTRY_DATA_BY_NAME, variables: {country: location.state.country.Country}}, // DocumentNode object parsed with gql
       'CountryReviewsByName' // Query name
     ]});
 
@@ -91,7 +89,7 @@ export function GiveReview() {
     }
     else { // else, name is valid
       setInvalidAuthor(false);
-      setAuthorError("");
+      setAuthorError(" ");
       return true
     }
   }
@@ -101,15 +99,14 @@ export function GiveReview() {
       addReview({
         variables:
         {
-          country: location,
+          country: location.state.country.Country,
           name: author,
           reviewText: reviewText,
           date: new Date().toISOString(),
           rating: rating
         }
       });
-      setOpen(true) // Opens the success alert.
-
+      setOpen(true);// Opens the success alert.
       clearReview();
 
       // Clears the country field
@@ -132,7 +129,7 @@ export function GiveReview() {
 
   return (
     <>
-    <Box sx={styleTitleOfReviews}><Typography variant="h6">Reviews of {location}:</Typography></Box>
+    <Box sx={styleTitleOfReviews}><Typography component="h2" variant="h6">Reviews of {location.state.country.Country}:</Typography></Box>
     <Box sx={styleTitleOfReviews}>
       <Button
         endIcon={<EditIcon />}
@@ -141,20 +138,20 @@ export function GiveReview() {
         onClick={handleModalOpen}
         sx={styleReviewButton}
       >
-       Review {location}
+       Review {location.state.country.Country}
       </Button>
       </Box>
       <Modal open={openModal}
         onClose={handleModalClose}
       >
         
-      <Box sx={modalStyle}>
-        <Box sx={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
-        <IconButton aria-label="close modal" onClick={handleModalClose}>
-          <CloseIcon />
-        </IconButton>
+      <Box component="main" sx={modalStyle}>
+        <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+          <Typography component="h1" variant="h6">Write a review for {location.state.country.Country}</Typography>
+          <IconButton aria-label="close modal" onClick={handleModalClose}>
+            <CloseIcon />
+          </IconButton>
         </Box>
-        <Typography variant="h6">Write a review for {location}</Typography>
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
         <TextField id="name-field"
           inputProps={{ "data-testid": "name-field-test" }}
@@ -188,7 +185,7 @@ export function GiveReview() {
           placeholder="Write your review..."
           multiline
           rows={7}
-          sx={{ width: '50vw', mixWidth: '100px', maxWidth: '400px', mb: "20px"}}
+          sx={{ width: '50vw', mixWidth: '100px', maxWidth: '450px', mb: "20px"}}
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
         />
@@ -202,13 +199,13 @@ export function GiveReview() {
         >
           Submit
         </Button>
-        </Box>
-        </Modal>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-          <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-            Review successfully given!
-          </Alert>
-        </Snackbar>
+      </Box>
+      </Modal>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Review successfully given!
+        </Alert>
+      </Snackbar>
     </>
   );
 }
