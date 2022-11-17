@@ -1,19 +1,23 @@
-import '../App.css'
+import '../styles/App.css'
 import { useLocation } from 'react-router-dom';
 import { Alert, Button, IconButton, Modal, Rating, Snackbar, TextField, Typography } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import StarIcon from '@mui/icons-material/Star';
 import { Box } from '@mui/system';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REVIEW } from "../graphql/mutations"
 import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import CloseIcon from '@mui/icons-material/Close';
+import { ThemeContext } from '../App';
+import { useRecoilState } from 'recoil';
+import { starOpacityRating, toggleColorTheme } from '../states/states';
+import { buttonStyling } from '../components/Countries';
 
-
+// Miscellanous styling both for light and dark theme
 const styleTitleOfReviews = { width: "100%", display: 'flex', justifyContent: 'flex-start', mb: "20px"};
-const styleReviewButton = { backgroundColor: '#31597a', '&:hover': { backgroundColor: '#172A3A' }};
 
+// Styling of modal
 const modalStyle = {
   position: 'absolute' as 'absolute',
   top: '50%',
@@ -31,8 +35,41 @@ const modalStyle = {
   borderRadius: '10px',
 };
 
+const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
+
+// Dark and light mode styling
+const giveReviewStyle = {
+  dark: {
+      backgroundColor: '#1e374c',
+      color: '#ffffff',
+  },
+  light: {
+      backgroundColor: 'white',
+      color: 'black',
+  },
+}
+
+const inputReviewStyle = {
+    dark: {
+      width: '100%',
+      input: {
+        color: "#ffffff",
+      },
+      '& fieldset.MuiOutlinedInput-notchedOutline': {
+        borderColor: '#ffffff',
+      },
+      '&:hover fieldset.MuiOutlinedInput-notchedOutline': {
+        borderColor: '#ffffff',
+      },
+    },
+    light: {
+      width: '100%',
+    },  
+}
+
 
 export function GiveReview() {
+  const { theme } = useContext(ThemeContext);
   const location = useLocation();
   const [rating, setRating] = useState<number>(0);
   const [author, setAuthor] = useState('');
@@ -42,7 +79,8 @@ export function GiveReview() {
   const [clear, setClear] = useState("false");
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false)
-
+  const [starOpacity] = useRecoilState<number>(starOpacityRating);
+  const [toggleColor] = useRecoilState<string>(toggleColorTheme);
 
   //Functions of setters that are being used multiple times to clear the review field:
   const clearReview = () => {
@@ -125,7 +163,15 @@ export function GiveReview() {
     setOpen(false);
   }
 
-  const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
+
+
+  const reviewStyle = {
+    ...(theme === 'light' ? giveReviewStyle.light : giveReviewStyle.dark),
+  }
+
+  const reviewInputStyle = {
+    ...(theme === 'light' ? inputReviewStyle.light : inputReviewStyle.dark),
+  }
 
   return (
     <>
@@ -136,7 +182,7 @@ export function GiveReview() {
         id="button-write-review"
         variant="contained"
         onClick={handleModalOpen}
-        sx={styleReviewButton}
+        sx={buttonStyling}
       >
        Review {location.state.country.Country}
       </Button>
@@ -145,7 +191,7 @@ export function GiveReview() {
         onClose={handleModalClose}
       >
         
-      <Box component="main" sx={modalStyle}>
+      <Box component="main" sx={modalStyle} style={reviewStyle}>
         <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
           <Typography component="h1" variant="h6">Write a review for {location.state.country.Country}</Typography>
           <IconButton aria-label="close modal" onClick={handleModalClose}>
@@ -153,18 +199,20 @@ export function GiveReview() {
           </IconButton>
         </Box>
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
+        <Box sx={{width: '50%', minWidth: '100px'}}>
         <TextField id="name-field"
           inputProps={{ "data-testid": "name-field-test" }}
           required
           label=""
-          sx={{ width: 250 }}
           placeholder="Name"
           variant="outlined"
           value={author}
           error={invalidAuthor}
           helperText={authorError}
           onChange={(e) => setAuthor(e.target.value)}
+          sx={reviewInputStyle}
         />
+        </Box>
 
         <Typography component="label" htmlFor="rating-stars" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Rating</Typography>
         <Rating id="rating-stars"
@@ -174,10 +222,11 @@ export function GiveReview() {
           onChange={(event, newValue) => {
             newValue === null ? setRating(0) : setRating(newValue);
           }}
-          emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+          emptyIcon={<StarIcon style={{ opacity: starOpacity }} fontSize="inherit" />}
         />
 
         <Typography component="label" htmlFor="review-content-field" variant="h6" sx={reviewHeaderStyling}>Review Content</Typography>
+        <Box sx={{width: '50vw', minWidth: '100px', maxWidth: '450px', mb: "20px"}}>
         <TextField
           id="review-content-field"
           inputProps={{ "data-testid": "review-content-field-test" }}
@@ -185,13 +234,15 @@ export function GiveReview() {
           placeholder="Write your review..."
           multiline
           rows={7}
-          sx={{ width: '50vw', mixWidth: '100px', maxWidth: '450px', mb: "20px"}}
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
+          sx={reviewInputStyle}
+          InputProps={{ inputProps: { style: { color: toggleColor }}}}
         />
+        </Box>
 
         <Button variant="contained"
-          sx={styleReviewButton}
+          sx={buttonStyling}
           onClick={(event) => {
             event.preventDefault();
             submit()

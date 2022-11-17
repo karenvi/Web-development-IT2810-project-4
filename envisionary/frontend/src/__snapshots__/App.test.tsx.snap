@@ -5,7 +5,9 @@ exports[`App renders correctly 1`] = `
   <div
     class="App"
   >
-    <header>
+    <header
+      style="transition: all 1s ease; background-color: rgb(9, 16, 21); color: white;"
+    >
       <nav
         class="header"
       >
@@ -22,6 +24,46 @@ exports[`App renders correctly 1`] = `
         <div
           class="linkContainer"
         >
+          <div
+            class="link"
+          >
+            <div
+              class="MuiFormGroup-root css-dmmspl-MuiFormGroup-root"
+            >
+              <label
+                class="MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-j204z7-MuiFormControlLabel-root"
+              >
+                <span
+                  class="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+                >
+                  <span
+                    class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary Mui-checked Mui-checked css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+                  >
+                    <input
+                      aria-label="Theme switch"
+                      checked=""
+                      class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                      type="checkbox"
+                    />
+                    <span
+                      class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+                    />
+                    <span
+                      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                    />
+                  </span>
+                  <span
+                    class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+                  />
+                </span>
+                <span
+                  class="MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-ahj2mt-MuiTypography-root"
+                >
+                  Switch to light theme?
+                </span>
+              </label>
+            </div>
+          </div>
           <a
             class="link"
             href="#/"
@@ -41,13 +83,14 @@ exports[`App renders correctly 1`] = `
       class="MuiBox-root css-hbm2t4"
     >
       <h1
-        class="MuiTypography-root MuiTypography-h1 css-v6dhnz-MuiTypography-root"
+        class="MuiTypography-root MuiTypography-h1 css-1dwxtnu-MuiTypography-root"
       >
         Search for a 
         country
       </h1>
       <div
-        class="MuiBox-root css-eolfkn"
+        class="MuiBox-root css-1gtztm6"
+        style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
       >
         <form
           action="/"
@@ -170,6 +213,7 @@ exports[`App renders correctly 1`] = `
           >
             <tr
               class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-11sptls-MuiTableCell-root"
@@ -197,6 +241,7 @@ exports[`App renders correctly 1`] = `
                   </label>
                   <div
                     class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl  css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root"
+                    style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
                   >
                     <div
                       aria-expanded="false"
@@ -275,28 +320,33 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-11sptls-MuiTableCell-root"
                 scope="col"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 Country
               </th>
               <th
                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1o98s2t-MuiTableCell-root"
                 scope="col"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 Continent
               </th>
               <th
                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1o98s2t-MuiTableCell-root"
                 scope="col"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 Population (2022)
               </th>
               <th
                 class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1o98s2t-MuiTableCell-root"
                 scope="col"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 Area (km²)
               </th>
@@ -307,10 +357,12 @@ exports[`App renders correctly 1`] = `
           >
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -319,6 +371,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -327,6 +380,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -335,6 +389,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -344,10 +399,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -356,6 +413,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -364,6 +422,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -372,6 +431,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -381,10 +441,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -393,6 +455,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -401,6 +464,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -409,6 +473,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -418,10 +483,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -430,6 +497,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -438,6 +506,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -446,6 +515,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -455,10 +525,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -467,6 +539,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -475,6 +548,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -483,6 +557,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -492,10 +567,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -504,6 +581,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -512,6 +590,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -520,6 +599,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -529,10 +609,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -541,6 +623,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -549,6 +632,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -557,6 +641,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -566,10 +651,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -578,6 +665,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -586,6 +674,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -594,6 +683,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -603,10 +693,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -615,6 +707,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -623,6 +716,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -631,6 +725,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -640,10 +735,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <th
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium pointer css-1ex1afd-MuiTableCell-root"
                 scope="row"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -652,6 +749,7 @@ exports[`App renders correctly 1`] = `
               </th>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -660,6 +758,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -668,6 +767,7 @@ exports[`App renders correctly 1`] = `
               </td>
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium pointer css-177gid-MuiTableCell-root"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <span
                   class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-1n7gpw1-MuiSkeleton-root"
@@ -677,10 +777,12 @@ exports[`App renders correctly 1`] = `
             </tr>
             <tr
               class="MuiTableRow-root css-1q1u3t4-MuiTableRow-root"
+              style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
             >
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
                 colspan="4"
+                style="transition: all ls ease; background-color: rgb(30, 55, 76); color: white;"
               >
                 <div
                   class="MuiGrid-root MuiGrid-container css-zo8441-MuiGrid-root"
