@@ -93,7 +93,7 @@ function GiveReview() {
   const [addReview] = useMutation(ADD_REVIEW, {
     refetchQueries: [ // keep local cache updated by refetching reviews after adding new review 
       {query: GET_COUNTRY_DATA_BY_NAME, variables: {country: location.state.country.Country}}, // DocumentNode object parsed with gql
-      'CountryReviewsByName' // Query name
+      'GetCountryDataByName' // Query name
     ]});
 
   // onChange-functions for the modal that opens "Give review"
