@@ -190,7 +190,7 @@ function GiveReview() {
         onClose={handleModalClose}
       >
         
-      <Box component="main" sx={modalStyle} style={reviewStyle}>
+      <Box sx={modalStyle} style={reviewStyle}>
         <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
           <Typography component="h1" variant="h6">Write a review for {location.state.country.Country}</Typography>
           <IconButton aria-label="close modal" onClick={handleModalClose}>
