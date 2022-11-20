@@ -98,7 +98,7 @@ const styleInputFields = {
   },
 };
 
-const textStyling: AppTheme = {
+export const textStyling: AppTheme = {
   dark: {
     color: "white",
   },
@@ -135,8 +135,6 @@ function Countries() {
     },
   });
 
-  //if (loading) return <p>Loading...</p>; TODO: ADD ANOTHER SOLUTION FOR COMMUNICATING "LOADING" TO USER
-  if (error) return <p>Error - could not load data.</p>;
 
   // Routing to each country
   const toCountryPage = (country: ICountry) => {
@@ -179,6 +177,9 @@ function Countries() {
   const inputDropDownStyle = {
     ...(theme === "dark" ? dropDownStyling.dark : dropDownStyling.light),
   };
+
+  // If the data cannot be loaded due to lack of communication between db and frontend
+  if (error) return <p style={textStyle}>Error - could not load data.</p>;
 
   return (
     <Box
