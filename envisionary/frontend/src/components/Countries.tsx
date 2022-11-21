@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Checkbox,
-  Grid,
-  SelectChangeEvent,
-  TableContainer,
-  Typography,
-  Skeleton,
-} from "@mui/material";
+import {Box, Button, Checkbox, Grid, SelectChangeEvent, TableContainer, Typography, Skeleton} from "@mui/material";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -90,8 +81,6 @@ const styleInputFields = {
     "& .MuiSvgIcon-root": {
       color: "#ffffff !important",
     },
-    
-    
   },
   light: {
     color: "#000000",
@@ -113,7 +102,7 @@ function Countries() {
   const [searchQuery, setSearchQuery] = useRecoilState(searchQueryState);
   const [page, setPage] = useRecoilState(pageState);
 
-  // This state takes in the value from the search dropdown 
+  // This state takes in the value from the search dropdown
   const [sortingCategory, setSortingCategory] = useState("Country-asc");
 
   // A clean "value" from the sorting dropdown, default country and ascending order
@@ -134,7 +123,6 @@ function Countries() {
       hideUnreviewed: hideUnreviewedCountries,
     },
   });
-
 
   // Routing to each country
   const toCountryPage = (country: ICountry) => {
@@ -162,185 +150,82 @@ function Countries() {
     setPage(0);
   };
 
-  const rowStyle = {
-    ...(theme === "light" ? styleForTableRow.light : styleForTableRow.dark),
-  };
+  const rowStyle = { ...(theme === "light" ? styleForTableRow.light : styleForTableRow.dark),};
 
-  const textStyle = {
-    ...(theme === "light" ? textStyling.light : textStyling.dark),
-  };
+  const textStyle = {...(theme === "light" ? textStyling.light : textStyling.dark),};
 
-  const inputStyle = {
-    ...(theme === "dark" ? styleInputFields.dark : styleInputFields.light),
-  };
+  const inputStyle = {...(theme === "dark" ? styleInputFields.dark : styleInputFields.light),};
 
-  const inputDropDownStyle = {
-    ...(theme === "dark" ? dropDownStyling.dark : dropDownStyling.light),
-  };
+  const inputDropDownStyle = {...(theme === "dark" ? dropDownStyling.dark : dropDownStyling.light),};
 
   // If the data cannot be loaded due to lack of communication between db and frontend
   if (error) return <p style={textStyle}>Error - could not load data.</p>;
 
   return (
-    <Box
-      component="main"
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      <Typography
-        variant="h1"
-        sx={{ fontSize: "45px", mt: "40px", mb: "8px" }}
-        style={textStyle}
-      >
-        Search for a {category.toLowerCase()}
-      </Typography>
+    <Box component="main" sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%" }}>
+      <Typography variant="h1" sx={{ fontSize: "45px", mt: "40px", mb: "8px" }} style={textStyle}> Search for a {category.toLowerCase()}</Typography>
       <UserInput />
-      <TableContainer
-        sx={{
-          width: { xs: "95%", sm: "85%", md: "75%", lg: "65%" },
-          m: "10px",
-        }}
-        component={Paper}
-      >
+      <TableContainer sx={{ width: { xs: "95%", sm: "85%", md: "75%", lg: "65%" }, m: "10px"}} component={Paper}>
         <Table aria-label="Table of countries" style={rowStyle}>
           <TableHead>
             <TableRow style={rowStyle}>
               {/* Let user pick what the data displayed should be sorted on */}
               <TableCell colSpan={2} sx={tableHeadStyling}>
-                <label htmlFor="filter-category">
-                  <span className="visually-hidden">Sort by:</span>
-                </label>
-                <Box sx={{ width: "300px", ml: "10px"}}>
-                <FormControl fullWidth sx={inputDropDownStyle}>
-                  <InputLabel id="select-filter-category">Sort by:</InputLabel>
-                  <Select
-                    labelId="select-filter-category"
-                    id="filter-category"
-                    inputProps={{ "data-testid": "select-sortby" }}
-                    value={sortingCategory}
-                    label="Sort by:"
-                    onChange={sortData}
-                    sx={inputDropDownStyle}
-                  >
-                  
-                    <MenuItem value="Country-asc">Ascending country</MenuItem>
-                    <MenuItem value="Continent-asc">
-                      Ascending continent
-                    </MenuItem>
-                    <MenuItem value="Country-desc">Descending country</MenuItem>
-                    <MenuItem value="Continent-desc">
-                      Descending continent
-                    </MenuItem>
-                  </Select>
-                  
-                </FormControl>
+                <label htmlFor="filter-category"><span className="visually-hidden">Sort by:</span></label>
+                <Box sx={{ width: "300px", ml: "10px" }}>
+                  <FormControl fullWidth sx={inputDropDownStyle}>
+                    <InputLabel id="select-filter-category">Sort by:</InputLabel>
+                    <Select labelId="select-filter-category" id="filter-category" inputProps={{ "data-testid": "select-sortby" }} value={sortingCategory} label="Sort by:" onChange={sortData} sx={inputDropDownStyle}>
+                      <MenuItem value="Country-asc">Ascending country</MenuItem>
+                      <MenuItem value="Continent-asc">Ascending continent</MenuItem>
+                      <MenuItem value="Country-desc">Descending country</MenuItem>
+                      <MenuItem value="Continent-desc">Descending continent</MenuItem>
+                    </Select>
+                  </FormControl>
                 </Box>
               </TableCell>
-              <TableCell
-                colSpan={2}
-                sx={tableHeadStyling}
-                align="right"
-                style={rowStyle}
-              >
+              <TableCell colSpan={2} sx={tableHeadStyling} align="right" style={rowStyle}>
                 Hide unreviewed countries
-                <Checkbox
-                  checked={hideUnreviewedCountries}
+                <Checkbox checked={hideUnreviewedCountries}
                   onChange={(event) => {
                     setHideUnreviewed(event.target.checked);
                     setPage(0);
-                    refetch({ hideUnreviewed: event.target.checked, offset: 0 }); // refetch to check if there are any new countries with reviews not in local cache
+                    refetch({
+                      hideUnreviewed: event.target.checked,
+                      offset: 0,
+                    }); // refetch to check if there are any new countries with reviews not in local cache
                   }}
                   inputProps={{ "aria-label": "controlled" }}
                   sx={inputStyle}
                 />
               </TableCell>
             </TableRow>
-
             {/* Displaying fetched data */}
             <TableRow style={rowStyle}>
-              <TableCell sx={tableHeadStyling} style={rowStyle}>
-                Country
-              </TableCell>
-              <TableCell sx={tableHeadStyling} align="right" style={rowStyle}>
-                Continent
-              </TableCell>
-              <TableCell sx={tableHeadStyling} align="right" style={rowStyle}>
-                Population (2022)
-              </TableCell>
-              <TableCell sx={tableHeadStyling} align="right" style={rowStyle}>
-                Area (km&#178;)
-              </TableCell>
+              <TableCell sx={tableHeadStyling} style={rowStyle}>Country</TableCell>
+              <TableCell sx={tableHeadStyling} align="right" style={rowStyle}>Continent</TableCell>
+              <TableCell sx={tableHeadStyling} align="right" style={rowStyle}>Population (2022)</TableCell>
+              <TableCell sx={tableHeadStyling} align="right" style={rowStyle}>Area (km&#178;)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {loading ? ( // if data is not yet loaded, show placeholder rows with MUI's skeleton
               [...Array(10)].map((row, index) => (
-                <TableRow
-                  key={index}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  style={rowStyle}
-                >
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    className="pointer"
-                    style={rowStyle}
-                  >
-                    <Skeleton />{" "}
-                  </TableCell>
-                  <TableCell align="right" className="pointer" style={rowStyle}>
-                    <Skeleton />{" "}
-                  </TableCell>
-                  <TableCell align="right" className="pointer" style={rowStyle}>
-                    <Skeleton />{" "}
-                  </TableCell>
-                  <TableCell align="right" className="pointer" style={rowStyle}>
-                    <Skeleton />{" "}
-                  </TableCell>
+                <TableRow key={index} sx={{ "&:last-child td, &:last-child th": { border: 0 } }} style={rowStyle}>
+                  <TableCell component="th" scope="row" className="pointer" style={rowStyle}><Skeleton /></TableCell>
+                  <TableCell align="right" className="pointer" style={rowStyle}><Skeleton /></TableCell>
+                  <TableCell align="right" className="pointer" style={rowStyle}><Skeleton /></TableCell>
+                  <TableCell align="right" className="pointer" style={rowStyle}><Skeleton /></TableCell>
                 </TableRow>
               ))
             ) : // if data is loaded, show real data rows
-            data?.paginatedCountries.length === 0 ? (
-              <TableRow style={rowStyle}>
-                <TableCell style={rowStyle} colSpan={4}>
-                  Sorry, no results matched your search
-                </TableCell>
-              </TableRow>
-            ) : (
-              data?.paginatedCountries.map((row: ICountry) => (
-                <TableRow
-                  key={row._id}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  onClick={() => {
-                    toCountryPage(row);
-                  }}
-                  hover={true}
-                  style={rowStyle}
-                >
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    className="pointer"
-                    style={rowStyle}
-                  >
-                    <button id="buttonInTable">
-                    {row.Country}
-                    </button>
-                  </TableCell>
-                  <TableCell align="right" className="pointer" style={rowStyle}>
-                    {row.Continent}
-                  </TableCell>
-                  <TableCell align="right" className="pointer" style={rowStyle}>
-                    {parseInt(row.Population2022).toLocaleString('no-NO')}
-                  </TableCell>
-                  <TableCell align="right" className="pointer" style={rowStyle}>
-                    {parseInt(row.Area).toLocaleString('no-NO')}
-                  </TableCell>
+            data?.paginatedCountries.length === 0 ? (<TableRow style={rowStyle}><TableCell style={rowStyle} colSpan={4}>Sorry, no results matched your search</TableCell></TableRow>) : 
+            (data?.paginatedCountries.map((row: ICountry) => (
+                <TableRow key={row._id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }} onClick={() => {toCountryPage(row);}} hover={true} style={rowStyle}>
+                  <TableCell component="th" scope="row" className="pointer" style={rowStyle}><button id="buttonInTable">{row.Country}</button></TableCell>
+                  <TableCell align="right" className="pointer" style={rowStyle}>{row.Continent}</TableCell>
+                  <TableCell align="right" className="pointer" style={rowStyle}>{parseInt(row.Population2022).toLocaleString("no-NO")}</TableCell>
+                  <TableCell align="right" className="pointer" style={rowStyle}>{parseInt(row.Area).toLocaleString("no-NO")}</TableCell>
                 </TableRow>
               ))
             )}
@@ -349,45 +234,14 @@ function Countries() {
             <TableRow style={rowStyle}>
               <TableCell colSpan={4} style={rowStyle}>
                 {data?.paginatedCountries.length !== 0 && (
-                  <Grid
-                    container
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="flex-end"
-                    sx={{ mt: "10px", mb: "20px" }}
-                  >
-                    <Grid sx={{ ml: "20px" }}>
-                      <Button
-                        variant="contained"
-                        disabled={!page}
-                        onClick={() => setPage((prev) => prev - 1)}
-                        sx={buttonStyling}
-                      >
-                        Previous
-                      </Button>
-                    </Grid>
+                  <Grid container direction="row" justifyContent="space-between" alignItems="flex-end" sx={{ mt: "10px", mb: "20px" }}>
+                    <Grid sx={{ ml: "20px" }}><Button variant="contained" disabled={!page} onClick={() => setPage((prev) => prev - 1)} sx={buttonStyling}>Previous</Button></Grid>
                     <Grid sx={{ mb: "5px" }}>Page {page + 1}</Grid>
-                    <Grid sx={{ mr: "20px" }}>
-                      <Button
-                        variant="contained"
-                        disabled={checkIfPageInvalid()}
-                        onClick={() => setPage((prev) => prev + 1)}
-                        sx={buttonStyling}
-                      >
-                        Next
-                      </Button>
-                    </Grid>
+                    <Grid sx={{ mr: "20px" }}><Button variant="contained" disabled={checkIfPageInvalid()} onClick={() => setPage((prev) => prev + 1)} sx={buttonStyling}>Next</Button></Grid>
                   </Grid>
                 )}
                 {page >= 1 && data?.paginatedCountries.length === 0 && (
-                  <Button
-                    variant="contained"
-                    disabled={!page}
-                    onClick={() => setPage((prev) => prev - 1)}
-                    sx={buttonStyling}
-                  >
-                    Previous page
-                  </Button>
+                  <Button variant="contained" disabled={!page} onClick={() => setPage((prev) => prev - 1)} sx={buttonStyling}>Previous page</Button>
                 )}
               </TableCell>
             </TableRow>
