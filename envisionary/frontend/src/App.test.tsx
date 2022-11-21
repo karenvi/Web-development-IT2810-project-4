@@ -35,4 +35,23 @@ it("App renders correctly", () => {
 
   })
 
+  it('Tests the toggle from darkmode to lightmode in info-page', async () => {
+    // ARRANGE
+    render(
+      <MockedProvider mocks={mocks} addTypename={false}>
+        <RecoilRoot>
+          <App/>
+        </RecoilRoot>
+      </MockedProvider>
+    )
+
+    // ACT
+    userEvent.click(screen.getByText("Information"))
+    userEvent.click(screen.getByRole("checkbox", {name: "Theme switch"}))
+
+    // ASSERT
+    expect(screen.getByTestId("info-card")).toHaveStyle('backgroundColor: white; color: black')
+
+  })
+
 
