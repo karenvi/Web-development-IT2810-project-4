@@ -25,7 +25,7 @@ function InfoPage() {
   }
 
   return (
-    <Card component="main" sx={cardStyling} style={themeStyle}>
+    <Card sx={cardStyling} style={themeStyle}>
       <Box sx={{ textAlign: "left", m: 2 }}>
         <Typography>ABOUT US</Typography>
         <Typography component="h1" variant="h4">Envision the world through the eyes of a traveller</Typography>

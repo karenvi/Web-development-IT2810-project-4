@@ -30,6 +30,7 @@ const tableHeadStyling = { fontWeight: "bold" };
 export const buttonStyling = {
   backgroundColor: "#31597a",
   "&:hover": { backgroundColor: "#2c506d" },
+  "&.Mui-disabled": { backgroundColor: "#a6a6a6" }
 };
 
 const styleForTableRow: AppTheme = {
@@ -166,8 +167,7 @@ function Countries() {
       <Typography variant="h1" sx={{ fontSize: "45px", mt: "40px", mb: "8px" }} style={textStyle}> Search for a {category.toLowerCase()}</Typography>
       <UserInput />
       <TableContainer sx={{ width: { xs: "95%", sm: "85%", md: "75%", lg: "65%" }, m: "10px"}} component={Paper}>
-        <Table aria-label="Table of countries" style={rowStyle}>
-          <TableHead>
+        <Table aria-label="Table of countries" style={rowStyle}><TableHead>
             <TableRow style={rowStyle}>
               {/* Let user pick what the data displayed should be sorted on */}
               <TableCell colSpan={2} sx={tableHeadStyling}>
@@ -217,8 +217,7 @@ function Countries() {
                   <TableCell align="right" className="pointer" style={rowStyle}><Skeleton /></TableCell>
                   <TableCell align="right" className="pointer" style={rowStyle}><Skeleton /></TableCell>
                 </TableRow>
-              ))
-            ) : // if data is loaded, show real data rows
+              ))) : // if data is loaded, show real data rows
             data?.paginatedCountries.length === 0 ? (<TableRow style={rowStyle}><TableCell style={rowStyle} colSpan={4}>Sorry, no results matched your search</TableCell></TableRow>) : 
             (data?.paginatedCountries.map((row: ICountry) => (
                 <TableRow key={row._id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }} onClick={() => {toCountryPage(row);}} hover={true} style={rowStyle}>
@@ -238,11 +237,8 @@ function Countries() {
                     <Grid sx={{ ml: "20px" }}><Button variant="contained" disabled={!page} onClick={() => setPage((prev) => prev - 1)} sx={buttonStyling}>Previous</Button></Grid>
                     <Grid sx={{ mb: "5px" }}>Page {page + 1}</Grid>
                     <Grid sx={{ mr: "20px" }}><Button variant="contained" disabled={checkIfPageInvalid()} onClick={() => setPage((prev) => prev + 1)} sx={buttonStyling}>Next</Button></Grid>
-                  </Grid>
-                )}
-                {page >= 1 && data?.paginatedCountries.length === 0 && (
-                  <Button variant="contained" disabled={!page} onClick={() => setPage((prev) => prev - 1)} sx={buttonStyling}>Previous page</Button>
-                )}
+                  </Grid>)}
+                {page >= 1 && data?.paginatedCountries.length === 0 && (<Button variant="contained" disabled={!page} onClick={() => setPage((prev) => prev - 1)} sx={buttonStyling}>Previous page</Button>)}
               </TableCell>
             </TableRow>
           </TableBody>

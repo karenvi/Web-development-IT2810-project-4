@@ -2,7 +2,7 @@
 
 exports[`App renders correctly 1`] = `
 <div>
-  <div
+  <main
     class="App"
   >
     <header>
@@ -38,7 +38,7 @@ exports[`App renders correctly 1`] = `
         </div>
       </nav>
     </header>
-    <main
+    <div
       class="MuiBox-root css-hbm2t4"
     >
       <h1
@@ -757,7 +757,7 @@ exports[`App renders correctly 1`] = `
                     class="MuiGrid-root css-gfmvt9-MuiGrid-root"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-142aol9-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-116nlmj-MuiButtonBase-root-MuiButton-root"
                       disabled=""
                       tabindex="-1"
                       type="button"
@@ -775,7 +775,7 @@ exports[`App renders correctly 1`] = `
                     class="MuiGrid-root css-1ivdjg1-MuiGrid-root"
                   >
                     <button
-                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-142aol9-MuiButtonBase-root-MuiButton-root"
+                      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-116nlmj-MuiButtonBase-root-MuiButton-root"
                       tabindex="0"
                       type="button"
                     >
@@ -791,7 +791,7 @@ exports[`App renders correctly 1`] = `
           </tbody>
         </table>
       </div>
-    </main>
+    </div>
     <div
       class="MuiBox-root css-1ovvwn9"
     >
@@ -832,6 +832,6 @@ exports[`App renders correctly 1`] = `
         </label>
       </div>
     </div>
-  </div>
+  </main>
 </div>
 `;

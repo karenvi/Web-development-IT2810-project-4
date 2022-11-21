@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Country component Snapshot test of country component 1`] = `
+<div>
+  <div
+    class="recharts-responsive-container"
+    style="width: 100%; height: 100%;"
+  />
+</div>
+`;
