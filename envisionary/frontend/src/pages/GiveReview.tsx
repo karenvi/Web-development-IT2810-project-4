@@ -68,7 +68,7 @@ const inputReviewStyle = {
 }
 
 
-function GiveReview() {
+export function GiveReview() {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
   const [rating, setRating] = useState<number>(0);
@@ -200,6 +200,7 @@ function GiveReview() {
         <Typography component="label" htmlFor="name-field" variant="h6" sx={{ mt: 1, fontSize: '18px' }}>Name *</Typography>
         <Box sx={{width: '50%', minWidth: '100px'}}>
         <TextField id="name-field"
+          inputProps={{ "data-testid": "name-field-test" }}
           required
           label=""
           placeholder="Name"
@@ -227,6 +228,7 @@ function GiveReview() {
         <Box sx={{width: '50vw', minWidth: '100px', maxWidth: '450px', mb: "20px"}}>
         <TextField
           id="review-content-field"
+          inputProps={{ "data-testid": "review-content-field-test" }}
           label=""
           placeholder="Write your review..."
           multiline
