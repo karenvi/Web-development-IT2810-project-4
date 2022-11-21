@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing Countries component snapshot test 1`] = `
-<div
+<main
   className="MuiBox-root css-hbm2t4"
 >
   <h1
@@ -12,7 +12,7 @@ exports[`Testing Countries component snapshot test 1`] = `
       }
     }
   >
-    Search for a 
+     Search for a 
     country
   </h1>
   <div
@@ -414,7 +414,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -435,7 +434,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -456,7 +454,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -477,7 +474,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -510,7 +506,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -531,7 +526,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -552,7 +546,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -573,7 +566,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -606,7 +598,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -627,7 +618,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -648,7 +638,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -669,7 +658,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -702,7 +690,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -723,7 +710,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -744,7 +730,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -765,7 +750,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -798,7 +782,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -819,7 +802,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -840,7 +822,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -861,7 +842,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -894,7 +874,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -915,7 +894,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -936,7 +914,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -957,7 +934,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -990,7 +966,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -1011,7 +986,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -1032,7 +1006,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -1053,7 +1026,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -1086,7 +1058,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -1107,7 +1078,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -1128,7 +1098,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -1149,7 +1118,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -1182,7 +1150,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -1203,7 +1170,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -1224,7 +1190,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -1245,7 +1210,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -1278,7 +1242,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </th>
           <td
             aria-sort={null}
@@ -1299,7 +1262,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -1320,7 +1282,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
           <td
             aria-sort={null}
@@ -1341,7 +1302,6 @@ exports[`Testing Countries component snapshot test 1`] = `
                 }
               }
             />
-             
           </td>
         </tr>
         <tr
@@ -1430,5 +1390,5 @@ exports[`Testing Countries component snapshot test 1`] = `
       </tbody>
     </table>
   </div>
-</div>
+</main>
 `;

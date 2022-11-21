@@ -1,14 +1,4 @@
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  TooltipProps,
-} from "recharts";
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, TooltipProps,} from "recharts";
 import { useLocation } from 'react-router-dom';
 import { Box } from "@mui/material";
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
@@ -126,7 +116,7 @@ function PopulationChart() {
         <YAxis dataKey="Population" tickFormatter={FormatYaxis} stroke={cartesianGridColor}/>
         <Tooltip content={<CustomTooltip />} wrapperStyle={{ outline: "none" }} />
         <Legend />
-        <Line type="monotone" dataKey="Population" activeDot={{ r: 10 }} strokeWidth={3} stroke={graphColor} />
+        <Line type="monotone" dataKey="Population" activeDot={{ r: 10 }} strokeWidth={3} stroke={graphColor} isAnimationActive={false}/>
       </LineChart>
     </ResponsiveContainer> : <p>Sorry, we are unable to preview data in correct tickFormatter.</p>}
     </>
