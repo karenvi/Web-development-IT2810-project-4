@@ -49,7 +49,7 @@ code {
 
 /* Have a button for each country so that it can be navigated to using the "tab"-key to increase accessibility.  */
 /* Thus a button without any design on it */
-#buttonInTable {
+.buttonInTable {
 	background: none;
 	color: inherit;
 	border: none;
@@ -60,6 +60,6 @@ code {
 }
 
 /* Alerts user when country link is focused */
-#buttonInTable:focus {
+.buttonInTable:focus {
   outline: black auto 5px;
 }

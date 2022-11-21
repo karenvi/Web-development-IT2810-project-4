@@ -40,7 +40,7 @@ function Country() {
 
 
   return (
-    <Card component="main" sx={cardStyling} style={themeStyle}>
+    <Card sx={cardStyling} style={themeStyle}>
       <Typography component="h1" variant="h3" sx={{ m: 2, fontSize: '40px' }}>{location.state.country.Country}</Typography>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', px: '48px', mb: 1 }}>
         <Rating name="read-only" value={avrgRating} precision={0.5} readOnly

@@ -183,7 +183,6 @@ function Countries() {
 
   return (
     <Box
-      component="main"
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -328,7 +327,7 @@ function Countries() {
                     className="pointer"
                     style={rowStyle}
                   >
-                    <button id="buttonInTable">
+                    <button className="buttonInTable">
                     {row.Country}
                     </button>
                   </TableCell>
