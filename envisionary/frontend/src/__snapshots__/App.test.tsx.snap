@@ -2,7 +2,7 @@
 
 exports[`App renders correctly 1`] = `
 <div>
-  <div
+  <main
     class="App"
   >
     <header>
@@ -38,7 +38,7 @@ exports[`App renders correctly 1`] = `
         </div>
       </nav>
     </header>
-    <main
+    <div
       class="MuiBox-root css-hbm2t4"
     >
       <h1
@@ -791,7 +791,7 @@ exports[`App renders correctly 1`] = `
           </tbody>
         </table>
       </div>
-    </main>
+    </div>
     <div
       class="MuiBox-root css-1ovvwn9"
     >
@@ -832,6 +832,6 @@ exports[`App renders correctly 1`] = `
         </label>
       </div>
     </div>
-  </div>
+  </main>
 </div>
 `;
