@@ -3,25 +3,14 @@ import StarIcon from '@mui/icons-material/Star';
 import { IReview } from "../types"
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 import PaginationFunctions from "../utils/PaginationFunctions";
-import { AppTheme } from "../context/AppTheme";
 import { ThemeContext } from "../App";
 import { useRecoilState } from "recoil";
 import { starOpacityRating } from "../states/states";
+import { paginationReviewsStyle } from '../styles/StyleObjects';
 
 interface Props {
     sortReviews: Array<IReview>;
     country: string;
-}
-
-const paginationReviewsStyle: AppTheme = {
-    dark: {
-        backgroundColor: '#1e374c',
-        color: '#ffffff',
-    },
-    light: {
-        backgroundColor: '#ffffff',
-        color: '#000000',
-    },
 }
 
 function PaginationReviews({ sortReviews, country }: Props) {
@@ -41,9 +30,8 @@ function PaginationReviews({ sortReviews, country }: Props) {
     const numberOfPages = Math.ceil(sortReviews.length / elementsPerPage); // How many pages to display in the pagination bar
     const dataPage = PaginationFunctions(sortReviews, elementsPerPage); // What data to display in the pagination
 
-    const themeStyle = {
-        ...(theme === 'light' ? paginationReviewsStyle.light : paginationReviewsStyle.dark),
-    }
+    // Theme
+    const themeStyle = {...(theme === 'light' ? paginationReviewsStyle.light : paginationReviewsStyle.dark),}
 
     // Ensure that the stars are more visible in terms of opacity when user has dark mode enabled
     useEffect(() => {
@@ -94,7 +82,7 @@ function PaginationReviews({ sortReviews, country }: Props) {
                                 shape="rounded"
                                 showFirstButton
                                 showLastButton
-                                sx={{button:{color: paginationColor}}}
+                                sx={{button:{color: paginationColor, backgroundColor: theme === 'dark' ? paginationReviewsStyle.dark.backgroundColor : paginationReviewsStyle.light.backgroundColor }}}
                             />
                             <Typography variant="body1" sx={{ m: '10px' }}>{onPage} of {numberOfPages}</Typography>
                         </Stack>}

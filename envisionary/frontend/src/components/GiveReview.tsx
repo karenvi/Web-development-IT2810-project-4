@@ -12,60 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { ThemeContext } from '../App';
 import { useRecoilState } from 'recoil';
 import { starOpacityRating, toggleColorTheme } from '../states/states';
-import { buttonStyling } from '../components/Countries';
-
-// Miscellanous styling both for light and dark theme
-const styleTitleOfReviews = { width: "100%", display: 'flex', justifyContent: 'flex-start', mb: "20px"};
-
-// Styling of modal
-const modalStyle = {
-  position: 'absolute' as 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '50vw',
-  maxWidth: '500px',
-  minWidth: '100px',
-  bgcolor: '#ffffff',
-  p: 4,
-  display: 'flex', 
-  flexDirection: 'column', 
-  alignItems: 'flex-start',
-  boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)',
-  borderRadius: '10px',
-};
-
-const reviewHeaderStyling = { mt: 3, fontSize: '18px' }
-
-// Dark and light mode styling
-const giveReviewStyle = {
-  dark: {
-      backgroundColor: '#1e374c',
-      color: '#ffffff',
-  },
-  light: {
-      backgroundColor: 'white',
-      color: 'black',
-  },
-}
-
-const inputReviewStyle = {
-    dark: {
-      width: '100%',
-      input: {
-        color: "#ffffff",
-      },
-      '& fieldset.MuiOutlinedInput-notchedOutline': {
-        borderColor: '#ffffff',
-      },
-      '&:hover fieldset.MuiOutlinedInput-notchedOutline': {
-        borderColor: '#ffffff',
-      },
-    },
-    light: {
-      width: '100%',
-    },  
-}
+import { styleTitleOfReviews, modalStyle, reviewHeaderStyling, giveReviewStyle, inputReviewStyle, buttonStyling } from '../styles/StyleObjects';
 
 
 export function GiveReview() {
@@ -162,15 +109,9 @@ export function GiveReview() {
     setOpen(false);
   }
 
-
-
-  const reviewStyle = {
-    ...(theme === 'light' ? giveReviewStyle.light : giveReviewStyle.dark),
-  }
-
-  const reviewInputStyle = {
-    ...(theme === 'light' ? inputReviewStyle.light : inputReviewStyle.dark),
-  }
+  // Theme
+  const reviewStyle = {...(theme === 'light' ? giveReviewStyle.light : giveReviewStyle.dark),}
+  const reviewInputStyle = {...(theme === 'light' ? inputReviewStyle.light : inputReviewStyle.dark),}
 
   return (
     <>

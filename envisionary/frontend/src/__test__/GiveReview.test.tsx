@@ -1,4 +1,4 @@
-import GiveReview from "../pages/GiveReview";
+import GiveReview from "../components/GiveReview";
 import { render, screen, waitFor } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import { MockedProvider } from '@apollo/client/testing';

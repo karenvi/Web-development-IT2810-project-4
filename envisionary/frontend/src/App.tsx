@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import Feed from "./pages/Feed";
 import Country from "./pages/Country";
 import InfoPage from "./pages/InfoPage";

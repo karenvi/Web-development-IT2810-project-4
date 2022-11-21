@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import { ThemeContext } from '../../App';
-import './Header.css'
+import { ThemeContext } from '../App';
+import '../styles/Header.css'
 
 function Header() {
   const { theme } = useContext(ThemeContext);
