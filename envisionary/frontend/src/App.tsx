@@ -27,7 +27,7 @@ function App() {
   
   return (
     <ThemeContext.Provider value={{theme, setTheme}}>
-    <div className="App">
+    <main className="App">
       <Router>
         <Header />
         <Routes>
@@ -37,7 +37,7 @@ function App() {
         </Routes>
       </Router>
       <Box sx={{ mb: "200px", mt: "20px", color: toggleColor}}><ThemeToggle /></Box>
-    </div>
+    </main>
     </ThemeContext.Provider>
   );
 }

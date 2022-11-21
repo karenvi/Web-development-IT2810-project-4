@@ -39,6 +39,7 @@ const tableHeadStyling = { fontWeight: "bold" };
 export const buttonStyling = {
   backgroundColor: "#31597a",
   "&:hover": { backgroundColor: "#2c506d" },
+  "&.Mui-disabled": { backgroundColor: "#a6a6a6" }
 };
 
 const styleForTableRow: AppTheme = {
@@ -182,7 +183,6 @@ function Countries() {
 
   return (
     <Box
-      component="main"
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -327,7 +327,7 @@ function Countries() {
                     className="pointer"
                     style={rowStyle}
                   >
-                    <button id="buttonInTable">
+                    <button className="buttonInTable">
                     {row.Country}
                     </button>
                   </TableCell>
