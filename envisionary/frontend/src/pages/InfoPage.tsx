@@ -13,7 +13,7 @@ function InfoPage() {
   const themeStyle = {...(theme === 'light' ? pageStyle.light : pageStyle.dark),}
 
   return (
-    <Card sx={cardStyling} style={themeStyle}>
+    <Card data-testid="info-card" sx={cardStyling} style={themeStyle}>
       <Box sx={{ textAlign: "left", m: 2 }}>
         <Typography>ABOUT US</Typography>
         <Typography component="h1" variant="h4">Envision the world through the eyes of a traveller</Typography>

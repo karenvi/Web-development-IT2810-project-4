@@ -192,7 +192,7 @@ export function GiveReview() {
         </Button>
       </Box>
       </Modal>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={open} autoHideDuration={20000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
           Review successfully given!
         </Alert>
