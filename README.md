@@ -141,7 +141,8 @@ We have seven components: Header, Countries, PopulationChart, GiveReview, Review
   * The Feed-page shows the list of countries with pagination, the search bar where you can filter the list and a select box which will filter the list based on country names or continents. 
   * By clicking on one of the rows or countries in the list the user will be shown the Country page. This page contains more information about the chosen country, the PopulationChart- and the Reviews-Component for that country with its ReviewPagination that ensures that reviews are shown using pagination if there are more than 3 reviews on a country.
   * The InfoPage contains general information about the website.
-<br>
-Below is an image of the frontend component structure and how they interact with each other. Solid lines indicate that they are imported components. Dashed lines indicate that they have functions that are being used in the component, such as functions, queries, states, and mutations. Style files have been omitted for the sake of simplicity in the diagram. The blue boxes are GraphQL-files, purple boxes are components, green boxes are pages (components), orange boxes are utils, and pink boxes are states (recoil).
 
-<img src="./Frontend-Diagram.png" width="80%">
+Below is an image of the frontend component structure and how they interact with each other. Solid lines indicate that they are imported components. Dashed lines indicate that they have functions that are being used in the component, such as functions, queries, states, and mutations. Style files have been omitted for the sake of simplicity in the diagram. The blue boxes are GraphQL-files, purple boxes are components, green boxes are pages (components), orange boxes are utils, and pink boxes are states (recoil).
+<br><br>
+
+<img src="./Frontend-Diagram.png" width="90%">
