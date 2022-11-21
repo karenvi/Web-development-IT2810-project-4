@@ -1,6 +1,6 @@
 import { MockedProvider } from '@apollo/client/testing';
 import { mocks } from './mocks/mocks';
-import { render, waitFor, screen } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import PopulationChart from '../components/PopulationChart';
 
 export { };
