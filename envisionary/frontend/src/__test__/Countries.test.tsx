@@ -1,5 +1,4 @@
 import { MockedProvider } from '@apollo/client/testing';
-import React from 'react';
 import renderer from 'react-test-renderer';
 import { HashRouter as Router } from "react-router-dom";
 import { RecoilRoot } from 'recoil';

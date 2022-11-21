@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Feed from "./pages/Feed";
 import Country from "./pages/Country";
 import InfoPage from "./pages/InfoPage";
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ThemeToggle from './context/ThemeToggle';
 import { Box } from "@mui/material";
 import { useRecoilState } from "recoil";

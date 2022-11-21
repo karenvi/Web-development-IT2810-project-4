@@ -1,10 +1,9 @@
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
 import { errorMock, mocks, noReviewsMock } from './mocks/mocks';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Reviews from '../components/Reviews';
 import { RecoilRoot } from 'recoil';
-import userEvent from '@testing-library/user-event';
 export {};
 
 /**
