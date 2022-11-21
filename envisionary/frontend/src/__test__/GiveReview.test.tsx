@@ -41,30 +41,6 @@ describe("Testing GiveReview component", () => {
         );
     });
 
-/**
- * Couldn't get this to work. There's something different about the contend field compared to the name field
- * that makes something go wrong. Jest insists that things should be wrapped in act(), but that's a dead end. 
- *  */    
-
-/* 
-    it("entering review content", async () => {
-        render(
-            <MockedProvider mocks={mocks} addTypename={false} defaultOptions={{watchQuery: { fetchPolicy: 'no-cache' }, query: { fetchPolicy: 'no-cache' }, }}>
-                    <GiveReview />
-            </MockedProvider>
-        );
-
-        userEvent.click(await waitFor(() => screen.findByText('Review Afghanistan')));
-
-        // content field should be empty first
-        await waitFor(() => expect(screen.getByText('Review Afghanistan')).not.toBeInTheDocument());
-        
-        // should contain name after typing
-        userEvent.type(screen.getByTestId('review-content-field-test'), "Muahaha, if it isn't Sonic >:) ");
-        expect(await screen.findByTestId('name-field-test')).toHaveValue("Muahaha, if it isn't Sonic >:) ");
-    });
- */
-
     it("empty name field", async () => {
         userEvent.click(await waitFor(() => screen.findByText('Review Afghanistan')));
 

@@ -21,10 +21,10 @@ describe('Testing countries page', () => {
     cy.get('span').contains('Country code: AUT')
     cy.get('span').contains('Capital: Vienna')
     cy.get('span').contains('Continent: Europe')
+    cy.get('span').contains('Area: 83 871 km²')
     cy.get('span').contains('Density: 106.5877 per km²')
     cy.get('span').contains('GDP growth rate: 1.002')
     cy.get('span').contains('Percentage of world population: 0.11%')
-
   })
 
   it('Austria has review by Willy', () => {

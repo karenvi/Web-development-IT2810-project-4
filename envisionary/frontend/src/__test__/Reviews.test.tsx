@@ -1,6 +1,6 @@
 import { MockedProvider } from '@apollo/client/testing';
 import renderer from 'react-test-renderer';
-import { failMock, mocks, noReviewsMock } from './mocks/mocks';
+import { errorMock, mocks, noReviewsMock } from './mocks/mocks';
 import { render, screen, waitFor } from '@testing-library/react';
 import Reviews from '../components/Reviews';
 import { RecoilRoot } from 'recoil';
@@ -69,7 +69,7 @@ describe("Testing Reviews component", () => {
 
     it('Should show error message', async () => {
         render(
-            <MockedProvider mocks={failMock} addTypename={false}>
+            <MockedProvider mocks={errorMock} addTypename={false}>
                 <RecoilRoot>
                     <Reviews />
                 </RecoilRoot>

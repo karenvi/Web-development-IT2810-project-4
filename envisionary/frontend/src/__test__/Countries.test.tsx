@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { HashRouter as Router } from "react-router-dom";
 import { RecoilRoot } from 'recoil';
 import Countries from '../components/Countries';
-import { differentQueryMocks, emptyNextPageMocks, errorMock, hideReviewedCountriesMock, mocks, sortMock } from './mocks/mocks';
+import { differentQueryMocks, emptyNextPageMocks, errorMock, hideReviewedCountriesMock, mocks } from './mocks/mocks';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 export {};
@@ -167,48 +167,6 @@ describe("Testing Countries component", () => {
       
     })
 
-    // it('Tests drop down menu for descending country order', async () => {
-    //   // ARRANGE
-    //   render(
-    //     <Router>
-    //       <MockedProvider mocks={sortMock} addTypename={false}>
-    //           <RecoilRoot>
-    //               <Countries />
-    //           </RecoilRoot>
-    //       </MockedProvider>
-    //     </Router>
-    //   )
-
-    //   // ACT
-    //   userEvent.click(screen.getByLabelText("Sort by:"))
-    //   userEvent.click(screen.getByRole("option", {name: "Descending country"}))
-      
-    //   // ASSERT
-    //   expect(await screen.findByRole("button", {name: "Sort by: Descending country"})).toHaveTextContent("Descending country")
-      
-    // })
-
-    // it('Tests drop down menu for ascending continent order', async () => {
-    //   // ARRANGE
-    //   render(
-    //     <Router>
-    //       <MockedProvider mocks={sortMock} addTypename={false}>
-    //           <RecoilRoot>
-    //               <Countries />
-    //           </RecoilRoot>
-    //       </MockedProvider>
-    //     </Router>
-    //   )
-
-    //   // ACT
-    //   userEvent.click(screen.getByLabelText("Sort by:"))
-    //   userEvent.click(screen.getByRole("option", {name: "Ascending continent"}))
-      
-    //   // ASSERT
-    //   expect(await screen.findByRole("button", {name: "Sort by: Ascending continent"})).toHaveTextContent("Ascending continent")
-      
-    // })
-
     it('Tests clicking on the next button', async () => {
       // ARRANGE
       render(
@@ -277,6 +235,5 @@ describe("Testing Countries component", () => {
       userEvent.click(await screen.findByText("Previous page"))
 
     })
-
 
 });
