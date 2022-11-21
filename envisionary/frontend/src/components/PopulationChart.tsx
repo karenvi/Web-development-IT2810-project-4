@@ -12,7 +12,6 @@ import {
 import { useLocation } from 'react-router-dom';
 import { Box } from "@mui/material";
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";
-import { canUseLayoutEffect } from "@apollo/client/utilities";
 import { ThemeContext } from "../App";
 import { useContext, useEffect, useState } from "react";
 
@@ -78,10 +77,20 @@ function PopulationChart() {
       return (populationNumber / 1000).toString() + 'K';
     } else if (populationNumber <= 999999999) {
       return (populationNumber / 1000000).toString() + 'M';
-    } else if (populationNumber >= 1000000000) {
-      return (populationNumber / 1000000000).toString() + 'BN';
-    }
-    return "Sorry no data";
+    } 
+    return (populationNumber / 1000000000).toString() + 'BN';
+  }
+
+
+  // To confirm that the above function is working correctly.
+  const validateFormatUnit = () => {
+    if (FormatYaxis(100000) === "100K") {
+      if (FormatYaxis(1000000) === "1M") {
+        if (FormatYaxis(1000000000) === "1BN") {
+          return true;
+        }
+      }
+    } 
   }
 
   // Formatting for Rechart Tooltip (inspiration: https://codesandbox.io/s/unruffled-napier-pzbdld?file=/src/CustomTooltip.js:0-572)
@@ -99,6 +108,8 @@ function PopulationChart() {
   };
 
   return (
+    <>
+    {validateFormatUnit() ?
     <ResponsiveContainer height="100%" width="100%">
       <LineChart
         aria-label="Population chart"
@@ -117,7 +128,8 @@ function PopulationChart() {
         <Legend />
         <Line type="monotone" dataKey="Population" activeDot={{ r: 10 }} strokeWidth={3} stroke={graphColor} />
       </LineChart>
-    </ResponsiveContainer>
+    </ResponsiveContainer> : <p>Sorry, we are unable to preview data in correct tickFormatter.</p>}
+    </>
   );
 }
 
