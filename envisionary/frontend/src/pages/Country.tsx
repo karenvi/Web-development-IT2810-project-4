@@ -15,7 +15,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '../App';
 import { useRecoilState } from 'recoil';
 import { starOpacityRating } from '../states/states';
-import { pageStyle } from './InfoPage';
+import { pageStyle } from '../styles/StyleObjects';
 
 function Country() {
   const { theme } = useContext(ThemeContext);
@@ -34,9 +34,8 @@ function Country() {
     numberOfReviews = data.countryByName.Reviews.length;
   }
 
-  const themeStyle = {
-      ...(theme === 'light' ? pageStyle.light : pageStyle.dark),
-  }
+  // Theme
+  const themeStyle = {...(theme === 'light' ? pageStyle.light : pageStyle.dark),}
 
 
   return (

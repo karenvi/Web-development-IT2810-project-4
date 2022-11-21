@@ -9,91 +9,7 @@ import { categoryState, pageState, searchQueryState } from '../states/states';
 import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../App';
 import { useContext } from 'react';
-
-export const dropDownStyling = {
-  dark: {
-    backgroundColor: "#172a3a",
-    color: "#ffffff",
-    input: {
-      color: "#ffffff",
-    },
-    "& label": {
-      color: "#ffffff",
-    },
-    "& label.Mui-focused": {
-      color: "#ffffff",
-    },
-    "&:hover label": {
-      color: "#ffffff",
-    },
-    "& .MuiInput-underline:after": {
-      color: "#ffffff",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "#ffffff",
-      },
-      "&:hover fieldset": {
-        borderColor: "#ffffff",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "#ffffff",
-      },
-    },
-
-    "& .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#ffffff !important",
-    },
-    "& .MuiSvgIcon-root": {
-      color: "#ffffff !important",
-    },
-  },
-  light: {
-    color: "#000000",
-  },
-};
-
-const inputBoxStyle = {
-  dark: { backgroundColor: '#172a3a', color: "#ffffff",}, light: { backgroundColor: '#ffffff', color: '#000000'},
-}
-
-const searchQueryStyle = {
-  dark: {
-    backgroundColor: '#172a3a',
-    color: "#ffffff",
-
-    input: {
-      color: "#ffffff",
-    },
-    "& label": {
-      color: "#ffffff",
-    },
-    "& label.MuiFocused": {
-      color: "#ffffff",
-    },
-    "&:hover label": {
-      color: "#ffffff",
-    },
-    "& .MuiInputUnderline:after": {
-      color: "#ffffff",
-    },
-    "& .MuiOutlinedInput-root": {
-      "&.Mui-focused fieldset": {
-        borderColor: '#ffffff',
-      }
-    },
-    '& fieldset.MuiOutlinedInput-notchedOutline': {
-      borderColor: '#ffffff',
-    },
-    '&:hover fieldset.MuiOutlinedInput-notchedOutline': {
-      borderColor: '#ffffff',
-    },
-  },
-  light: {
-      backgroundColor: 'white',
-  },
-}
-
+import { dropDownStyling, inputBoxStyle, searchQueryStyle } from '../styles/StyleObjects';
 
 // This component takes in a search query from user and what category the user has picked to search in.
 function UserInput() {
@@ -111,17 +27,10 @@ function UserInput() {
     e.preventDefault();
   }
 
-  const searchStyle = {
-      ...(theme === 'light' ? searchQueryStyle.light : searchQueryStyle.dark),
-  }
-
-  const inputStyle = {
-    ...(theme === 'light' ? inputBoxStyle.light : inputBoxStyle.dark),
-  }
-
-  const dropdownStyle = {
-    ...(theme === 'light' ? dropDownStyling.light : dropDownStyling.dark),
-  }
+  // Theme
+  const searchStyle = {...(theme === 'light' ? searchQueryStyle.light : searchQueryStyle.dark),  }
+  const inputStyle = {...(theme === 'light' ? inputBoxStyle.light : inputBoxStyle.dark),}
+  const dropdownStyle = {...(theme === 'light' ? dropDownStyling.light : dropDownStyling.dark),}
 
   return (
     <Box

@@ -1,14 +1,4 @@
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-  TooltipProps,
-} from "recharts";
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, TooltipProps,} from "recharts";
 import { useLocation } from 'react-router-dom';
 import { Box } from "@mui/material";
 import { ValueType, NameType } from "recharts/types/component/DefaultTooltipContent";

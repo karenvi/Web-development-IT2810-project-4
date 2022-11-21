@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import { IReview } from "../types"
 import PaginationReviews from "./PaginationReviews";
-import { textStyling } from './Countries';
+import { textStyling } from '../styles/StyleObjects';
 import { useContext } from 'react';
 import { ThemeContext } from '../App';
 
@@ -12,9 +12,8 @@ function Reviews() {
   const location = useLocation();
   const { loading, error, data } = useQuery(GET_COUNTRY_DATA_BY_NAME, { variables: { country: location.state.country.Country } });
   
-  const textStyle = {
-    ...(theme === "light" ? textStyling.light : textStyling.dark),
-  };
+  // Theme
+  const textStyle = {...(theme === "light" ? textStyling.light : textStyling.dark),};
 
   if (loading) return <p style={textStyle}>Loading reviews ...</p>;
   if (error) return <p style={textStyle}>Could not get reviews</p>;

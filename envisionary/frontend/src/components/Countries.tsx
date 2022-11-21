@@ -17,69 +17,10 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useQuery } from "@apollo/client";
 import { GET_COUNTRIES_PAGINATION } from "../graphql/queries";
-import { AppTheme } from "../context/AppTheme";
 import { ThemeContext } from "../App";
-import { dropDownStyling } from "./UserInput";
+import { dropDownStyling, tableHeadStyling, buttonStyling, styleForTableRow, styleInputFields, textStyling } from "../styles/StyleObjects";
 
 const pageSize = 10;
-
-// Styling of the table headers
-const tableHeadStyling = { fontWeight: "bold" };
-
-// Styling of next and prev buttons and add review button
-export const buttonStyling = {
-  backgroundColor: "#31597a", "&:hover": { backgroundColor: "#2c506d" }, "&.Mui-disabled": { backgroundColor: "#a6a6a6" }
-};
-
-const styleForTableRow: AppTheme = {
-  dark: { backgroundColor: "#172a3a", color: "white", }, light: { backgroundColor: "white", color: "black", },
-};
-
-// Styling of various elements both light and dark theme
-const styleInputFields = {
-  dark: {
-    backgroundColor: "#172a3a",
-    color: "#ffffff",
-    input: {
-      color: "#ffffff",
-    },
-    "& label": {
-      color: "#ffffff",
-    },
-    "& label.Mui-focused": {
-      color: "#ffffff",
-    },
-    "&:hover label": {
-      color: "#ffffff",
-    },
-    "& .MuiInput-underline:after": {
-      color: "#ffffff",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "#ffffff",
-      },
-      "&:hover fieldset": {
-        borderColor: "#ffffff",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "#ffffff",
-      },
-    },
-
-    "& .MuiOutlinedInput-notchedOutline": {
-      borderColor: "#ffffff !important",
-    },
-    "& .MuiSvgIcon-root": {
-      color: "#ffffff !important",
-    },
-  },
-  light: { color: "#000000", },
-};
-
-export const textStyling: AppTheme = {
-  dark: { color: "white", }, light: { color: "black", },
-};
 
 function Countries() {
   const { theme } = useContext(ThemeContext);
@@ -134,6 +75,7 @@ function Countries() {
     setPage(0);
   };
 
+  // Theme
   const rowStyle = { ...(theme === "light" ? styleForTableRow.light : styleForTableRow.dark), };
   const textStyle = { ...(theme === "light" ? textStyling.light : textStyling.dark), };
   const inputStyle = { ...(theme === "dark" ? styleInputFields.dark : styleInputFields.light), };
