@@ -28,20 +28,11 @@ const tableHeadStyling = { fontWeight: "bold" };
 
 // Styling of next and prev buttons and add review button
 export const buttonStyling = {
-  backgroundColor: "#31597a",
-  "&:hover": { backgroundColor: "#2c506d" },
-  "&.Mui-disabled": { backgroundColor: "#a6a6a6" }
+  backgroundColor: "#31597a", "&:hover": { backgroundColor: "#2c506d" }, "&.Mui-disabled": { backgroundColor: "#a6a6a6" }
 };
 
 const styleForTableRow: AppTheme = {
-  dark: {
-    backgroundColor: "#172a3a",
-    color: "white",
-  },
-  light: {
-    backgroundColor: "white",
-    color: "black",
-  },
+  dark: { backgroundColor: "#172a3a", color: "white",}, light: { backgroundColor: "white", color: "black",},
 };
 
 // Styling of various elements both light and dark theme
@@ -83,18 +74,11 @@ const styleInputFields = {
       color: "#ffffff !important",
     },
   },
-  light: {
-    color: "#000000",
-  },
+  light: { color: "#000000",},
 };
 
 export const textStyling: AppTheme = {
-  dark: {
-    color: "white",
-  },
-  light: {
-    color: "black",
-  },
+  dark: { color: "white",}, light: { color: "black",},
 };
 
 function Countries() {
@@ -221,7 +205,7 @@ function Countries() {
             data?.paginatedCountries.length === 0 ? (<TableRow style={rowStyle}><TableCell style={rowStyle} colSpan={4}>Sorry, no results matched your search</TableCell></TableRow>) : 
             (data?.paginatedCountries.map((row: ICountry) => (
                 <TableRow key={row._id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }} onClick={() => {toCountryPage(row);}} hover={true} style={rowStyle}>
-                  <TableCell component="th" scope="row" className="pointer" style={rowStyle}><button id="buttonInTable">{row.Country}</button></TableCell>
+                  <TableCell component="th" scope="row" className="pointer" style={rowStyle}><button className="buttonInTable">{row.Country}</button></TableCell>
                   <TableCell align="right" className="pointer" style={rowStyle}>{row.Continent}</TableCell>
                   <TableCell align="right" className="pointer" style={rowStyle}>{parseInt(row.Population2022).toLocaleString("no-NO")}</TableCell>
                   <TableCell align="right" className="pointer" style={rowStyle}>{parseInt(row.Area).toLocaleString("no-NO")}</TableCell>

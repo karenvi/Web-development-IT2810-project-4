@@ -54,14 +54,7 @@ export const dropDownStyling = {
 };
 
 const inputBoxStyle = {
-  dark: {
-    backgroundColor: '#172a3a',
-    color: "#ffffff",
-},
-light: {
-    backgroundColor: '#ffffff',
-    color: '#000000'
-},
+  dark: { backgroundColor: '#172a3a', color: "#ffffff",}, light: { backgroundColor: '#ffffff', color: '#000000'},
 }
 
 const searchQueryStyle = {
