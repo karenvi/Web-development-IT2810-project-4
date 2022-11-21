@@ -7,7 +7,7 @@ exports[`Testing InfoPage component snapshot test 1`] = `
   style={
     Object {
       "backgroundColor": "#172a3a",
-      "color": "white",
+      "color": "#ffffff",
     }
   }
 >

@@ -50,7 +50,7 @@ it("App renders correctly", () => {
     userEvent.click(screen.getByRole("checkbox", {name: "Theme switch"}))
 
     // ASSERT
-    expect(screen.getByTestId("info-card")).toHaveStyle('backgroundColor: white; color: black')
+    expect(screen.getByTestId("info-card")).toHaveStyle('backgroundColor: #ffffff;color: #000000')
 
   })
 

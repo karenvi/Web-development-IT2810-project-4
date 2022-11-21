@@ -85,7 +85,7 @@ function Countries() {
   if (error) return <p style={textStyle}>Error - could not load data.</p>;
 
   return (
-    <Box component="main" sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100%" }}>
       <Typography variant="h1" sx={{ fontSize: "45px", mt: "40px", mb: "8px" }} style={textStyle}> Search for a {category.toLowerCase()}</Typography>
       <UserInput />
       <TableContainer sx={{ width: { xs: "95%", sm: "85%", md: "75%", lg: "65%" }, m: "10px" }} component={Paper}>
