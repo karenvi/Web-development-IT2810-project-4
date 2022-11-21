@@ -8,7 +8,7 @@
 
 export {};
 describe('Testing countries page', () => {
-  it('Goes to page 2 to page to and opens Austria', () => {
+  it('Goes to page 2 and opens Austria', () => {
     cy.visit('http://localhost:3000')
     cy.get('button').contains("Next").scrollIntoView().click()
     cy.contains("Austria").click()
@@ -17,9 +17,14 @@ describe('Testing countries page', () => {
   it('Austria contains correct information', () => {
     cy.get('h1' ).contains('Austria')
     cy.wait(300)
-    cy.get('span').contains('Area: 83,871 km²')
     cy.get('span').contains('Population rank: 99')
+    cy.get('span').contains('Country code: AUT')
     cy.get('span').contains('Capital: Vienna')
+    cy.get('span').contains('Continent: Europe')
+    cy.get('span').contains('Density: 106.5877 per km²')
+    cy.get('span').contains('GDP growth rate: 1.002')
+    cy.get('span').contains('Percentage of world population: 0.11%')
+
   })
 
   it('Austria has review by Willy', () => {
@@ -40,6 +45,7 @@ describe('Testing countries page', () => {
     cy.get('li').contains('Continent').click()
     cy.get('#header-search').clear().type('America').should('have.value', 'America')
     cy.contains('Argentina')
+    cy.contains('Afghanistan').should('not.exist')
   })
 
   it('Search for nonsense, should yield no results', () => {
@@ -48,5 +54,20 @@ describe('Testing countries page', () => {
     cy.get('#header-search').clear().type('Bakvendtland').should('have.value', 'Bakvendtland')
     cy.get('tbody').children().should('contain.html', 'Sorry, no results matched your search')
   })
+
+  it('Sort for descending country and check for correct countries', () => {
+    cy.get('#header-search').clear()
+    cy.get('#filter-category').click()
+    cy.get('li').contains('Descending country').click()
+    cy.get('tbody > tr').should('have.length', 11)
+    cy.contains('Zimbabwe')
+    cy.contains('Zambia')
+    cy.contains('Wallis and Futuna')
+    cy.contains('Vatican City')
+    cy.contains('Afghanistan').should('not.exist')
+    cy.contains('Algeria').should('not.exist')
+    cy.contains('Angola').should('not.exist')
+  })
+
 })
 
