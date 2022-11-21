@@ -10,7 +10,7 @@ import { useQuery } from '@apollo/client';
 import { IReview } from '../types';
 import { GET_COUNTRY_DATA_BY_NAME } from '../graphql/queries';
 import { cardStyling } from './InfoPage';
-import GiveReview from './GiveReview';
+import GiveReview from '../components/GiveReview';
 import { useContext } from 'react';
 import { ThemeContext } from '../App';
 import { useRecoilState } from 'recoil';

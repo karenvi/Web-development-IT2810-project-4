@@ -12,7 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { ThemeContext } from '../App';
 import { useRecoilState } from 'recoil';
 import { starOpacityRating, toggleColorTheme } from '../states/states';
-import { buttonStyling } from '../components/Countries';
+import { buttonStyling } from './Countries';
 
 // Miscellanous styling both for light and dark theme
 const styleTitleOfReviews = { width: "100%", display: 'flex', justifyContent: 'flex-start', mb: "20px"};
