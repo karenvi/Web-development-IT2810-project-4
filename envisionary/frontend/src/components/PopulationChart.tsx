@@ -115,7 +115,7 @@ function PopulationChart() {
         <YAxis dataKey="Population" tickFormatter={FormatYaxis} stroke={cartesianGridColor}/>
         <Tooltip content={<CustomTooltip />} wrapperStyle={{ outline: "none" }} />
         <Legend />
-        <Line type="monotone" dataKey="Population" activeDot={{ r: 10 }} strokeWidth={3} stroke={graphColor} />
+        <Line type="monotone" dataKey="Population" activeDot={{ r: 10 }} strokeWidth={3} stroke={graphColor} isAnimationActive={false}/>
       </LineChart>
     </ResponsiveContainer>
   );
