@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import App from '../App';
 import { RecoilRoot } from 'recoil';
 import { MockedProvider } from "@apollo/client/testing";
-import { mocks } from './__test__/mocks/mocks';
+import { mocks } from './mocks/mocks';
 import userEvent from '@testing-library/user-event';
 
 
