@@ -55,3 +55,8 @@ body {
 .buttonInTable:focus {
   outline: black auto 5px;
 }
+
+/* Alerts user when country link is focused */
+.buttonInTable:hover {
+  color: lightgray;
+}
